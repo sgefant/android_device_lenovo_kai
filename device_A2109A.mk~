@@ -16,8 +16,8 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    device/Lenovo/A2109A/fstab.kai:root/fstab.kai \
-    device/Lenovo/A2109A/init.kai.rc:root/init.kai.rc
+    device/lenovo/A2109A/fstab.kai:root/fstab.kai \
+    device/lenovo/A2109A/init.kai.rc:root/init.kai.rc
 
 $(call inherit-product, build/target/product/full.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
