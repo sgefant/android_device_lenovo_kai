@@ -3,11 +3,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/Lenovo/A2109A/A2109A-vendor.mk)
+# This directory doesn't even exist
+#$(call inherit-product-if-exists, vendor/Lenovo/A2109A/A2109A-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/Lenovo/A2109A/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
-LOCAL_PATH := device/Lenovo/A2109A
+LOCAL_PATH := device/lenovo/kai
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -16,12 +17,13 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    device/Lenovo/A2109A/fstab.kai:root/fstab.kai \
-    device/Lenovo/A2109A/init.kai.rc:root/init.kai.rc
+    device/lenovo/kai/fstab.kai:root/fstab.kai \
+    device/lenovo/kai/init.kai.rc:root/init.kai.rc
 
 $(call inherit-product, build/target/product/full.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_A2109A
-PRODUCT_DEVICE := A2109A
+PRODUCT_NAME := kai
+PRODUCT_DEVICE := kai
+PRODUCT_MODEL := Lenovo A2109A

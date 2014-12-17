@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_A2109A.mk
+    $(LOCAL_DIR)/device_kai.mk
