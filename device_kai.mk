@@ -3,8 +3,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# This directory doesn't even exist
-#$(call inherit-product-if-exists, vendor/Lenovo/A2109A/A2109A-vendor.mk)
+# This directory did not exist, adapted from grouper proprietary files
+$(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
