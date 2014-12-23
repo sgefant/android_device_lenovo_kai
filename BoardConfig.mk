@@ -16,14 +16,18 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_BOOTLOADER_BOARD_NAME := a2109a
 
-BOARD_KERNEL_CMDLINE := 
+#BOARD_KERNEL_CMDLINE := tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 androidboot.countrycode=UK androidboot.serialno=FD60295900 androidboot.commchip_id=0 video=tegrafb no_console_suspend=1 console=null,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=8197120@0xabc01000 core_edp_mv=0 displayboard=0x802a:0x50a0:0x35:0x80:0x00 board_info=f41:a00:1:44:2 tegraboot=sdmmc gpt gpt_sector=30535679 androidboot.hw_ramcode=0 androidboot.board_strap=1 androidboot.bootloader=20121126.15:56 android.kerneltype=normal
+BOARD_KERNEL_CMDLINE := tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 androidboot.commchip_id=0 video=tegrafb no_console_suspend=1 console=null,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=8197120@0xabc01000 core_edp_mv=0 displayboard=0x802a:0x50a0:0x35:0x80:0x00 board_info=f41:a00:1:44:2 tegraboot=sdmmc gpt gpt_sector=30535679 androidboot.hw_ramcode=0 androidboot.board_strap=1
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-# fix this up by examining /proc/mtd on a running device
-
+# Fix this up by examining /proc/mtd on a running device?
+# Not so much, since mtd wasn't running. Instead, I read
+# /proc/partitions, which supposedly gives partition sizes
+# in terms of 1024 byte blocks. Still cannot flash system.img...
 TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 681574400
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
+# I kept this value from the other a2109a repo's.
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 6567231488
 BOARD_FLASH_BLOCK_SIZE := 4096
 
