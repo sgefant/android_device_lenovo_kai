@@ -49,7 +49,7 @@
  libnvddk_2d.so
  libnvddk_2d_v2.so
 -libnvdispmgr_d.so
-+libnvglsi.so
+=+libnvglsi.so
 +libnvhdmi3dplay_jni.so
  libnvmm.so
 +libnvmm_asfparser.so
@@ -80,7 +80,7 @@
  libnvomx.so
 =+libnvomxadaptor.so
  libnvomxilclient.so
- libnvos.so
+=libnvos.so
  libnvparser.so
 =libnvrm.so
  libnvrm_graphics.so

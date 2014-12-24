@@ -61,16 +61,22 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/egl/libGLESv2_tegra.so:system/lib/egl/libGLESv2_tegra.so \
     device/lenovo/kai/kai-blobs/egl/libGLESv2_tegra_impl.so:system/lib/egl/libGLESv2_tegra_impl.so \
     device/lenovo/kai/kai-blobs/libnvrm.so:system/lib/libnvrm.so \
+    device/lenovo/kai/kai-blobs/libnvrm_graphics.so:system/lib/libnvrm_graphics.so \
     device/lenovo/kai/kai-blobs/libnvcap_video.so:system/lib/libnvcap_video.so \
-    device/lenovo/kai/kai-blobs/libnvomxadaptor.so:system/lib/libnvomxadaptor.so
-
+    device/lenovo/kai/kai-blobs/libnvomxadaptor.so:system/lib/libnvomxadaptor.so \
+    device/lenovo/kai/kai-blobs/libnvglsi.so:system/lib/libnvglsi.so \
+    device/lenovo/kai/kai-blobs/libnvos.so:system/lib/libnvos.so
 
 $(call inherit-product, build/target/product/full.mk)
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only \
     persist.sys.usb.config=mtp,adb \
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0 \
+    ro.sf.lcd_density=240 \
     ro.sf.override_null_lcd_density = 1
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
 PRODUCT_NAME := kai
 PRODUCT_DEVICE := kai
 PRODUCT_MODEL := Lenovo A2109A

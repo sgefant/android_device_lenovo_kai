@@ -36,6 +36,11 @@ them to the tablet, at:
 /system/lib/libnvrm.so
 copy egl.cfg to /system/lib/egl/egl.cfg
 
+After: 42e82055a58b3671348b7a568cc58b0673850467
+I had to add deps for which also os alternatives exist.
+
+
+
 I/CameraService(  110): CameraService started (pid=110)
 E/CameraService(  110): Could not load camera HAL module
 E/Netd    (  104): Unable to create netlink socket: Protocol not supported
