@@ -37,7 +37,7 @@ ARCH_ARM_USE_NON_NEON_MEMCPY := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 6567231488
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Wifi related defines
@@ -66,8 +66,9 @@ BOARD_USES_GENERIC_INVENSENSE := false
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-#USE_OPENGL_RENDERER := true
-#BOARD_EGL_CFG := device/asus/grouper/egl.cfg
+# EGL
+USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG := device/lenovo/kai/egl.cfg
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
 -include vendor/nvidia/proprietary_src/build/definitions.mk
