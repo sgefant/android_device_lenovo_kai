@@ -34,7 +34,8 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, build/target/product/full.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp,adb \
+    ro.sf.override_null_lcd_density = 1
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := kai
 PRODUCT_DEVICE := kai

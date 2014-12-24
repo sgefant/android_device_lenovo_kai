@@ -67,6 +67,8 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # EGL
+BOARD_USES_HGL := true
+BOARD_EGL_NEEDS_LEGACY_FB := true
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/lenovo/kai/egl.cfg
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
