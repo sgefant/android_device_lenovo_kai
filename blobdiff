@@ -1,0 +1,112 @@
+--- grouperbloblist	2014-12-24 22:05:00.641409784 +0100
++++ kaibloblist	2014-12-24 22:05:16.863168080 +0100
+@@ -1,39 +1,67 @@
+=-gps.tegra3.so
+=-gralloc.tegra3.so
+=-hwcomposer.tegra3.so
+=+audio.primary.tegra.so
+=+audio_policy.tegra.so
+=+camera.tegra.so
+=+gps.tegra.so
+=+gralloc.tegra.so
+=+hwcomposer.tegra.so
+=+libEGL_perfhud.so
+= libEGL_tegra.so
+=+libEGL_tegra_impl.so
+=+libGLESv1_CM_perfhud.so
+= libGLESv1_CM_tegra.so
+=+libGLESv1_CM_tegra_impl.so
+=+libGLESv2_perfhud.so
+= libGLESv2_tegra.so
+=+libGLESv2_tegra_impl.so
+ libWVStreamControlAPI_L1.so
++libaah_rtp.so
+=+libakmd.so
+ libardrv_dynamic.so
++libasound.so
+=+libaudioavp.so
+ libcgdrv.so
+-libdrmdecrypt.so
++libdrmwvmplugin.so
++libfrsdk.so
+ libinvensense_hal.so
++libjpeg.so
+ libmllite.so
+=+libmlplatform.so
+ libmplmpu.so
+ libnvapputil.so
+ libnvasfparserhal.so
+=+libnvaudioservice.so
+ libnvaviparserhal.so
+ libnvavp.so
+ libnvcamerahdr.so
++libnvcap.so
+=+libnvcap_video.so
++libnvcapclk.so
++libnvcontrol_jni.so
++libnvcpud.so
++libnvcpud_client.so
+ libnvddk_2d.so
+ libnvddk_2d_v2.so
+-libnvdispmgr_d.so
++libnvglsi.so
++libnvhdmi3dplay_jni.so
+ libnvmm.so
++libnvmm_asfparser.so
+ libnvmm_audio.so
++libnvmm_aviparser.so
+ libnvmm_camera.so
+ libnvmm_contentpipe.so
+ libnvmm_image.so
+ libnvmm_manager.so
+-libnvmm_misc.so
++libnvmm_msaudio.so
+ libnvmm_parser.so
+ libnvmm_service.so
+ libnvmm_utils.so
++libnvmm_vc1_video.so
+ libnvmm_video.so
+ libnvmm_writer.so
+ libnvmmlite.so
+ libnvmmlite_audio.so
+ libnvmmlite_image.so
++libnvmmlite_msaudio.so
+ libnvmmlite_utils.so
+ libnvmmlite_video.so
+ libnvodm_dtvtuner.so
+@@ -42,16 +70,34 @@
+ libnvodm_misc.so
+ libnvodm_query.so
+ libnvomx.so
+=+libnvomxadaptor.so
+ libnvomxilclient.so
+ libnvos.so
+ libnvparser.so
+=libnvrm.so
+ libnvrm_graphics.so
+ libnvsm.so
++libnvsystemuiext_jni.so
++libnvtestio.so
++libnvtestresults.so
+ libnvtvmr.so
+ libnvwinsys.so
+ libnvwsi.so
+-libpn544_fw.so
++libovmedia.so
++librm31080.so
++librm_ts_service.so
+=+libsensors.base.so
+=+libsensors.isl29018.so
+=+libsensors.isl29028.so
+=+libsensors.jsa1127.so
+=+libsensors.lis3dh.so
+=+libsensors.mpl.so
+ libstagefrighthw.so
+ libtf_crypto_sst.so
++libtinyalsa.so
+ libwvdrm_L1.so
++libwvm.so
+=+lights.kai.so
+=+nfc.tegra.so
+=+sensors.kai.so
+=+ts.default.so

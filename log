@@ -1,0 +1,61 @@
+Kernel:
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+<4>Ignoring unrecognised tag 0x41000801
+
+
+Init:
+init: could not open /dev/keychord
+
+<3>init: cannot find '/system/bin/setup_fs', disabling 'setup_fs'
+<3>init: cannot find '/system/bin/nvcpud', disabling 'nvcpud'
+<3>init: cannot find '/system/bin/rm_ts_server', disabling 'rm_ts_service'
+<3>init: cannot find '/system/bin/tf_daemon', disabling 'tf_daemon'
+<3>init: cannot find '/system/bin/gps_util', disabling 'gpsID'
+<3>init: cannot find '/system/bin/usb_config', disabling 'usb_config'
+<3>init: cannot find '/system/bin/lv_installer', disabling 'lv_installer'
+ 
+
+ 
+Android:
+
+1.
+E/HAL     (  107): load: module=/system/lib/hw/gralloc.tegra3.so
+E/HAL     (  107): Cannot load library: link_image[1863]:   107 missing essential tables
+E/FramebufferNativeWindow(  107): Couldn't get gralloc module
+E/SurfaceFlinger(  107): Display subsystem failed to initialize. check logs. exiting...
+
+I solved this by taking gralloc.tegra.so, hwcomposer.tegra.so and libnvrm.so from the a2109a blobs and copying 
+them to the tablet, at:
+/system/lib/hw/hwcomposer.tegra3.so
+/system/lib/hw/gralloc.tegra3.so
+/system/lib/libnvrm.so
+copy egl.cfg to /system/lib/egl/egl.cfg
+
+I/CameraService(  110): CameraService started (pid=110)
+E/CameraService(  110): Could not load camera HAL module
+E/Netd    (  104): Unable to create netlink socket: Protocol not supported
+E/Netd    (  104): Unable to open quota2 logging socket
+E/PhonePolicy(  207): Could not preload class for phone policy: com.android.internal.policy.impl.PhoneWindow$ContextMenuCallback
+E/BatteryService(  273): batteryTechnologyPath not found
+D/SensorService(  273): nuSensorService starting...
+E/SensorService(  273): couldn't load sensors module (No such file or directory)
+
+E/gralloc (  291): creating nvcap video capture service
+E/gralloc (  291): Failed to create overlay for display 2
+
+
+ro.sf.lcd_density must be defined as a build property
+
+
+
+I need to make a script to detail what I did to derive proprietary binaries.
+Step 1: Download all relevant binaries for JB4.1.2 from here:
+
+https://developers.google.com/android/nexus/drivers
+
+Extract all packages in the same place to create the vendor tree. Then search all makefiles and directories for the name grouper and rename then to kai.
