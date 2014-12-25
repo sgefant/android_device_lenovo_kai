@@ -65,7 +65,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libnvcap_video.so:system/lib/libnvcap_video.so \
     device/lenovo/kai/kai-blobs/libnvomxadaptor.so:system/lib/libnvomxadaptor.so \
     device/lenovo/kai/kai-blobs/libnvglsi.so:system/lib/libnvglsi.so \
-    device/lenovo/kai/kai-blobs/libnvos.so:system/lib/libnvos.so
+    device/lenovo/kai/kai-blobs/libnvos.so:system/lib/libnvos.so \
+    device/lenovo/kai/kai-blobs/libnvddk_2d.so:system/lib/libnvddk_2d.so \
+    device/lenovo/kai/kai-blobs/libnvwsi.so:system/lib/libnvwsi.so \
+    device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so
 
 $(call inherit-product, build/target/product/full.mk)
 
