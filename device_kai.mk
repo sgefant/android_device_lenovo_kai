@@ -70,6 +70,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libnvwsi.so:system/lib/libnvwsi.so \
     device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so
 
+# A2109A specific config files and firmware
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf
+
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -77,7 +81,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0 \
-    ro.sf.lcd_density=240 \
+    ro.sf.lcd_density=160 \
     ro.sf.override_null_lcd_density = 1
 
 PRODUCT_NAME := kai

@@ -25,7 +25,7 @@
  libardrv_dynamic.so
 +libasound.so
 =+libaudioavp.so
- libcgdrv.so
+=libcgdrv.so
 -libdrmdecrypt.so
 +libdrmwvmplugin.so
 +libfrsdk.so
@@ -110,3 +110,4 @@
 =+nfc.tegra.so
 =+sensors.kai.so
 =+ts.default.so
+
