@@ -68,21 +68,26 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libnvos.so:system/lib/libnvos.so \
     device/lenovo/kai/kai-blobs/libnvddk_2d.so:system/lib/libnvddk_2d.so \
     device/lenovo/kai/kai-blobs/libnvwsi.so:system/lib/libnvwsi.so \
-    device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so
+    device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
+    device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so
 
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/full_base.mk)
+
+# Build characteristics setting 
+PRODUCT_CHARACTERISTICS := tablet
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only \
-    persist.sys.usb.config=mtp,adb \
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0 \
     ro.sf.lcd_density=160 \
-    ro.sf.override_null_lcd_density = 1
+    ro.sf.override_null_lcd_density = 1 \
+    persist.sys.usb.config=mtp,adb
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_NAME := kai
 PRODUCT_DEVICE := kai
