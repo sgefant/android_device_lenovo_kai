@@ -93,28 +93,17 @@ PRODUCT_COPY_FILES += \
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/kai-confs/qwerty.idc:system/usr/qwerty.idc \
     device/lenovo/kai/kai-confs/qwerty2.idc:system/usr/qwerty2.idc \
     device/lenovo/kai/kai-confs/raydium_ts.idc:system/usr/raydium_ts.idc \
     device/lenovo/kai/kai-confs/sensor00fn11.idc:system/usr/sensor00fn11.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
-    device/lenovo/kai/kai-confs/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/lenovo/kai/kai-confs/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
-    device/lenovo/kai/kai-confs/Generic.kl:system/usr/keylayout/Generic.kl \
     device/lenovo/kai/kai-confs/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
-    device/lenovo/kai/kai-confs/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
     device/lenovo/kai/kai-confs/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
-    device/lenovo/kai/kai-confs/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
-    device/lenovo/kai/kai-confs/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
-    device/lenovo/kai/kai-confs/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
-    device/lenovo/kai/kai-confs/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
-    device/lenovo/kai/kai-confs/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
     device/lenovo/kai/kai-confs/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
-    device/lenovo/kai/kai-confs/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-    device/lenovo/kai/kai-confs/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
     device/lenovo/kai/kai-confs/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
     device/lenovo/kai/kai-confs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/kai-confs/qwerty.kl:system/usr/keylayout/qwerty.kl \
