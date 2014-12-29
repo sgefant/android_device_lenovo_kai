@@ -93,6 +93,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
+    device/lenovo/kai/kai-confs/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
+    device/lenovo/kai/kai-confs/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
+    device/lenovo/kai/kai-confs/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
+    device/lenovo/kai/kai-confs/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
+    device/lenovo/kai/kai-confs/:system/usr/keylayout/ \
+    device/lenovo/kai/kai-confs/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
