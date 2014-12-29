@@ -18,8 +18,9 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     device/lenovo/kai/fstab.kai:root/fstab.kai \
-    device/lenovo/kai/init.kai.rc:root/init.kai.rc
-    device/lenovo/A2109A/ueventd.kai.rc:root/ueventd.kai.rc 
+    device/lenovo/kai/init.kai.rc:root/init.kai.rc \
+    device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc \
+    device/lenovo/kai/vold.fstab:system/etc/vold.fstab 
 
 # Kernel modules
 PRODUCT_COPY_FILES += \
@@ -93,19 +94,31 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
+    device/lenovo/kai/kai-confs/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/lenovo/kai/kai-confs/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
+    device/lenovo/kai/kai-confs/Generic.kl:system/usr/keylayout/Generic.kl \
     device/lenovo/kai/kai-confs/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
+    device/lenovo/kai/kai-confs/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
+    device/lenovo/kai/kai-confs/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
     device/lenovo/kai/kai-confs/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
+    device/lenovo/kai/kai-confs/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
+    device/lenovo/kai/kai-confs/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
     device/lenovo/kai/kai-confs/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
+    device/lenovo/kai/kai-confs/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
+    device/lenovo/kai/kai-confs/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
     device/lenovo/kai/kai-confs/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
-    device/lenovo/kai/kai-confs/:system/usr/keylayout/ \
+    device/lenovo/kai/kai-confs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/lenovo/kai/kai-confs/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lenovo/kai/kai-confs/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:vendor/firmware/bcm4330/fw_bcmdhd.bin \
-    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
-    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
-    device/lenovo/kai/kai-blobs/firmware/mfg.bin:vendor/firmware/bcm4330/mfg.bin \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
+    device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin \
 
 $(call inherit-product, build/target/product/full_base.mk)
 
