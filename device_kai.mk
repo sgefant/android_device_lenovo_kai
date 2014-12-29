@@ -5,6 +5,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # This directory did not exist, adapted from grouper proprietary files
 $(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
@@ -15,10 +16,19 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+PRODUCT_NAME := kai
+PRODUCT_DEVICE := kai
+PRODUCT_MODEL := Lenovo A2109A
+
+
+PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+    
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     device/lenovo/kai/fstab.kai:root/fstab.kai \
     device/lenovo/kai/init.kai.rc:root/init.kai.rc \
+    device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
     device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc \
     device/lenovo/kai/vold.fstab:system/etc/vold.fstab 
 
@@ -38,6 +48,23 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kernel-modules/raw_ip_net.ko:system/lib/modules/raw_ip_net.ko \
     device/lenovo/kai/kernel-modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
     device/lenovo/kai/kernel-modules/tcrypt.ko:system/lib/modules/tcrypt.ko 
+
+# Build characteristics setting 
+PRODUCT_CHARACTERISTICS := tablet
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
+    ro.carrier=wifi-only \
+    ro.sf.lcd_density=160 \
+    ro.sf.override_null_lcd_density = 1 \
+    persist.sys.usb.config=mtp,adb \
+    #tf.enable=y \
+    #drm.service.enabled=true
+
+include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 # HW
 PRODUCT_COPY_FILES += \
@@ -90,6 +117,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
     device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so
 
+# WVM
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kai-blobs/libwvm.so:system/vendor/lib/libwvm.so
+
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
@@ -108,24 +139,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/kai-confs/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lenovo/kai/kai-confs/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/lenovo/kai/kai-confs/nvram_4330.txt:system/etc/nvram_4330.txt \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
     device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin 
 
-$(call inherit-product, build/target/product/full_base.mk)
-
-# Build characteristics setting 
-PRODUCT_CHARACTERISTICS := tablet
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.carrier=wifi-only \
-    ro.sf.lcd_density=160 \
-    ro.sf.override_null_lcd_density = 1 \
-    persist.sys.usb.config=mtp,adb
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-PRODUCT_NAME := kai
-PRODUCT_DEVICE := kai
-PRODUCT_MODEL := Lenovo A2109A
