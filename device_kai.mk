@@ -55,13 +55,15 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
+    ro.wifi.channels=14 \
     ap.interface=wlan0 \
     ro.carrier=wifi-only \
     ro.sf.lcd_density=160 \
     ro.sf.override_null_lcd_density = 1 \
+    keyguard.no_require_sim=true \
     persist.sys.usb.config=mtp,adb \
-    #tf.enable=y \
-    #drm.service.enabled=true
+    drm.service.enabled=true \
+    #tf.enable=y 
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -159,6 +161,8 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/kai-confs/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
     device/lenovo/kai/kai-confs/nvram_4330.txt:system/etc/nvram_4330.txt \
+    device/lenovo/kai/kai-confs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lenovo/kai/kai-confs/media_codecs.xml:system/etc/media_codecs.xml \
     device/lenovo/kai/kai-blobs/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
@@ -167,5 +171,19 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/bcm4330_bt_fw_loader.sh:/system/bin/bcm4330_bt_fw_loader.sh \
     device/lenovo/kai/kai-blobs/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
     device/lenovo/kai/kai-blobs/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin
+
+# Add permissions, copied straight from grouper
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 
