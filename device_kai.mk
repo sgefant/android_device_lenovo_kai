@@ -122,6 +122,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libwvm.so:system/vendor/lib/libwvm.so
 
+# Some executables
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kai-blobs/glgps:system/bin/glgps \
+    device/lenovo/kai/kai-blobs/brcm_patchram_plus:system/bin/brcm_patchram_plus
+
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
@@ -144,5 +149,8 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
-    device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin 
+    device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin \
+    device/lenovo/kai/kai-confs/bcm4330_bt_fw_loader.sh:/system/bin/bcm4330_bt_fw_loader.sh \
+    device/lenovo/kai/kai-blobs/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
+    device/lenovo/kai/kai-blobs/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin
 
