@@ -11,33 +11,18 @@ import init.IdeaTabA2109A_board.usb.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
-on init
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage/emulated 0555 root root
-    mkdir /storage 0550 system sdcard_r
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-
-    # Support legacy paths
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-
-    # Enable secondary storage
+    # for backwards compatibility
+    export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
-
-    # create directory for mounting usb drives
+    export EXTERNAL_USB_STORAGE /storage/usbdrive
+    mkdir /storage 0550 system sdcard_r
+    mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0000 system system
-    mkdir /storage/sdcard2 0000 system system
-    mkdir /storage/usbdisk0 0000 system system
-    mkdir /storage/usbdisk1 0000 system system
+    mkdir /storage/usbdrive 0000 system system
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
 
-	
-  ## {CL2N} +
+## {CL2N} +
     symlink /storage/sdcard1 /mnt/sdcard2
     symlink /storage/sdcard1 /sdcard2
 
@@ -88,27 +73,21 @@ on post-fs-data
 on boot
 
 # bluetooth
-    # UART device
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth net_bt_stack /dev/ttyHS2
-
+## {from cardhu for BCM4330} +
     # power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+## {from cardhu for BCM4330} -
 
     # bluetooth MAC address programming
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown bluetooth net_bt_stack /system/etc/bluetooth
-    chown bluetooth net_bt_stack /data/misc/bluetooth
+    chown bluetooth bluetooth ro.bt.bdaddr_path
+    chown bluetooth bluetooth /system/etc/bluetooth
+## {from cardhu for BCM4330} +
+    chown bluetooth bluetooth /data/misc/bluetooth
     setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bdaddr"
-
-    # bluetooth LPM
-    chmod 0220 /proc/bluetooth/sleep/lpm
-    chmod 0220 /proc/bluetooth/sleep/btwrite
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+## {from cardhu for BCM4330} -
 
 ## {CL2N} +
 #    setprop ro.bt.bdaddr_path "/system/etc/bluetooth/bdaddr"
@@ -194,6 +173,8 @@ on boot
 #else //CL2N
 # Load WiFi driver
     insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/lib80211.ko
+    insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/bcmdhd.ko
     setprop wifi.supplicant wpa_suppl_nl
 #endif
@@ -309,7 +290,7 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 # create virtual SD card at /storage/sdcard0, based on the /data/media directory
 # deamon will drop to user/group system/media_rw after initializing
 # underlying files in /data/media wil be created with user and group media_rw (1023)
-service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
+service sdcard /system/bin/sdcard /data/media 1023 1023
     class late_start
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
@@ -355,7 +336,7 @@ on device-removed-/sys/block/sda
   umount /mnt/usbdrive
 
 # Prepare TF service
-import init.tf.rc
+#import init.tf.rc
 
 ## {CL2N: no modem}+
 # test mode for RIL: Should probably be removed from production tablets
@@ -368,18 +349,18 @@ import init.tf.rc
 ## {CL2N: no modem}-
 
 # Enable NvCpuD, and set it to never poll config again
-on boot
-    setprop nvcpud.enabled true
-    setprop nvcpud.config_refresh_ms -1
+#on boot
+#    setprop nvcpud.enabled true
+#    setprop nvcpud.config_refresh_ms -1
 
-service nvcpud /system/bin/nvcpud
-    class main
-    user root
-    group root
+#service nvcpud /system/bin/nvcpud
+#    class main
+#    user root
+#    group root
 
 #Raydium touch setting
-service rm_ts_service    /system/bin/rm_ts_server
-    class main
+#service rm_ts_service    /system/bin/rm_ts_server
+#    class main
 
 #Synaptics touch, allow low power mode
 on boot

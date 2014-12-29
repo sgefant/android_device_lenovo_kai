@@ -55,6 +55,7 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
+    ap.interface=wlan0 \
     ro.carrier=wifi-only \
     ro.sf.lcd_density=160 \
     ro.sf.override_null_lcd_density = 1 \
