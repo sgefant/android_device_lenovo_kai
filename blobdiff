@@ -46,7 +46,7 @@
 +libnvcontrol_jni.so
 +libnvcpud.so
 +libnvcpud_client.so
- libnvddk_2d.so
+= libnvddk_2d.so
  libnvddk_2d_v2.so
 -libnvdispmgr_d.so
 =+libnvglsi.so
@@ -105,7 +105,7 @@
  libtf_crypto_sst.so
 +libtinyalsa.so
  libwvdrm_L1.so
-+libwvm.so
+=+libwvm.so
 =+lights.kai.so
 =+nfc.tegra.so
 =+sensors.kai.so
