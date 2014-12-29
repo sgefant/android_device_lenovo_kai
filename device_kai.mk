@@ -121,6 +121,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libjpeg.so:system/lib/libjpeg.so \
+    device/lenovo/kai/kai-blobs/libskia.so:system/lib/libskia.so \
     device/lenovo/kai/kai-blobs/libnvavp.so:system/lib/libnvavp.so \
     device/lenovo/kai/kai-blobs/libnvcamerahdr.so:system/lib/libnvcamerahdr.so \
     device/lenovo/kai/kai-blobs/libnvddk_2d_v2.so:system/lib/libnvddk_2d_v2.so \
