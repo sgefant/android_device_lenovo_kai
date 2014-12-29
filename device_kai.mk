@@ -93,6 +93,10 @@ PRODUCT_COPY_FILES += \
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
+    device/lenovo/kai/kai-confs/qwerty.idc:system/usr/qwerty.idc \
+    device/lenovo/kai/kai-confs/qwerty2.idc:system/usr/qwerty2.idc \
+    device/lenovo/kai/kai-confs/raydium_ts.idc:system/usr/raydium_ts.idc \
+    device/lenovo/kai/kai-confs/sensor00fn11.idc:system/usr/sensor00fn11.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
     device/lenovo/kai/kai-confs/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/lenovo/kai/kai-confs/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
@@ -118,7 +122,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
-    device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin \
+    device/lenovo/kai/kai-blobs/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin 
 
 $(call inherit-product, build/target/product/full_base.mk)
 
