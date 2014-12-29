@@ -19,6 +19,24 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     device/lenovo/kai/fstab.kai:root/fstab.kai \
     device/lenovo/kai/init.kai.rc:root/init.kai.rc
+    device/lenovo/A2109A/ueventd.kai.rc:root/ueventd.kai.rc 
+
+# Kernel modules
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kernel-modules/baseband_usb_chr.ko:system/lib/modules/baseband_usb_chr.ko \
+    device/lenovo/kai/kernel-modules/baseband-xmm-power2.ko:system/lib/modules/baseband-xmm-power2.ko \
+    device/lenovo/kai/kernel-modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
+    device/lenovo/kai/kernel-modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
+    device/lenovo/kai/kernel-modules/inv_mpu_ak8975.ko:system/lib/modules/inv_mpu_ak8975.ko \
+    device/lenovo/kai/kernel-modules/inv_mpu_ak89xx.ko:system/lib/modules/inv_mpu_ak89xx.ko \
+    device/lenovo/kai/kernel-modules/inv_mpu_kxtf9.ko:system/lib/modules/inv_mpu_kxtf9.ko \
+    device/lenovo/kai/kernel-modules/lib80211.ko:system/lib/modules/lib80211.ko \
+    device/lenovo/kai/kernel-modules/mac80211.ko:system/lib/modules/mac80211.ko \
+    device/lenovo/kai/kernel-modules/mpu3050.ko:system/lib/modules/mpu3050.ko \
+    device/lenovo/kai/kernel-modules/mpu6050b1.ko:system/lib/modules/mpu6050b1.ko \
+    device/lenovo/kai/kernel-modules/raw_ip_net.ko:system/lib/modules/raw_ip_net.ko \
+    device/lenovo/kai/kernel-modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
+    device/lenovo/kai/kernel-modules/tcrypt.ko:system/lib/modules/tcrypt.ko 
 
 # HW
 PRODUCT_COPY_FILES += \
@@ -74,7 +92,11 @@ PRODUCT_COPY_FILES += \
 # A2109A specific config files and firmware
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf
+    device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
+    device/lenovo/kai/kai-blobs/firmware/mfg.bin:vendor/firmware/bcm4330/mfg.bin \
 
 $(call inherit-product, build/target/product/full_base.mk)
 
