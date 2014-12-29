@@ -21,13 +21,8 @@ BOARD_KERNEL_CMDLINE := tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 android
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-# Fix this up by examining /proc/mtd on a running device?
-# Not so much, since mtd wasn't running. Instead, I read
-# /proc/partitions, which supposedly gives partition sizes
-# in terms of 1024 byte blocks. Still cannot flash system.img...
 TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
-# I kept this value from the other a2109a repo's.
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
 BOARD_FLASH_BLOCK_SIZE := 4096
 
