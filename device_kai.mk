@@ -143,9 +143,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
     device/lenovo/kai/kai-confs/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
     device/lenovo/kai/kai-confs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/lenovo/kai/kai-confs/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lenovo/kai/kai-confs/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
     device/lenovo/kai/kai-confs/nvram_4330.txt:system/etc/nvram_4330.txt \
+    device/lenovo/kai/kai-blobs/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \

@@ -50,12 +50,13 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE           := bcmdhd
+WIFI_DRIVER_MODULE_NAME     := "bcmdhd"
 ##WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcmdhd.ko"
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/fw_bcmdhd_p2p.bin"
+WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/bcm4330/fw_bcmdhd.bin"
+WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin"
 
 TARGET_BOOTLOADER_BOARD_NAME := kai
 #TARGET_BOARD_INFO_FILE := device/lenovo/a2109a/board-info.txt
@@ -69,6 +70,12 @@ BOARD_USES_GENERIC_INVENSENSE := false
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
+# Use Cortex A9 optimizations for A7
+USE_ALL_OPTIMIZED_STRING_FUNCS := true
+
+# Turn on Cortex A9 Optimizations for A7
+TARGET_EXTRA_CFLAGS := $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
+\
 # EGL
 BOARD_USES_HGL := true
 BOARD_EGL_NEEDS_LEGACY_FB := true
