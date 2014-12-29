@@ -118,6 +118,19 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
     device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so
 
+# Camera
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/kai-blobs/libjpeg.so:system/lib/libjpeg.so \
+    device/lenovo/kai/kai-blobs/libnvavp.so:system/lib/libnvavp.so \
+    device/lenovo/kai/kai-blobs/libnvcamerahdr.so:system/lib/libnvcamerahdr.so \
+    device/lenovo/kai/kai-blobs/libnvddk_2d_v2.so:system/lib/libnvddk_2d_v2.so \
+    device/lenovo/kai/kai-blobs/libnvmm_manager.so:system/lib/libnvmm_manager.so \
+    device/lenovo/kai/kai-blobs/libnvmm_service.so:system/lib/libnvmm_service.so \
+    device/lenovo/kai/kai-blobs/libnvmm_utils.so:system/lib/libnvmm_utils.so \
+    device/lenovo/kai/kai-blobs/libnvomxilclient.so:system/lib/libnvomxilclient.so \
+    device/lenovo/kai/kai-blobs/libnvtvmr.so:system/lib/libnvtvmr.so
+
+
 # WVM
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libwvm.so:system/vendor/lib/libwvm.so
@@ -153,4 +166,5 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/bcm4330_bt_fw_loader.sh:/system/bin/bcm4330_bt_fw_loader.sh \
     device/lenovo/kai/kai-blobs/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
     device/lenovo/kai/kai-blobs/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin
+
 
