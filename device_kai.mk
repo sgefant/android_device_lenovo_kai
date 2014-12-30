@@ -92,11 +92,11 @@ PRODUCT_COPY_FILES += \
 
 # Some sensors and associated unique deps
 PRODUCT_COPY_FILES += \
-   device/lenovo/kai/kai-blobs/sensors/libsensors.isl29018.so:system/lib/libsensors.isl29018.so \
-   device/lenovo/kai/kai-blobs/sensors/libsensors.isl29028.so:system/lib/libsensors.isl29028.so \
-   device/lenovo/kai/kai-blobs/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
-   device/lenovo/kai/kai-blobs/libmplmpu.so:system/lib/libmplmpu.so \
-   device/lenovo/kai/kai-blobs/libakmd.so:system/lib/libakmd.so
+    device/lenovo/kai/kai-blobs/sensors/libsensors.isl29018.so:system/lib/libsensors.isl29018.so \
+    device/lenovo/kai/kai-blobs/sensors/libsensors.isl29028.so:system/lib/libsensors.isl29028.so \
+    device/lenovo/kai/kai-blobs/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
+    device/lenovo/kai/kai-blobs/libmplmpu.so:system/lib/libmplmpu.so \
+    device/lenovo/kai/kai-blobs/libakmd.so:system/lib/libakmd.so
 
 # EGL
 PRODUCT_COPY_FILES += \
