@@ -8,6 +8,5 @@ cd ..
 
 # pull the blobs
 cd kai-blobs
-for i in $(grep kai-blobs ../device_kai.mk | awk -F : '{print $2}' | awk  '{print $1}') ; do adb pull \/$(grep $i ../device_kai.mk | awk -F : '{print $2}' |  awk  '{print $1}') ../../../../$(grep $i ../device_kai.mk | 
-awk -F : '{print $1}' |  awk  '{print $1}') ; done
+for i in $(grep kai-blobs ../device_kai.mk | awk -F : '{print $2}' | awk  '{print $1}') ; do adb pull \/$(grep $i ../device_kai.mk | awk -F : '{print $2}' |  awk  '{print $1}') ../../../../$(grep $i ../device_kai.mk | awk -F : '{print $1}' |  awk  '{print $1}') ; done
 cd ..
