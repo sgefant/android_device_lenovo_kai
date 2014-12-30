@@ -1,4 +1,7 @@
+bcm4330.hcd
+glgps
 gps.tegra3.so
+gpsconfig.xml
 gralloc.tegra3.so
 hwcomposer.tegra3.so
 libEGL_tegra.so
@@ -55,3 +58,11 @@ libpn544_fw.so
 libstagefrighthw.so
 libtf_crypto_sst.so
 libwvdrm_L1.so
+nvavp_os_00001000.bin
+nvavp_os_0ff00000.bin
+nvavp_os_e0000000.bin
+nvavp_os_eff00000.bin
+nvavp_vid_ucode_alt.bin
+nvcamera.conf
+nvram.txt
+touch_fw.ekt
