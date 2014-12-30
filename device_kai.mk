@@ -90,13 +90,15 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libsensors.jsa1127.so:system/lib/libsensors.jsa1127.so \
     device/lenovo/kai/kai-blobs/libsensors.lis3dh.so:system/lib/libsensors.lis3dh.so 
 
-# Some sensors and associated unique deps
+# Some sensors and associated deps
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/sensors/libsensors.isl29018.so:system/lib/libsensors.isl29018.so \
     device/lenovo/kai/kai-blobs/sensors/libsensors.isl29028.so:system/lib/libsensors.isl29028.so \
     device/lenovo/kai/kai-blobs/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
     device/lenovo/kai/kai-blobs/libmplmpu.so:system/lib/libmplmpu.so \
-    device/lenovo/kai/kai-blobs/libakmd.so:system/lib/libakmd.so
+    device/lenovo/kai/kai-blobs/libakmd.so:system/lib/libakmd.so \
+    device/lenovo/kai/kai-blobs/libmllite.so:system/lib/ \
+    device/lenovo/kai/kai-blobs/libmlplatform.so:system/lib/ 
 
 # EGL
 PRODUCT_COPY_FILES += \
@@ -118,7 +120,8 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libnvddk_2d.so:system/lib/libnvddk_2d.so \
     device/lenovo/kai/kai-blobs/libnvwsi.so:system/lib/libnvwsi.so \
     device/lenovo/kai/kai-blobs/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
-    device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so
+    device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so \
+    device/lenovo/kai/kai-blobs/libnvmm.so:system/lib/libnvmm.so \
 
 # Camera
 PRODUCT_COPY_FILES += \
