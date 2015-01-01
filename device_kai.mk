@@ -49,8 +49,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kernel-modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
     device/lenovo/kai/kernel-modules/tcrypt.ko:system/lib/modules/tcrypt.ko 
 
+
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
@@ -63,6 +65,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     persist.sys.usb.config=mtp,adb \
     drm.service.enabled=true \
+    persist.tegra.nvmmlite = 1 \
     #tf.enable=y 
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
@@ -97,8 +100,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
     device/lenovo/kai/kai-blobs/libmplmpu.so:system/lib/libmplmpu.so \
     device/lenovo/kai/kai-blobs/libakmd.so:system/lib/libakmd.so \
-    device/lenovo/kai/kai-blobs/libmllite.so:system/lib/ \
-    device/lenovo/kai/kai-blobs/libmlplatform.so:system/lib/ 
+    device/lenovo/kai/kai-blobs/libmllite.so:system/lib/libmllite.so \
+    device/lenovo/kai/kai-blobs/libmlplatform.so:system/lib/libmlplatform.so \
+    device/lenovo/kai/kai-blobs/libinvensense_hal.so:system/lib/libinvensense_hal.so
+
 
 # EGL
 PRODUCT_COPY_FILES += \
@@ -123,6 +128,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libcgdrv.so:system/lib/libcgdrv.so \
     device/lenovo/kai/kai-blobs/libnvmm.so:system/lib/libnvmm.so \
 
+
 # Camera
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libjpeg.so:system/lib/libjpeg.so \
@@ -141,12 +147,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libwvm.so:system/vendor/lib/libwvm.so
 
+
 # Some executables
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/glgps:system/bin/glgps \
+    device/lenovo/kai/kai-blobs/gps_util:system/bin/gps_util \
     device/lenovo/kai/kai-blobs/brcm_patchram_plus:system/bin/brcm_patchram_plus
 
-# A2109A specific config files and firmware
+
+# A2109A specific config files
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
     device/lenovo/kai/kai-confs/qwerty2.idc:system/usr/qwerty2.idc \
@@ -166,6 +175,31 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/nvram_4330.txt:system/etc/nvram_4330.txt \
     device/lenovo/kai/kai-confs/media_profiles.xml:system/etc/media_profiles.xml \
     device/lenovo/kai/kai-confs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lenovo/kai/kai-confs/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    device/lenovo/kai/kai-confs/lto.dat:system/etc/gps/lto.dat \
+    device/lenovo/kai/kai-confs/asound.conf:system/etc/asound.conf \
+    device/lenovo/kai/kai-confs/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    device/lenovo/kai/kai-confs/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
+    device/lenovo/kai/kai-confs/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
+    device/lenovo/kai/kai-confs/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
+    device/lenovo/kai/kai-confs/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
+    device/lenovo/kai/kai-confs/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
+    device/lenovo/kai/kai-confs/side.conf:system/usr/share/alsa/pcm/side.conf \
+    device/lenovo/kai/kai-confs/rear.conf:system/usr/share/alsa/pcm/rear.conf \
+    device/lenovo/kai/kai-confs/modem.conf:system/usr/share/alsa/pcm/modem.conf \
+    device/lenovo/kai/kai-confs/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
+    device/lenovo/kai/kai-confs/front.conf:system/usr/share/alsa/pcm/front.conf \
+    device/lenovo/kai/kai-confs/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
+    device/lenovo/kai/kai-confs/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
+    device/lenovo/kai/kai-confs/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
+    device/lenovo/kai/kai-confs/default.conf:system/usr/share/alsa/pcm/default.conf \
+    device/lenovo/kai/kai-confs/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
+    device/lenovo/kai/kai-confs/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
+    device/lenovo/kai/kai-confs/alsa.conf:system/usr/share/alsa/alsa.conf 
+
+
+# Firmwares
+PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
     device/lenovo/kai/kai-blobs/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
@@ -174,6 +208,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/bcm4330_bt_fw_loader.sh:/system/bin/bcm4330_bt_fw_loader.sh \
     device/lenovo/kai/kai-blobs/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
     device/lenovo/kai/kai-blobs/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin
+
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
