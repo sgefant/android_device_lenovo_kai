@@ -158,9 +158,9 @@ PRODUCT_COPY_FILES += \
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-confs/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/kai-confs/qwerty2.idc:system/usr/qwerty2.idc \
-    device/lenovo/kai/kai-confs/raydium_ts.idc:system/usr/raydium_ts.idc \
-    device/lenovo/kai/kai-confs/sensor00fn11.idc:system/usr/sensor00fn11.idc \
+    device/lenovo/kai/kai-confs/qwerty2.idc:system/usr/idc/qwerty2.idc \
+    device/lenovo/kai/kai-confs/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
+    device/lenovo/kai/kai-confs/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
     device/lenovo/kai/kai-confs/nvcamera.conf:etc/nvcamera.conf \
     device/lenovo/kai/kai-confs/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
     device/lenovo/kai/kai-confs/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
