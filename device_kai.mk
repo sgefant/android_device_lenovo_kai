@@ -118,7 +118,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/hw/gralloc.tegra.so:system/lib/hw/gralloc.tegra.so \
     device/lenovo/kai/kai-blobs/hw/hwcomposer.tegra.so:system/lib/hw/hwcomposer.tegra.so \
-    device/lenovo/kai/kai-blobs/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
     device/lenovo/kai/kai-blobs/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so \
     device/lenovo/kai/kai-blobs/hw/camera.tegra.so:system/lib/hw/camera.tegra.so \
     device/lenovo/kai/kai-blobs/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \
@@ -126,6 +125,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/hw/nfc.tegra.so:system/lib/hw/nfc.tegra.so \
     device/lenovo/kai/kai-blobs/hw/sensors.kai.so:system/lib/hw/sensors.kai.so \
     device/lenovo/kai/kai-blobs/hw/ts.default.so:system/lib/hw/ts.default.so
+#    device/lenovo/kai/kai-blobs/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
 
 # Some sensors and associated deps
 PRODUCT_COPY_FILES += \
@@ -201,40 +201,43 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libaudioavp.so:system/lib/libaudioavp.so \
-    device/lenovo/kai/kai-blobs/libnvapputil.so:system/lib/libnvapputil.so \
-    device/lenovo/kai/kai-blobs/libnvasfparserhal.so:system/lib/libnvasfparserhal.so \
-    device/lenovo/kai/kai-blobs/libnvaviparserhal.so:system/lib/libnvaviparserhal.so \
     device/lenovo/kai/kai-blobs/libnvcap.so:system/lib/libnvcap.so \
     device/lenovo/kai/kai-blobs/libnvcapclk.so:system/lib/libnvcapclk.so \
     device/lenovo/kai/kai-blobs/libnvcontrol_jni.so:system/lib/libnvcontrol_jni.so \
     device/lenovo/kai/kai-blobs/libnvhdmi3dplay_jni.so:system/lib/libnvhdmi3dplay_jni.so \
     device/lenovo/kai/kai-blobs/libnvmm_asfparser.so:system/lib/libnvmm_asfparser.so \
-    device/lenovo/kai/kai-blobs/libnvmm_audio.so:system/lib/libnvmm_audio.so \
     device/lenovo/kai/kai-blobs/libnvmm_aviparser.so:system/lib/libnvmm_aviparser.so \
-    device/lenovo/kai/kai-blobs/libnvmm_camera.so:system/lib/libnvmm_camera.so \
-    device/lenovo/kai/kai-blobs/libnvmm_contentpipe.so:system/lib/libnvmm_contentpipe.so \
-    device/lenovo/kai/kai-blobs/libnvmm_image.so:system/lib/libnvmm_image.so \
     device/lenovo/kai/kai-blobs/libnvmm_msaudio.so:system/lib/libnvmm_msaudio.so \
-    device/lenovo/kai/kai-blobs/libnvmm_parser.so:system/lib/libnvmm_parser.so \
     device/lenovo/kai/kai-blobs/libnvmm_vc1_video.so:system/lib/libnvmm_vc1_video.so \
-    device/lenovo/kai/kai-blobs/libnvmm_video.so:system/lib/libnvmm_video.so \
-    device/lenovo/kai/kai-blobs/libnvmm_writer.so:system/lib/libnvmm_writer.so \
-    device/lenovo/kai/kai-blobs/libnvmmlite.so:system/lib/libnvmmlite.so \
-    device/lenovo/kai/kai-blobs/libnvmmlite_audio.so:system/lib/libnvmmlite_audio.so \
-    device/lenovo/kai/kai-blobs/libnvmmlite_image.so:system/lib/libnvmmlite_image.so \
     device/lenovo/kai/kai-blobs/libnvmmlite_msaudio.so:system/lib/libnvmmlite_msaudio.so \
-    device/lenovo/kai/kai-blobs/libnvmmlite_utils.so:system/lib/libnvmmlite_utils.so \
-    device/lenovo/kai/kai-blobs/libnvmmlite_video.so:system/lib/libnvmmlite_video.so \
-    device/lenovo/kai/kai-blobs/libnvodm_dtvtuner.so:system/lib/libnvodm_dtvtuner.so \
-    device/lenovo/kai/kai-blobs/libnvodm_hdmi.so:system/lib/libnvodm_hdmi.so \
-    device/lenovo/kai/kai-blobs/libnvodm_imager.so:system/lib/libnvodm_imager.so \
-    device/lenovo/kai/kai-blobs/libnvodm_misc.so:system/lib/libnvodm_misc.so \
-    device/lenovo/kai/kai-blobs/libnvodm_query.so:system/lib/libnvodm_query.so \
-    device/lenovo/kai/kai-blobs/libnvomx.so:system/lib/libnvomx.so \
-    device/lenovo/kai/kai-blobs/libnvparser.so:system/lib/libnvparser.so \
-    device/lenovo/kai/kai-blobs/libnvsm.so:system/lib/libnvsm.so \
     device/lenovo/kai/kai-blobs/libnvsystemuiext_jni.so:system/lib/libnvsystemuiext_jni.so \
-    device/lenovo/kai/kai-blobs/libnvwinsys.so:system/lib/libnvwinsys.so 
+
+
+# Prefer Grouper blobs for:
+#    device/lenovo/kai/kai-blobs/libnvapputil.so:system/lib/libnvapputil.so \
+#    device/lenovo/kai/kai-blobs/libnvasfparserhal.so:system/lib/libnvasfparserhal.so \
+#    device/lenovo/kai/kai-blobs/libnvaviparserhal.so:system/lib/libnvaviparserhal.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_audio.so:system/lib/libnvmm_audio.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_camera.so:system/lib/libnvmm_camera.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_contentpipe.so:system/lib/libnvmm_contentpipe.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_image.so:system/lib/libnvmm_image.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_parser.so:system/lib/libnvmm_parser.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_video.so:system/lib/libnvmm_video.so \
+#    device/lenovo/kai/kai-blobs/libnvmm_writer.so:system/lib/libnvmm_writer.so \
+#    device/lenovo/kai/kai-blobs/libnvmmlite.so:system/lib/libnvmmlite.so \
+#    device/lenovo/kai/kai-blobs/libnvmmlite_audio.so:system/lib/libnvmmlite_audio.so \
+#    device/lenovo/kai/kai-blobs/libnvmmlite_image.so:system/lib/libnvmmlite_image.so \
+#    device/lenovo/kai/kai-blobs/libnvmmlite_utils.so:system/lib/libnvmmlite_utils.so \
+#    device/lenovo/kai/kai-blobs/libnvmmlite_video.so:system/lib/libnvmmlite_video.so \
+#    device/lenovo/kai/kai-blobs/libnvodm_dtvtuner.so:system/lib/libnvodm_dtvtuner.so \
+#    device/lenovo/kai/kai-blobs/libnvodm_hdmi.so:system/lib/libnvodm_hdmi.so \
+#    device/lenovo/kai/kai-blobs/libnvodm_imager.so:system/lib/libnvodm_imager.so \
+#    device/lenovo/kai/kai-blobs/libnvodm_misc.so:system/lib/libnvodm_misc.so \
+#    device/lenovo/kai/kai-blobs/libnvodm_query.so:system/lib/libnvodm_query.so \
+#    device/lenovo/kai/kai-blobs/libnvomx.so:system/lib/libnvomx.so \
+#    device/lenovo/kai/kai-blobs/libnvparser.so:system/lib/libnvparser.so \
+#    device/lenovo/kai/kai-blobs/libnvsm.so:system/lib/libnvsm.so \
+#    device/lenovo/kai/kai-blobs/libnvwinsys.so:system/lib/libnvwinsys.so 
 
 
 # Camera
@@ -287,8 +290,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/kai-blobs/libasound.so:system/lib/libasound.so \
     device/lenovo/kai/kai-blobs/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
-    device/lenovo/kai/kai-blobs/bootsound.wav:system/media/audio/notifications/bootsound.wav 
-
+    device/lenovo/kai/kai-blobs/bootsound.wav:system/media/audio/notifications/bootsound.wav \
+    device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
