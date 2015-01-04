@@ -115,102 +115,102 @@ PRODUCT_COPY_FILES += \
 #    com.android.nfc_extras
 
 # HW-libs
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/gralloc.tegra.so:system/lib/hw/gralloc.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/hwcomposer.tegra.so:system/lib/hw/hwcomposer.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/camera.tegra.so:system/lib/hw/camera.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/lights.kai.so:system/lib/hw/lights.kai.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/nfc.tegra.so:system/lib/hw/nfc.tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/sensors.kai.so:system/lib/hw/sensors.kai.so \
-    device/lenovo/kai/lenovo-kai-proprietary/hw/ts.default.so:system/lib/hw/ts.default.so
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/gralloc.tegra.so:system/lib/hw/gralloc.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/hwcomposer.tegra.so:system/lib/hw/hwcomposer.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/audio_policy.tegra.so:system/lib/hw/audio_policy.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/camera.tegra.so:system/lib/hw/camera.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/gps.tegra.so:system/lib/hw/gps.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/lights.kai.so:system/lib/hw/lights.kai.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/nfc.tegra.so:system/lib/hw/nfc.tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/sensors.kai.so:system/lib/hw/sensors.kai.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/hw/ts.default.so:system/lib/hw/ts.default.so
 #    device/lenovo/kai/lenovo-kai-proprietary/hw/audio.primary.tegra.so:system/lib/hw/audio.primary.tegra.so \
 
 # Some sensors and associated deps
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/libsensors.base.so:system/lib/libsensors.base.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libsensors.jsa1127.so:system/lib/libsensors.jsa1127.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libsensors.lis3dh.so:system/lib/libsensors.lis3dh.so \
-    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.isl29018.so:system/lib/libsensors.isl29018.so \
-    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.isl29028.so:system/lib/libsensors.isl29028.so \
-    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libakmd.so:system/lib/libakmd.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libmplmpu.so:system/lib/libmplmpu.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libmllite.so:system/lib/libmllite.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libmlplatform.so:system/lib/libmlplatform.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libinvensense_hal.so:system/lib/libinvensense_hal.so
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/libsensors.base.so:system/lib/libsensors.base.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libsensors.jsa1127.so:system/lib/libsensors.jsa1127.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libsensors.lis3dh.so:system/lib/libsensors.lis3dh.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.isl29018.so:system/lib/libsensors.isl29018.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.isl29028.so:system/lib/libsensors.isl29028.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/sensors/libsensors.mpl.so:system/lib/libsensors.mpl.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libakmd.so:system/lib/libakmd.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libmplmpu.so:system/lib/libmplmpu.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libmllite.so:system/lib/libmllite.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libmlplatform.so:system/lib/libmlplatform.so \
+3    device/lenovo/kai/lenovo-kai-proprietary/libinvensense_hal.so:system/lib/libinvensense_hal.so
 
 # TF-daemon
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/tf_daemon:system/bin/tf_daemon \
-    device/lenovo/kai/lenovo-kai-proprietary/libtf_crypto_sst.so:system/lib/libtf_crypto_sst.so 
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/tf_daemon:system/bin/tf_daemon \
+#    device/lenovo/kai/lenovo-kai-proprietary/libtf_crypto_sst.so:system/lib/libtf_crypto_sst.so 
 
 # TS server
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/rm_ts_server:system/bin/rm_ts_server \
-    device/lenovo/kai/lenovo-kai-proprietary/librm31080.so:system/lib/librm31080.so \
-    device/lenovo/kai/lenovo-kai-proprietary/librm_ts_service.so:system/lib/librm_ts_service.so 
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/rm_ts_server:system/bin/rm_ts_server \
+#    device/lenovo/kai/lenovo-kai-proprietary/librm31080.so:system/lib/librm31080.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/librm_ts_service.so:system/lib/librm_ts_service.so 
 
 # NVCPUD
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/nvcpud:system/bin/nvcpud \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcpud.so:system/lib/libnvcpud.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcpud_client.so:system/lib/libnvcpud_client.so
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/nvcpud:system/bin/nvcpud \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcpud.so:system/lib/libnvcpud.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcpud_client.so:system/lib/libnvcpud_client.so
  
 # USB-config
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/usb_config:system/bin/usb_config 
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/usb_config:system/bin/usb_config 
 
 # EGL
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_perfhud.so:system/lib/egl/libEGL_perfhud.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_tegra.so:system/lib/egl/libEGL_tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_tegra_impl.so:system/lib/egl/libEGL_tegra_impl.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_perfhud.so:system/lib/egl/libGLESv1_CM_perfhud.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_tegra.so:system/lib/egl/libGLESv1_CM_tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_tegra_impl.so:system/lib/egl/libGLESv1_CM_tegra_impl.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_perfhud.so:system/lib/egl/libGLESv2_perfhud.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_tegra.so:system/lib/egl/libGLESv2_tegra.so \
-    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_tegra_impl.so:system/lib/egl/libGLESv2_tegra_impl.so
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_perfhud.so:system/lib/egl/libEGL_perfhud.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_tegra.so:system/lib/egl/libEGL_tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libEGL_tegra_impl.so:system/lib/egl/libEGL_tegra_impl.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_perfhud.so:system/lib/egl/libGLESv1_CM_perfhud.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_tegra.so:system/lib/egl/libGLESv1_CM_tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv1_CM_tegra_impl.so:system/lib/egl/libGLESv1_CM_tegra_impl.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_perfhud.so:system/lib/egl/libGLESv2_perfhud.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_tegra.so:system/lib/egl/libGLESv2_tegra.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/egl/libGLESv2_tegra_impl.so:system/lib/egl/libGLESv2_tegra_impl.so
 
 # Nvidia proprietary libs
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvaudioservice.so:system/lib/libnvaudioservice.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libcgdrv.so:system/lib/libcgdrv.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvavp.so:system/lib/libnvavp.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcamerahdr.so:system/lib/libnvcamerahdr.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcap_video.so:system/lib/libnvcap_video.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvddk_2d.so:system/lib/libnvddk_2d.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvddk_2d_v2.so:system/lib/libnvddk_2d_v2.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvglsi.so:system/lib/libnvglsi.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm.so:system/lib/libnvmm.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_manager.so:system/lib/libnvmm_manager.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_service.so:system/lib/libnvmm_service.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_utils.so:system/lib/libnvmm_utils.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvomxadaptor.so:system/lib/libnvomxadaptor.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvomxilclient.so:system/lib/libnvomxilclient.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvos.so:system/lib/libnvos.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvrm.so:system/lib/libnvrm.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvrm_graphics.so:system/lib/libnvrm_graphics.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvtvmr.so:system/lib/libnvtvmr.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvwsi.so:system/lib/libnvwsi.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libstagefrighthw.so:system/lib/libstagefrighthw.so 
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/libardrv_dynamic.so:system/lib/libardrv_dynamic.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvaudioservice.so:system/lib/libnvaudioservice.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libcgdrv.so:system/lib/libcgdrv.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvavp.so:system/lib/libnvavp.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcamerahdr.so:system/lib/libnvcamerahdr.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcap_video.so:system/lib/libnvcap_video.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvddk_2d.so:system/lib/libnvddk_2d.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvddk_2d_v2.so:system/lib/libnvddk_2d_v2.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvglsi.so:system/lib/libnvglsi.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm.so:system/lib/libnvmm.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_manager.so:system/lib/libnvmm_manager.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_service.so:system/lib/libnvmm_service.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_utils.so:system/lib/libnvmm_utils.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvomxadaptor.so:system/lib/libnvomxadaptor.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvomxilclient.so:system/lib/libnvomxilclient.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvos.so:system/lib/libnvos.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvrm.so:system/lib/libnvrm.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvrm_graphics.so:system/lib/libnvrm_graphics.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvtvmr.so:system/lib/libnvtvmr.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvwsi.so:system/lib/libnvwsi.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libstagefrighthw.so:system/lib/libstagefrighthw.so 
 
 
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/libaudioavp.so:system/lib/libaudioavp.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcap.so:system/lib/libnvcap.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcapclk.so:system/lib/libnvcapclk.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvcontrol_jni.so:system/lib/libnvcontrol_jni.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvhdmi3dplay_jni.so:system/lib/libnvhdmi3dplay_jni.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_asfparser.so:system/lib/libnvmm_asfparser.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_aviparser.so:system/lib/libnvmm_aviparser.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_msaudio.so:system/lib/libnvmm_msaudio.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_vc1_video.so:system/lib/libnvmm_vc1_video.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvmmlite_msaudio.so:system/lib/libnvmmlite_msaudio.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libnvsystemuiext_jni.so:system/lib/libnvsystemuiext_jni.so \
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/libaudioavp.so:system/lib/libaudioavp.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcap.so:system/lib/libnvcap.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcapclk.so:system/lib/libnvcapclk.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvcontrol_jni.so:system/lib/libnvcontrol_jni.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvhdmi3dplay_jni.so:system/lib/libnvhdmi3dplay_jni.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_asfparser.so:system/lib/libnvmm_asfparser.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_aviparser.so:system/lib/libnvmm_aviparser.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_msaudio.so:system/lib/libnvmm_msaudio.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmm_vc1_video.so:system/lib/libnvmm_vc1_video.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvmmlite_msaudio.so:system/lib/libnvmmlite_msaudio.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libnvsystemuiext_jni.so:system/lib/libnvsystemuiext_jni.so \
 
 
 # Prefer Grouper blobs for:
@@ -241,57 +241,58 @@ PRODUCT_COPY_FILES += \
 
 
 # Camera
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/nvcamera.conf:system/etc/nvcamera.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/libjpeg.so:system/lib/libjpeg.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libskia.so:system/lib/libskia.so
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/nvcamera.conf:system/etc/nvcamera.conf \
+#    device/lenovo/kai/lenovo-kai-proprietary/libjpeg.so:system/lib/libjpeg.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libskia.so:system/lib/libskia.so
 
 
 # Broadcom (Bluetooth, WiFi)
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/brcm_patchram_plus:system/bin/brcm_patchram_plus \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/nvram_4330.txt:system/etc/nvram_4330.txt \
-    device/lenovo/kai/lenovo-kai-proprietary/bcm4330_bt_fw_loader.sh:system/bin/bcm4330_bt_fw_loader.sh \
-    device/lenovo/kai/lenovo-kai-proprietary/bdaddr:system/etc/bluetooth/bdaddr \
     system/bluetooth/data/main.nonsmartphone.le.conf:system/etc/bluetooth/main.conf
+#    device/lenovo/kai/lenovo-kai-proprietary/brcm_patchram_plus:system/bin/brcm_patchram_plus \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/bcm4330.hcd:system/etc/firmware/bcm4330.hcd \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/fw_bcmdhd_p2p.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/mfg.bin:system/vendor/firmware/bcm4330/mfg.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/nvram_4330.txt:system/etc/nvram_4330.txt \
+#    device/lenovo/kai/lenovo-kai-proprietary/bcm4330_bt_fw_loader.sh:system/bin/bcm4330_bt_fw_loader.sh \
+#    device/lenovo/kai/lenovo-kai-proprietary/bdaddr:system/etc/bluetooth/bdaddr \
+
+# GPS executables and config
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/glgps:system/bin/glgps \
+#    device/lenovo/kai/lenovo-kai-proprietary/gps_util:system/bin/gps_util \
+#    device/lenovo/kai/lenovo-kai-proprietary/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+#    device/lenovo/kai/lenovo-kai-proprietary/lto.dat:system/etc/gps/lto.dat 
+
 
 # Other firmwares
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_os_0ff00000.bin:system/etc/firmware/nvavp_os_0ff00000.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_os_eff00000.bin:system/etc/firmware/nvavp_os_eff00000.bin \
-    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_vid_ucode_alt.bin:system/etc/firmware/nvavp_vid_ucode_alt.bin
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_aud_ucode.bin:system/etc/firmware/nvavp_aud_ucode.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_vid_ucode.bin:system/etc/firmware/nvavp_vid_ucode.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_os_0ff00000.bin:system/etc/firmware/nvavp_os_0ff00000.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_os_eff00000.bin:system/etc/firmware/nvavp_os_eff00000.bin \
+#    device/lenovo/kai/lenovo-kai-proprietary/firmware/nvavp_vid_ucode_alt.bin:system/etc/firmware/nvavp_vid_ucode_alt.bin
 
 
 # WVM Widevine
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libwvm.so:system/vendor/lib/libwvm.so \
-    device/lenovo/kai/lenovo-kai-proprietary/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
-    device/lenovo/kai/lenovo-kai-proprietary/com.google.widevine.software.drm.xml:system/etc/permissions/com.google.widevine.software.drm.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/com.google.widevine.software.drm.jar:system/framework/com.google.widevine.software.drm.jar 
+# PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/lenovo-kai-proprietary/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libwvm.so:system/vendor/lib/libwvm.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/com.google.widevine.software.drm.xml:system/etc/permissions/com.google.widevine.software.drm.xml \
+#    device/lenovo/kai/lenovo-kai-proprietary/com.google.widevine.software.drm.jar:system/framework/com.google.widevine.software.drm.jar 
 
-
-# GPS executables and config
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/glgps:system/bin/glgps \
-    device/lenovo/kai/lenovo-kai-proprietary/gps_util:system/bin/gps_util \
-    device/lenovo/kai/lenovo-kai-proprietary/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/lto.dat:system/etc/gps/lto.dat 
 
 # Misc. E.g., Libasound?
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/libasound.so:system/lib/libasound.so \
     device/lenovo/kai/lenovo-kai-proprietary/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/bootsound.wav:system/media/audio/notifications/bootsound.wav \
     device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
+#    device/lenovo/kai/lenovo-kai-proprietary/libasound.so:system/lib/libasound.so \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
