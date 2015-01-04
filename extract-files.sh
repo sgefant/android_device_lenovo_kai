@@ -1,25 +1,36 @@
 #!/bin/bash
 
+# Copyright (C) 2012 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+LOCAL_PATH=$(/usr/bin/pwd)
+
+DEVICE=kai
+MANUFACTURER=lenovo
+
+BASE=$LOCAL_PATH/$MANUFACTURER-$DEVICE-proprietary
+
 set -e
 
-# make the directory tree
-mkdir -p kai-{blobs,confs}
-cd kai-blobs
-mkdir -p `for i in $(grep kai-blobs ../device_kai.mk | awk -F : '{print $2}' | awk  '{print $1}') ; do grep $i ../device_kai.mk | awk -F : '{print $1}' | rev | cut -f 2 -d / | rev | grep -v kai-blobs ; done | sort -u ` 
-cd ..
+rm -rf $BASE/*
 
-# pull the blobs
-cd kai-blobs
-for i in $(grep kai-blobs ../device_kai.mk | awk -F : '{print $2}' | awk  '{print $1}') ; do echo Pulling $i... ; adb pull \/$(grep $i ../device_kai.mk | awk -F : '{print $2}' |  awk  '{print $1}') ../../../../$(grep $i ../device_kai.mk | awk -F : '{print $1}' |  awk  '{print $1}') ; done
-cd ..
+for FILE in `cat proprietary-files.txt | grep -v \#`; do
+    DIR=`dirname $FILE`
+    if [ ! -d $BASE/$DIR ]; then
+        mkdir -p $BASE/$DIR
+    fi
+    adb pull /system/$FILE $BASE/$FILE
+done
 
-# pull the confs
-cd kai-confs
-for i in $(grep kai-confs ../device_kai.mk | awk -F : '{print $2}' | awk  '{print $1}') ; do echo Pulling $i... ; adb pull \/$(grep $i ../device_kai.mk | awk -F : '{print $2}' |  awk  '{print $1}') ../../../../$(grep $i ../device_kai.mk | awk -F : '{print $1}' |  awk  '{print $1}') ; done
-cd ..
-
-# Silly file names...
-#cd kai-blobs
-#adb pull /system/lib/hw/gralloc.tegra.so hw/gralloc.tegra.so
-#adb pull /system/lib/hw/hwcomposer.tegra.so hw/hwcomposer.tegra.so
-#cd ..
+#./setup-makefiles.sh
