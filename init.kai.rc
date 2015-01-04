@@ -336,7 +336,7 @@ on device-removed-/sys/block/sda
   umount /mnt/usbdrive
 
 # Prepare TF service
-#import init.tf.rc
+import init.tf.rc
 
 ## {CL2N: no modem}+
 # test mode for RIL: Should probably be removed from production tablets
@@ -349,18 +349,18 @@ on device-removed-/sys/block/sda
 ## {CL2N: no modem}-
 
 # Enable NvCpuD, and set it to never poll config again
-#on boot
-#    setprop nvcpud.enabled true
-#    setprop nvcpud.config_refresh_ms -1
+on boot
+    setprop nvcpud.enabled true
+    setprop nvcpud.config_refresh_ms -1
 
-#service nvcpud /system/bin/nvcpud
-#    class main
-#    user root
-#    group root
+service nvcpud /system/bin/nvcpud
+    class main
+    user root
+    group root
 
 #Raydium touch setting
-#service rm_ts_service    /system/bin/rm_ts_server
-#    class main
+service rm_ts_service    /system/bin/rm_ts_server
+    class main
 
 #Synaptics touch, allow low power mode
 on boot
