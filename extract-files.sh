@@ -25,7 +25,7 @@ set -e
 
 rm -rf $BASE/*
 
-for FILE in `cat proprietary-files.txt | grep -v \#`; do
+for FILE in `cat proprietary-files.txt | grep \/ | sed 's/#//g' `; do
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
