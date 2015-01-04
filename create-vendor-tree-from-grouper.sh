@@ -3,11 +3,30 @@
 # and put them in a vendor tree in the root of the aosp repo.
 # This script assumes that it is run from the device/lenovo/kai directory.
 
-#TODO: add sanitytests
+set -e
 
-#test whether vendor directory exists
-#test whether run from correct directory
-cd ../../../vendor || exit 1
-for i in `ls` ; do cd $i; mv grouper kai; cd .. ; done
-mv asus lenovo
-for j in `grep -r -l grouper . | grep .mk` ; do sed -i s/grouper/kai/g $j ; done # Should not be done on binaries.
+# Exclude asus directory, as well as elan and nxp
+DIRECTORIES="broadcom invensense lenovo nvidia widevine"
+
+cd ../../../vendor
+
+cp -a asus lenovo
+
+mv lenovo/grouper lenovo/kai
+
+for i in $DIRECTORIES ; do
+  cd $i
+
+  if [ -d "grouper" ]; then
+    cp -a grouper kai
+  fi
+
+  cd kai
+
+  for j in `grep -r -l grouper . | grep .mk` ; do
+    sed -i s/grouper/kai/g $j
+  done
+
+  cd ../.. 
+
+done
