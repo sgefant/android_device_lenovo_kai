@@ -1,4 +1,4 @@
-USE_CAMERA_STUB := true
+USE_CAMERA_STUB := false
 # TARGET_RECOVERY_UI_LIB := librecovery_ui_a2109a
 RECOVERY_FSTAB_VERSION := 2
 

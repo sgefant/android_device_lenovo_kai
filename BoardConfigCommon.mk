@@ -63,19 +63,26 @@ TARGET_BOOTLOADER_BOARD_NAME := kai
 
 TARGET_NO_BOOTLOADER := true
 
-BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := false
 BOARD_USES_GENERIC_INVENSENSE := false
 
+# Audio Options
+USE_PROPRIETARY_AUDIO_EXTENSIONS := true
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_ALSA_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
+
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/A2109A/bluetooth/vnd_kai.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/A2109A/bluetooth
 
 # Use Cortex A9 optimizations for A7
 USE_ALL_OPTIMIZED_STRING_FUNCS := true
 
 # Turn on Cortex A9 Optimizations for A7
-TARGET_EXTRA_CFLAGS := $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
-\
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
+
 # EGL
 BOARD_USES_HGL := true
 BOARD_EGL_NEEDS_LEGACY_FB := true
@@ -91,4 +98,3 @@ endif
 NEED_WORKAROUND_CORTEX_A9_745320 := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
-
