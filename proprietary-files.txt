@@ -1,9 +1,10 @@
 # This list is used for two purposes. First, extract-files.sh
 # uses it to extract all files from the device. Second, all
 # non-commented files are added to the proprietary blobs in
-# the vendor tree.
+# the vendor tree. Below, DO NOT PUT SPACES AFTER HASHES 
+# because it breaks the setup-makefiles.sh script
 
-# Broadcom
+#broadcom
 lib/hw/gps.tegra.so
 etc/firmware/bcm4330.hcd
 vendor/firmware/bcm4330/fw_bcmdhd.bin
@@ -18,13 +19,13 @@ etc/bluetooth/bdaddr
 etc/gps/gpsconfig.xml
 etc/gps/lto.dat
 
-# Invensense
+#invensense
 lib/libmplmpu.so
 lib/libmllite.so
 lib/libmlplatform.so
 lib/libinvensense_hal.so
 
-# Nvidia
+#nvidia
 etc/firmware/nvavp_aud_ucode.bin
 etc/firmware/nvavp_vid_ucode.bin
 etc/firmware/nvavp_os_0ff00000.bin
@@ -126,7 +127,7 @@ bin/tf_daemon
 bin/rm_ts_server
 bin/nvcpud
 
-# Widevine
+#widevine
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
@@ -134,7 +135,7 @@ vendor/lib/drm/libdrmwvmplugin.so
 etc/permissions/com.google.widevine.software.drm.xml
 framework/com.google.widevine.software.drm.jar
 
-# Configurations and Miscellaneous
+#configurations and miscellaneous
 #media/audio/notifications/bootsound_depop.wav
 #media/audio/notifications/bootsound.wav
 #usr/idc/ft5x0x_ts.idc
