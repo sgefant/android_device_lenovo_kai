@@ -1,14 +1,11 @@
 #!/bin/sh
 
-# We read proprietary_files.txt
-# For each line, we check whether it is commented out, ("#"),
-# whether it contains a filename ("/") and to which vendor package it belongs.
+# TODO: Remove superfluous Grouper files from the kai tree
 
 set -e
 
 DEVICE=kai
 VENDORS="broadcom invensense nvidia widevine"
-
 
 init_makefiles () {
 # Call this function $OUTDIR as argument
@@ -50,41 +47,64 @@ fi
 }
 
 add_module() {
-# We need to set several fields:
+echo Adding $(basename $FILE) to $OUTDIR/proprietary/Android.mk.new
+# We need to set several fields. First the simple ones.
 LOCAL_SRC_FILES=$(basename $FILE)
-if echo $LOCAL_SRC_FILES | grep \. ; then
-   LOCAL_MODULE_SUFFIX=\.$(echo $LOCAL_SRC_FILES | rev | awk -F . '{ print $1 }' | rev)
-   LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | tr -d $LOCAL_MODULE_SUFFIX)
-elif echo $LOCAL_SRC_FILES | grep -v \. ; then
-   LOCAL_MODULE=$LOCAL_SRC_FILES
-fi
-LOCAL_MODULE_CLASS= # one of EXECUTABLES (no module suffix), SHARED_LIBRARIES (filename ends .so), APPS for an apk, or ETC (any other)
-                    # Actually, much simpler, executables have a dirname that starts with bin.
 LOCAL_MODULE_PATH=$(dirname $FILE)
 LOCAL_MODULE_OWNER=$(echo $VENDOR | sed -e 's/\(.*\)/\L\1/')
 
+# Now,LOCAL_MODULE and LOCAL_MODULE_SUFFIX are different,
+# depending on whether the file has an extension.
+if [[ "$LOCAL_SRC_FILES" == *.* ]] ; then 
+  LOCAL_MODULE_SUFFIX=\."$(echo $LOCAL_SRC_FILES | rev | awk -F . '{ print $1 }' | rev)"
+  LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | sed "s/$LOCAL_MODULE_SUFFIX//")
+else 
+  LOCAL_MODULE=$LOCAL_SRC_FILES
+  LOCAL_MODULE_SUFFIX=""
+fi
+
+# LOCAL_MODULE_CLASS
+# one of EXECUTABLES (no module suffix), SHARED_LIBRARIES (filename ends .so), APPS for an apk, or ETC (any other)
+
+case $LOCAL_MODULE_SUFFIX in
+  "")
+    LOCAL_MODULE_CLASS=EXECUTABLES
+    ;;
+  ".so")
+    LOCAL_MODULE_CLASS=SHARED_LIBRARIES
+    ;;
+  ".apk")
+    LOCAL_MODULE_CLASS=APPS
+    ;;
+  *)
+    LOCAL_MODULE_CLASS=ETC
+    ;;
+esac
+
 # Now echo the new module to Android.mk.new (note the trailing line of whitespace):
 # REMOVE BACKSLASHES LATER
-echo include \$\(CLEAR_VARS\) \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE := $LOCAL_MODULE \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_SRC_FILES := $LOCAL_SRC_FILES \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_SUFFIX := $LOCAL_MODULE_SUFFIX  \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_CLASS := $LOCAL_MODULE_CLASS \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_PATH := \$\(TARGET_OUT\)/$LOCAL_MODULE_PATH \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_TAGS := optional \>\> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_OWNER := $LOCAL_MODULE_OWNER \>\> $OUTDIR/proprietary/Android.mk.new
-echo include \$\(BUILD_PREBUILT\) \>\> $OUTDIR/proprietary/Android.mk.new
-echo  \>\> $OUTDIR/proprietary/Android.mk.new
+echo include \$\(CLEAR_VARS\) >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE := $LOCAL_MODULE >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_SRC_FILES := $LOCAL_SRC_FILES >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_SUFFIX := $LOCAL_MODULE_SUFFIX  >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_CLASS := $LOCAL_MODULE_CLASS >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_PATH := \$\(TARGET_OUT\)/$LOCAL_MODULE_PATH >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_TAGS := optional >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_OWNER := $LOCAL_MODULE_OWNER >> $OUTDIR/proprietary/Android.mk.new
+echo include \$\(BUILD_PREBUILT\) >> $OUTDIR/proprietary/Android.mk.new
+echo "" >> $OUTDIR/proprietary/Android.mk.new
 
 }
 
 
 for h in $VENDORS; do
-  echo $h
   init_makefiles ../../../vendor/$h/$DEVICE
 done
 
 # Now the real work starts
+# We read proprietary_files.txt
+# For each line, we check whether it is commented out, ("#"),
+# whether it contains a filename ("/") and to which vendor package it belongs.
 
 for FILE in `cat proprietary-files.txt`; do
   case $FILE in
@@ -108,7 +128,8 @@ for FILE in `cat proprietary-files.txt`; do
 
       case $EXISTING in
         true)
-          echo cp lenovo-kai-proprietary/$FILE $OUTDIR/proprietary/$(basename $FILE)
+          echo Overwriting vendor/$VENDOR/$DEVICE/proprietary/$(basename $FILE)
+          cp lenovo-kai-proprietary/$FILE $OUTDIR/proprietary/$(basename $FILE)
           ;;
         false)
           add_module $FILE
@@ -118,16 +139,19 @@ for FILE in `cat proprietary-files.txt`; do
   esac
 done
 
-# Now deal with the new makefiles
+# Now finish the makefiles
 for k in $VENDORS; do
   if [ -e ../../../vendor/$k/$DEVICE/device-partial.mk.new ] ; then
+    echo Moving $k makefiles in place
+
     # Deal with trailing slashes in device-partial.mk
     LENGTH=$(wc -l ../../../vendor/$k/$DEVICE/device-partial.mk.new | awk '{print $1}')
     LENGTH=$(( ${LENGTH} - 1 ))
     head -n $LENGTH ../../../vendor/$k/$DEVICE/device-partial.mk.new > ../../../vendor/$k/$DEVICE/device-partial.mk
     tail -n 1 ../../../vendor/$k/$DEVICE/device-partial.mk.new | sed 's/\\//g' > ../../../vendor/$k/$DEVICE/device-partial.mk
+
     # Echo endif into Android.mk.new and move it over
     echo endif >> ../../../vendor/$k/$DEVICE/proprietary/Android.mk.new
-    echo "mv ../../../vendor/$k/$DEVICE/proprietary/Android.mk.new ../../../vendor/$k/$DEVICE/proprietary/Android.mk"
+    mv ../../../vendor/$k/$DEVICE/proprietary/Android.mk.new ../../../vendor/$k/$DEVICE/proprietary/Android.mk
   fi
 done
