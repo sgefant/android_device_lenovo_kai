@@ -47,13 +47,13 @@ for FILE in `cat proprietary-files.txt`; do
 EOF
 
            # Then, cat the existing device-partial.mk into the new makefile
-           for j in $(cat ../../../$OUTDIR/device-partial.mk | grep -v \# | awk {'print $1'}` ) ; do
+           for j in $(cat ../../../$OUTDIR/device-partial.mk | grep -v \# | awk '{ print $1 }' ) ; do
 #TODO         # IF IT SHOULD NOT BE REMOVED, e.g., gralloc.tegra3.so
               echo "    $(basename $FILE) \\" \>\> OUTDIR/device-partial.mk.new
            done
 
            # Also do this for the Android.mk file in the proprietary directory
-           LENGTH=$(wc -l $OUTDIR/proprietary/Android.mk | awk {'print $1'}`
+           LENGTH=$(wc -l $OUTDIR/proprietary/Android.mk | awk '{ print $1 }' )
            LENGTH=`expr $LENGTH -1 `
 # REMOVE HASH IN LINE BELOW LATER
            head $OUTDIR/proprietary/Android.mk -n $LENGTH #> $OUTDIR/proprietary/Android.mk.new
@@ -61,7 +61,7 @@ EOF
 
          # We need to set several fields:
          LOCAL_SRC_FILES=$(basename $FILE)
-         LOCAL_MODULE_SUFFIX=".$(echo $LOCAL_SRC_FILES | rev | awk -F . '{print $1}' | rev)"
+         LOCAL_MODULE_SUFFIX=".$(echo $LOCAL_SRC_FILES | rev | awk -F . '{ print $1 }' | rev)"
          LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | tr $LOCAL_MODULE_SUFFIX)
          LOCAL_MODULE_CLASS= # one of EXECUTABLES (no module suffix), SHARED_LIBRARIES (filename ends .so), APPS for an apk, or ETC (any other)
                              # Actually, much simpler, executables have a dirname that starts with bin.
@@ -70,7 +70,7 @@ EOF
 
          # Now echo the new module to Android.mk.new (note the trailing line of whitespace):
 # REMOVE BACKSLASHES LATER
-         echo include \$(CLEAR_VARS\) \>\> $OUTDIR/proprietary/Android.mk
+         echo include \$\(CLEAR_VARS\) \>\> $OUTDIR/proprietary/Android.mk
 # REMOVE BACKSLASHES LATER
          echo LOCAL_MODULE := $LOCAL_MODULE \>\> $OUTDIR/proprietary/Android.mk.new
 # REMOVE BACKSLASHES LATER
@@ -99,8 +99,8 @@ done
 for k in $VENDORS; do
   if [ -e ../../../vendor/$k/$DEVICE/device-partial.mk.new ] ; then
     # Deal with trailing slashes in device-partial.mk
-    LENGTH=$(wc -l ../../../vendor/$k/$DEVICE/device-partial.mk.new | awk {'print $1'}`
-    LENGTH=`expr $LENGTH -1 `
+    LENGTH=$(wc -l ../../../vendor/$k/$DEVICE/device-partial.mk.new | awk '{print $1}'
+    LENGTH=`expr $LENGTH -1`
 # REMOVE COMMENT LATER
     head -n $LENGTH ../../../vendor/$k/$DEVICE/device-partial.mk.new # > ../../../vendor/$k/$DEVICE/device-partial.mk
 # REMOVE COMMENT LATER
