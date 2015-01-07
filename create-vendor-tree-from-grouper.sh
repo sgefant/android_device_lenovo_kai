@@ -10,6 +10,15 @@ DIRECTORIES="broadcom invensense lenovo nvidia widevine"
 
 cd ../../../vendor
 
+# Clear out the results from a previous try.
+
+if [ -e lenovo ] ; then
+  rm -r lenovo
+  for i in $(echo $DIRECTORIES | grep -v lenovo ); do
+    rm -r $i/kai
+  done
+fi
+
 cp -a asus lenovo
 
 mv lenovo/grouper lenovo/kai
