@@ -13,11 +13,14 @@ cd ../../../vendor
 # Clear out the results from a previous try.
 
 if [ -e lenovo ] ; then
-  rm -r lenovo
-  for i in $(echo $DIRECTORIES | grep -v lenovo ); do
-    rm -r $i/kai
+  for i in $DIRECTORIES; do
+    if [ -e $i/kai ] ; then
+      rm -r $i/kai
+    fi
   done
+  rm -r lenovo
 fi
+
 
 cp -a asus lenovo
 
