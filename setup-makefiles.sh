@@ -64,6 +64,12 @@ for i in $(cat $1/device-partial.mk | grep -v \# | awk '{ print $1 }' ) ; do
     fi
   fi
 done
+
+# Deal with different names for same files
+sed -i 's/tegra3/tegra/' $1/device-partial.mk.new
+sed -i 's/tegra3/tegra/' $1/proprietary/Android.mk.new
+sed -i 's/nvram/nvram_4330/' $1/device-partial.mk.new
+sed -i 's/nvram/nvram_4330/' $1/proprietary/Android.mk.new
 }
 
 add_module() {
