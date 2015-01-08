@@ -42,3 +42,10 @@ for i in $DIRECTORIES ; do
   cd ../.. 
 
 done
+
+# Deal with different names for same files
+mv nvidia/kai/proprietary/gralloc.tegra3.so nvidia/kai/proprietary/gralloc.tegra.so
+mv nvidia/kai/proprietary/hwcomposer.tegra3.so nvidia/kai/proprietary/hwcomposer.tegra.so
+mv broadcom/kai/proprietary/gps.tegra3.so broadcom/kai/proprietary/gps.tegra.so
+mv nvidia/kai/proprietary/nvram.txt nvidia/kai/proprietary/nvram_4330.txt
+
