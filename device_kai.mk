@@ -92,9 +92,9 @@ PRODUCT_PACKAGES += \
     tinymix \
     tinyplay \
     tinyrec \
-    libinvensense_mpl \
-    audio.primary.kai \
-    power.kai
+    libinvensense_mpl 
+#    audio.primary.kai \
+#    power.kai
 
     #lights.grouper \
 
@@ -123,48 +123,50 @@ PRODUCT_COPY_FILES += \
 
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/qwerty2.idc:system/usr/idc/qwerty2.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/asound.conf:system/etc/asound.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/side.conf:system/usr/share/alsa/pcm/side.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/rear.conf:system/usr/share/alsa/pcm/rear.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/modem.conf:system/usr/share/alsa/pcm/modem.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/front.conf:system/usr/share/alsa/pcm/front.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/default.conf:system/usr/share/alsa/pcm/default.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/alsa.conf:system/usr/share/alsa/alsa.conf \
-#    device/lenovo/kai/lenovo-kai-proprietary/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
+    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
+#    device/lenovo/kai/lenovo-kai-proprietary/etc/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
-    device/lenovo/kai/lenovo-kai-proprietary/bootsound.wav:system/media/audio/notifications/bootsound.wav \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
+    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
+    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav \
     device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Add permissions, copied straight from grouper
