@@ -49,7 +49,7 @@ for i in $(cat $1/device-partial.mk | grep -v \# | awk '{ print $1 }' ) ; do
     # echo to device-partial.mk
     else
       COPY=true
-      for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | awk -F . '{ print $1}') ; do
+      for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | sed 's/\.[^.]*$//') ; do
         if [[ \#$i == $m ]] ; then
           COPY=false
           echo Ignoring $i...
@@ -57,9 +57,14 @@ for i in $(cat $1/device-partial.mk | grep -v \# | awk '{ print $1 }' ) ; do
       done
       if [[ $COPY == true ]] ; then 
         echo "    $i \\" >> $1/device-partial.mk.new
-        # Now grep over de the module definitions; have to deal with
-        # grepping the filename
-        grep -B 2 -A 7 "$(grep -A 1 LOCAL_MODULE\ :=\ $i $1/proprietary/Android.mk | grep LOCAL_SRC_FILES)" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
+        # Now grep over the module definitions; have to deal with
+        # grepping the filename.
+        for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $i $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}') ; do
+          MODULE=$(echo $FULLNAME | sed 's/\.[^.]*$//')
+          if [[ "$MODULE" == "$i" ]] ; then
+            grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
+          fi
+        done
       fi
     fi
   fi
@@ -79,9 +84,6 @@ echo Adding $(basename $FILE) to makefiles
 # Copy the file
 cp lenovo-kai-proprietary/$FILE $OUTDIR/proprietary/
 
-# Add to device-partial.mk
-echo "    $(basename $FILE) \\" >> $OUTDIR/device-partial.mk.new
-
 # Add to Android.mk: We need to set several fields. First the simple ones.
 LOCAL_SRC_FILES=$(basename $FILE)
 LOCAL_MODULE_PATH=$(dirname $FILE)
@@ -91,7 +93,7 @@ LOCAL_MODULE_OWNER=$(echo $VENDOR | sed -e 's/\(.*\)/\L\1/')
 # depending on whether the file has an extension.
 if [[ "$LOCAL_SRC_FILES" == *.* ]] ; then 
   LOCAL_MODULE_SUFFIX=\."$(echo $LOCAL_SRC_FILES | rev | awk -F . '{ print $1 }' | rev)"
-  LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | sed "s/$LOCAL_MODULE_SUFFIX//")
+  LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | sed 's/\.[^.]*$//')
 else 
   LOCAL_MODULE=$LOCAL_SRC_FILES
   LOCAL_MODULE_SUFFIX=""
@@ -121,6 +123,7 @@ case $LOCAL_MODULE_SUFFIX in
 esac
 
 # Now echo the new module to Android.mk.new (note the trailing line of whitespace):
+
 echo include \$\(CLEAR_VARS\) >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE := $LOCAL_MODULE >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_SRC_FILES := $LOCAL_SRC_FILES >> $OUTDIR/proprietary/Android.mk.new
@@ -131,6 +134,10 @@ echo LOCAL_MODULE_TAGS := optional >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE_OWNER := $LOCAL_MODULE_OWNER >> $OUTDIR/proprietary/Android.mk.new
 echo include \$\(BUILD_PREBUILT\) >> $OUTDIR/proprietary/Android.mk.new
 echo "" >> $OUTDIR/proprietary/Android.mk.new
+
+# Finally add the module to device-partial.mk
+echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
+
 }
 
 for j in $VENDORS; do
@@ -142,7 +149,7 @@ done
 # For each line, we check whether it is commented out, ("#"),
 # whether it contains a filename ("/") and to which vendor package it belongs.
 
-  for FILE in `cat proprietary-files.txt`; do
+for FILE in `cat proprietary-files.txt`; do
   case $FILE in
     "#"*)
       for k in $VENDORS; do
