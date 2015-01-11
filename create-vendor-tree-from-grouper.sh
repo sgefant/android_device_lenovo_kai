@@ -36,7 +36,8 @@ for i in $DIRECTORIES ; do
   cd kai
 
   for j in `grep -r -l grouper . | grep .mk` ; do
-    sed -i s/grouper/kai/g $j
+    sed -i 's/asus/lenovo/g' $j
+    sed -i 's/grouper/kai/g' $j
   done
 
   cd ../.. 
