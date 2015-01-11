@@ -11,7 +11,6 @@ VENDORS="broadcom invensense nvidia widevine"
 init_makefiles () {
 # TODO: Deal with same files named differently
 # Call this function with $OUTDIR as argument
-echo Initiating makefiles
 MAKEFILES="device-partial.mk.new proprietary/Android.mk.new"
 for n in $MAKEFILES ; do 
 (cat << EOF) > $1/$n
@@ -141,6 +140,7 @@ echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
 }
 
 for j in $VENDORS; do
+  echo Initiating $j makefiles
   init_makefiles ../../../vendor/$j/$DEVICE
 done
 
