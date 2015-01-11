@@ -50,7 +50,7 @@ lib/egl/libGLESv2_perfhud.so
 lib/egl/libGLESv2_tegra.so
 lib/egl/libGLESv2_tegra_impl.so
 lib/libardrv_dynamic.so
-#lib/libnvaudioservice.so
+lib/libnvaudioservice.so
 lib/libcgdrv.so
 #lib/libnvavp.so
 #lib/libnvcamerahdr.so
@@ -70,10 +70,10 @@ lib/libnvrm_graphics.so
 #lib/libnvtvmr.so
 lib/libnvwsi.so
 #lib/libstagefrighthw.so
-#lib/libaudioavp.so
+lib/libaudioavp.so
 #lib/libnvcap.so
 #lib/libnvcapclk.so
-#lib/libnvcontrol_jni.so
+lib/libnvcontrol_jni.so
 #lib/libnvhdmi3dplay_jni.so
 #lib/libnvmm_asfparser.so
 #lib/libnvmm_aviparser.so
