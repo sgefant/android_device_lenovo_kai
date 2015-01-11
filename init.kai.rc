@@ -42,6 +42,12 @@ on fs
     # Create NVSI filter symlink
     symlink /data/data/com.nvidia.NvCPLSvc/files/com.nvidia.nvsiutilv1.xml /system/etc/permissions/com.nvidia.nvsiutilv1.xml
     mount_all /fstab.kai
+    # Create symlinks to .tegra3.so modules
+    symlink /system/lib/hw/gralloc.tegra.so /system/lib/hw/gralloc.tegra3.so
+    symlink /system/lib/hw/hwcomposer.tegra.so /system/lib/hw/hwcomposer.tegra3.so
+    symlink /system/lib/hw/gps.tegra.so /system/lib/hw/gps.tegra3.so
+    symlink /system/lib/hw/camera.tegra.so /system/lib/hw/camera.tegra3.so
+    symlink /system/lib/hw/audio.primary.tegra.so /system/lib/hw/audio.primary.tegra3.so
 
 on post-fs-data
 #if 0 //KAI
