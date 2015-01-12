@@ -1,0 +1,15 @@
+<manifest>
+  <remote name="github" fetch="git://github.com" />
+  <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
+
+  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="master" />
+
+  <remove-project name="platform/external/skia" />
+  <remove-project name="platform/external/jpeg" />
+  <remove-project name="platform/external/tinyalsa" />
+
+  <project path="external/skia" name="android/platform/external/skia" revision="6f83d1adf2ff141380af1b7e14cebfdf49af554f" branch="remotes/nvidia/rel-12r9-gb" remote="nvidia" />
+  <project path="external/jpeg" name="android/platform/external/jpeg" revision="240c5c2e5867db7234f59accbac8a5117dfc0be5" branch="remotes/nvidia/rel-12r7-gb" remote="nvidia" />
+  <project path="external/tinyalsa" name="android/platform/external/tinyalsa" revision="rel-tegratab-partner" remote="nvidia" />
+
+</manifest>
