@@ -1,5 +1,4 @@
 #!/bin/sh
-# TODO: Deal with same files named differently
 
 set -e
 
@@ -9,7 +8,6 @@ DEVICE=kai
 VENDORS="broadcom invensense nvidia widevine"
 
 init_makefiles () {
-# TODO: Deal with same files named differently
 # Call this function with $OUTDIR as argument
 MAKEFILES="device-partial.mk.new proprietary/Android.mk.new"
 for n in $MAKEFILES ; do 
