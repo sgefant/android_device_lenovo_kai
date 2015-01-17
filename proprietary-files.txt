@@ -5,25 +5,24 @@
 # because it breaks the setup-makefiles.sh script
 
 #broadcom
-#lib/hw/gps.tegra.so
+lib/hw/gps.tegra.so
 etc/firmware/bcm4330.hcd
 vendor/firmware/bcm4330/fw_bcmdhd.bin
 vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin
 vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin
 vendor/firmware/bcm4330/mfg.bin
 bin/bcm4330_bt_fw_loader.sh
-#bin/brcm_patchram_plus
-#bin/glgps
+bin/glgps
 bin/gps_util
 #etc/bluetooth/bdaddr
-#etc/gps/gpsconfig.xml
+etc/gps/gpsconfig.xml
 etc/gps/lto.dat
 
 #invensense
-#lib/libmplmpu.so
-#lib/libmllite.so
+lib/libmplmpu.so
+lib/libmllite.so
 lib/libmlplatform.so
-#lib/libinvensense_hal.so
+lib/libinvensense_hal.so
 
 #nvidia
 # Probably related to camera
@@ -77,52 +76,52 @@ lib/libnvodm_query.so
 lib/libnvwinsys.so
 lib/libnvmmlite.so
 lib/libnvmmlite_utils.so
+
 # Sound
 lib/libnvaudioservice.so
 lib/libaudioavp.so
 lib/libnvavp.so
 
+# Below here, it is just brute force adding everything in
+lib/libnvcap.so
+lib/libnvcapclk.so
+lib/libnvmm.so
+lib/libnvmm_audio.so
+lib/libnvmm_camera.so
+lib/libnvmm_image.so
+lib/libnvmm_parser.so
+lib/libnvmm_video.so
+lib/libnvmm_writer.so
+lib/libnvmm_asfparser.so
+lib/libnvmm_aviparser.so
+lib/libnvmm_msaudio.so
+lib/libnvmm_vc1_video.so
+lib/libnvmmlite_msaudio.so
+lib/libnvmmlite_audio.so
+lib/libnvmmlite_image.so
+lib/libnvmmlite_video.so
+lib/libnvodm_dtvtuner.so
+lib/libnvodm_hdmi.so
+lib/libnvodm_misc.so
 
-#lib/libnvcap.so
-#lib/libnvcapclk.so
-
-#lib/libnvmm.so
-#lib/libnvmm_audio.so
-#lib/libnvmm_camera.so
-#lib/libnvmm_image.so
-#lib/libnvmm_parser.so
-#lib/libnvmm_video.so
-#lib/libnvmm_writer.so
-#lib/libnvmm_asfparser.so
-#lib/libnvmm_aviparser.so
-#lib/libnvmm_msaudio.so
-#lib/libnvmm_vc1_video.so
-#lib/libnvmmlite_msaudio.so
-#lib/libnvmmlite_audio.so
-#lib/libnvmmlite_image.so
-#lib/libnvmmlite_video.so
-#lib/libnvodm_dtvtuner.so
-#lib/libnvodm_hdmi.so
-#lib/libnvodm_misc.so
-
-#lib/libstagefrighthw.so
-#lib/libnvhdmi3dplay_jni.so
-#lib/libnvsystemuiext_jni.so
-#lib/libnvapputil.so
-#lib/libnvasfparserhal.so
-#lib/libnvaviparserhal.so
-#lib/libnvparser.so
-#lib/libnvsm.so
+lib/libstagefrighthw.so
+lib/libnvhdmi3dplay_jni.so
+lib/libnvsystemuiext_jni.so
+lib/libnvapputil.so
+lib/libnvasfparserhal.so
+lib/libnvaviparserhal.so
+lib/libnvparser.so
+lib/libnvsm.so
 lib/libsensors.base.so
 lib/libsensors.jsa1127.so
 lib/libsensors.lis3dh.so
 lib/libsensors.isl29018.so
 lib/libsensors.isl29028.so
 lib/libsensors.mpl.so
-#lib/libakmd.so
+lib/libakmd.so
 #lib/libjpeg.so
 #lib/libskia.so
-#lib/libasound.so
+lib/libasound.so
 #lib/libtf_crypto_sst.so
 lib/librm31080.so
 lib/librm_ts_service.so
@@ -137,14 +136,15 @@ bin/rm_ts_server
 bin/nvcpud
 
 #widevine
-#vendor/lib/libWVStreamControlAPI_L1.so
-#vendor/lib/libwvdrm_L1.so
-#vendor/lib/libwvm.so
-#vendor/lib/drm/libdrmwvmplugin.so
-#etc/permissions/com.google.widevine.software.drm.xml
-#framework/com.google.widevine.software.drm.jar
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libwvm.so
+vendor/lib/drm/libdrmwvmplugin.so
 
 #configurations and miscellaneous
+#etc/permissions/com.google.widevine.software.drm.xml
+#framework/com.google.widevine.software.drm.jar
+#bin/brcm_patchram_plus
 #media/audio/notifications/bootsound_depop.wav
 #media/audio/notifications/bootsound.wav
 #usr/idc/ft5x0x_ts.idc

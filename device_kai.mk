@@ -66,11 +66,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     persist.sys.usb.config=mtp,adb \
     drm.service.enabled=true \
-    persist.tegra.nvmmlite = 1 \
     persist.sys.NV_FPSLIMIT=0 \
     ro.debuggable=1 \
     tf.enable=y \
     ro.opengles.version = 131072
+#    persist.tegra.nvmmlite = 1 \
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -89,10 +89,14 @@ PRODUCT_PACKAGES += \
     whisperd \
     NvCPLSvc \
     libaudioutils \
-    tinymix \
-    tinyplay \
-    tinyrec \
-    libinvensense_mpl 
+    libinvensense_mpl \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    SoundRecorder \
+#    tinymix \
+#    tinyplay \
+#    tinyrec \
 #    audio.primary.kai \
 #    power.kai
 
@@ -137,11 +141,11 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lenovo/kai/config/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lenovo/kai/config/audio_policy.conf:system/etc/audio_policy.conf \
     device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/etc/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
@@ -163,11 +167,11 @@ PRODUCT_COPY_FILES += \
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so \
-    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
-    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav \
-    device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
+#    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
+#    device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
@@ -181,4 +185,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
