@@ -5,12 +5,25 @@ Lenovo Ideatab A2109A (kai)
 
 This is aosp for Lenovo Ideatab A2109A (kai)
 
-ToDo: Camera, sound, gps, hdmi, most of bluetooth, wifi-direct
 
 Who knows what else
 
 Working:
-EGL, wifi, sending files with bluetooth, playing some videos
+EGL
+WiFi
+Sending files with bluetooth
+Camera preview
+Taking pictures
+Playing some videos
+
+ToDo:
+Playing other videos
+GPS
+HDMI
+Most of bluetooth
+Wifi-direct
+Video recording
+Audio recording
 
 Thanks to:
 superhansi
