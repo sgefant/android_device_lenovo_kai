@@ -167,9 +167,9 @@ PRODUCT_COPY_FILES += \
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
-#    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
 #    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
 #    device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
 
