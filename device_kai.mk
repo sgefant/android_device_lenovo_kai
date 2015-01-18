@@ -90,10 +90,6 @@ PRODUCT_PACKAGES += \
     NvCPLSvc \
     libaudioutils \
     libinvensense_mpl \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    SoundRecorder \
 #    tinymix \
 #    tinyplay \
 #    tinyrec \
@@ -162,16 +158,20 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
-#    device/lenovo/kai/lenovo-kai-proprietary/etc/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
+    #device/lenovo/kai/lenovo-kai-proprietary/etc/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
+
+# Camera...
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
+
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
-#    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
-#    device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
+    #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
