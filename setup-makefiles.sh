@@ -30,7 +30,7 @@ for n in $MAKEFILES ; do
 EOF
 done
 
-# Set definitiones
+# Set definitions
 echo "" >> $1/proprietary/Android.mk.new
 echo "LOCAL_PATH := \$(call my-dir)" >> $1/proprietary/Android.mk.new
 echo "" >> $1/proprietary/Android.mk.new
