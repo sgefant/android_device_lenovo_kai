@@ -12,7 +12,7 @@ kahlo007
 The tf700t developers for Cyanogenmod
 
 |Category |Feature |Working |Not working |Unknown |
---|--------|--------|------------|--------|
+|---------|--------|--------|------------|--------|
 |EGL | ||X | | |
 |WLAN | || | |
 |  |Client mode |X | | |
