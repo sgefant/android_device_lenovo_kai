@@ -11,7 +11,7 @@ gmarkall
 kahlo007
 The tf700t developers for Cyanogenmod
 
-| |Feature |Working |Not working |Unknown |
+|Category |Feature |Working |Not working |Unknown |
 --|--------|--------|------------|--------|
 |EGL | ||X | | |
 |WLAN | || | |
