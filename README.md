@@ -11,6 +11,7 @@ gmarkall
 kahlo007
 The tf700t developers for Cyanogenmod
 
+`
 Feature:		Working:	Not working:	Unknown:
 EGL			X
 
@@ -39,4 +40,4 @@ Media
 GPS			X
 
 HDMI							X
-
+`
