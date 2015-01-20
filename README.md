@@ -5,27 +5,38 @@ Lenovo Ideatab A2109A (kai)
 
 This is aosp for Lenovo Ideatab A2109A (kai)
 
-
-Who knows what else
-
-Working:
-EGL
-WiFi
-Sending files with bluetooth
-Camera preview
-Taking pictures
-Playing some videos
-
-ToDo:
-Playing other videos
-GPS
-HDMI
-Most of bluetooth
-Wifi-direct
-Video recording
-Audio recording
-
 Thanks to:
 superhansi
 gmarkall
 kahlo007
+The tf700t developers for Cyanogenmod
+
+Feature:		Working:	Not working:	Unknown:
+EGL			X
+
+WLAN
+  Client mode   	X
+  P2P					X
+
+Bluetooth
+  Send files		X
+  Receive files 	X
+  Browse device						X
+  Headset						X
+
+Camera
+  Preview		X
+  Regular pictures	X
+  Panorama pictures					X
+  SD Video recording	X
+  HD Video recorind     (X; same as stock, much stuttering)
+
+Media
+  Playing videos	X (But not avi or asf)
+  Playing sound		X
+  Microphone		X
+
+GPS			X
+
+HDMI							X
+
