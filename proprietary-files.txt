@@ -128,8 +128,10 @@ lib/librm_ts_service.so
 lib/libnvcpud.so
 lib/libnvcpud_client.so
 lib/libnvcontrol_jni.so
+#etc/enctune.conf
 etc/nvcamera.conf
 etc/nvram_4330.txt
+bin/hdcp_test
 bin/usb_config
 bin/tf_daemon
 bin/rm_ts_server

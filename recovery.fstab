@@ -9,3 +9,4 @@
 /recovery	emmc		/dev/block/platform/sdhci-tegra.3/by-name/SOS
 /staging        emmc            /dev/block/platform/sdhci-tegra.3/by-name/USP
 /external_sd	vfat		/dev/block/platform/sdhci-tegra.0/by-num/p1	/dev/block/mmcblk1
+/preload        ext4            /dev/block/platform/sdhci-tegra.3/by-name/PRE

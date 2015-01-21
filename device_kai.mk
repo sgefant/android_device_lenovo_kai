@@ -141,6 +141,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/config/media_codecs.xml:system/etc/media_codecs.xml \
     device/lenovo/kai/config/audio_policy.conf:system/etc/audio_policy.conf \
     device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/enctune.conf:system/etc/enctune.conf \
     device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
@@ -159,7 +160,6 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
-    #device/lenovo/kai/lenovo-kai-proprietary/etc/permissions/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml
 
 # Camera...
 PRODUCT_COPY_FILES += \
@@ -169,6 +169,9 @@ PRODUCT_COPY_FILES += \
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
+    device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.jar:system/framework/com.nvidia.nvstereoutils.jar \
+    device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml \
+    device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
     #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
