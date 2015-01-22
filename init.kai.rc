@@ -95,6 +95,12 @@ on boot
     setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bdaddr"
 ## {from cardhu for BCM4330} -
 
+    # bluetooth LPM
+    chmod 0220 /proc/bluetooth/sleep/lpm
+    chmod 0220 /proc/bluetooth/sleep/btwrite
+    chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
+
 ## {CL2N} +
 #    setprop ro.bt.bdaddr_path "/system/etc/bluetooth/bdaddr"
 #    mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
