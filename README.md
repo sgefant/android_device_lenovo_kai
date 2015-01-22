@@ -20,7 +20,7 @@ The tf700t developers for Cyanogenmod
 |EGL | |X | | |
 |WLAN | | | | |
 |  |Client mode |X | | |
-|  |P2P | |X |
+|  |P2P | |X | |
 |Bluetooth | | | |
 |  |Send files | | |X |
 |  |Receive files |X | | |
@@ -31,12 +31,12 @@ The tf700t developers for Cyanogenmod
 |  |Regular pictures |X | | |
 |  |Panorama pictures | |X | |
 |  |SD Video recording |X | | |
-|  |HD Video recording |X (same as stock, much stuttering) | | |
+|  |HD Video recording | |X (same as stock, much stuttering) | |
 |Media | | | | |
 |  |Playing videos |X (But not avi or asf) | | |
 |  |Playing sound |X | | |
 |  |Microphone |X | | |
 |GPS | |X | | |
-|HDMI out | | | |X |
+|HDMI out | |X | | |
 |USB-OTG | | | |X |
 
