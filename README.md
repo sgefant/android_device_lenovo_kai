@@ -20,11 +20,11 @@ The tf700t developers for Cyanogenmod
 |EGL | |X | | |
 |WLAN | | | | |
 |  |Client mode |X | | |
-|  |P2P | |X | |
+|  |P2P |X | | |
 |Bluetooth | | | |
-|  |Send files | | |X |
+|  |Send files |X | | |
 |  |Receive files |X | | |
-|  |Browse device | | |X |
+|  |Browse device | |X | |
 |  |Headset | | |X |
 |Camera | | | | |
 |  |Preview |X | | |
@@ -40,10 +40,3 @@ The tf700t developers for Cyanogenmod
 |HDMI out | |X | | |
 |USB-OTG | | | |X |
 
-Some errors I can study
-
-For OTApackage:
-    `assert failed: getprop("ro.product.device") == "kai" || getprop("ro.build.product") == "kai"`
-
-For WiFi Direct:
-    `/data/misc/wifi/sockets/p2p0 not found`
