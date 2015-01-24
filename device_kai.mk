@@ -119,7 +119,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Broadcom (Bluetooth, WiFi)
 PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.le.conf:system/etc/bluetooth/main.conf
+    system/bluetooth/data/main.nonsmartphone.le.conf:system/etc/bluetooth/main.conf \
+    device/lenovo/kai/lenovo-kai-proprietary/etc/bluetooth/bdaddr:system/etc/bluetooth/bdaddr
 
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
@@ -169,12 +170,13 @@ PRODUCT_COPY_FILES += \
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.jar:system/framework/com.nvidia.nvstereoutils.jar \
-    device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml \
-    device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
     #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
+    #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.jar:system/framework/com.nvidia.nvstereoutils.jar \
+    #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml \
+    #device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so \
+
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
