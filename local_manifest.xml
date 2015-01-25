@@ -6,7 +6,15 @@
   <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="JellyBean-4.1.2" />
 
   <remove-project name="platform/external/tinyalsa" />
-  <project path="external/tinyalsa" name="android/platform/external/tinyalsa" revision="rel-tegranote-r2-partner" remote="nvidia" />
+  <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="JellyBean-4.1.2" />
+
+  <remove-project name="platform/bootable/recovery" />
+  <project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="github" revision="f5c904b2fffa0dcb2e4fb9285ba0b097c6603ebb" />
+  <project path="external/busybox" name="CyanogenMod/android_external_busybox" remote="github" revision="jellybean" />
+  <remove-project name="platform/external/libpng" />
+  <project path="external/libpng" name="platform/external/libpng" remote="aosp" revision="kitkat-mr2-release" />
+  <remove-project name="platform/external/freetype" />
+  <project path="external/freetype" name="platform/external/freetype" remote="aosp" revision="kitkat-mr2-release" />
 
   <!-- remove-project name="platform/external/jpeg" / -->
   <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
@@ -17,8 +25,5 @@
   <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
   <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="jellybean-stable" remote="github" / -->
   <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
-
-  <!-- remove-project path="frameworks/base" name="platform/frameworks/base" / -->
-  <!-- project path="frameworks/base" name="CyanogenMod/android_frameworks_base" revision="cm-10.1" remote="github" / -->
 
 </manifest>
