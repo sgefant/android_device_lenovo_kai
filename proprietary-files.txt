@@ -17,7 +17,7 @@ vendor/firmware/bcm4330/fw_bcmdhd.bin
 vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin
 vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin
 vendor/firmware/bcm4330/mfg.bin
-bin/bcm4330_bt_fw_loader.sh
+#bin/bcm4330_bt_fw_loader.sh
 bin/glgps
 bin/gps_util
 #etc/bluetooth/bdaddr

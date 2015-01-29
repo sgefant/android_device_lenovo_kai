@@ -12,26 +12,38 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
     # for backwards compatibility
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1
-    export EXTERNAL_USB_STORAGE /storage/usbdrive
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
     mkdir /storage 0550 system sdcard_r
+
+    # these are the mountpoints from storage_list.xml
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0000 system system
     mkdir /storage/usbdrive 0000 system system
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
 
-## {CL2N} +
+    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+
+    # Support legacy paths
+    symlink /storage/emulated/legacy /sdcard
+    symlink /storage/emulated/legacy /mnt/sdcard
+    symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+
+    # Enable secondary storage
+    export SECONDARY_STORAGE /storage/sdcard1
+    # create directory for mounting sd cards  
     symlink /storage/sdcard1 /mnt/sdcard2
     symlink /storage/sdcard1 /sdcard2
 
+    # Enable usb storage
+    export EXTERNAL_USB_STORAGE /storage/usbdrive
     # create directory for mounting usb drives
     symlink /storage/usbdrive /mnt/usbdrive
     symlink /storage/usbdrive /usbdrive
 
     mkdir /.preload 0000 system system
-## {CL2N} -
 
 on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
@@ -75,27 +87,30 @@ on post-fs-data
 on boot
 
 # bluetooth
+    # UART device
+    chmod 0660 /dev/ttyHS2
+    chown bluetooth net_bt_stack /dev/ttyHS2
 ## {from cardhu for BCM4330} +
     # power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
 ## {from cardhu for BCM4330} -
 
     # bluetooth MAC address programming
-    chown bluetooth bluetooth ro.bt.bdaddr_path
-    chown bluetooth bluetooth /system/etc/bluetooth
+    chown bluetooth net_bt_stack ro.bt.bdaddr_path
+    chown bluetooth net_bt_stack /system/etc/bluetooth
 ## {from cardhu for BCM4330} +
-    chown bluetooth bluetooth /data/misc/bluetooth
+    chown bluetooth net_bt_stack /data/misc/bluetooth
     setprop ro.bt.bdaddr_path "/data/misc/bluetooth/bdaddr"
 ## {from cardhu for BCM4330} -
 
-## {CL2N} +
-#    setprop ro.bt.bdaddr_path "/system/etc/bluetooth/bdaddr"
-#    mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
-#    mkdir /data/misc/bluetooth 0770 system system
-## {CL2N} -
+    # bluetooth LPM
+    chmod 0220 /proc/bluetooth/sleep/lpm
+    chmod 0220 /proc/bluetooth/sleep/btwrite
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
+    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
 
 # NFC
     setprop ro.nfc.port "I2C"
@@ -204,6 +219,10 @@ on property:ro.debuggable=1
     # EMC debug interface
     chmod 666 /sys/kernel/debug/tegra_emc/eack_state
 
+# Write BT BD_ADDR
+service btmacreader /system/bin/btmacreader
+    class main
+    oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
@@ -273,7 +292,7 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 # create virtual SD card at /storage/sdcard0, based on the /data/media directory
 # deamon will drop to user/group system/media_rw after initializing
 # underlying files in /data/media wil be created with user and group media_rw (1023)
-service sdcard /system/bin/sdcard /data/media 1023 1023
+service sdcard /system/bin/sdcard /data/media mnt/shell/emulated 1023 1023
     class late_start
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
@@ -292,7 +311,11 @@ service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugrep
 #    oneshot
 
 #BCM hciattach - bt firmware loader
-service hciattach /system/bin/bcm4330_bt_fw_loader.sh
+#DON'T KNOW WHETHER THIS IS REDUNDANT
+service hciattach brcm_patchram_plus \
+	--enable_hci --use_baudrate_for_download --scopcm=0,2,0,0,0,0,0,0,0,0  \
+	--baudrate 3000000 --patchram /etc/firmware/bcm4330.hcd \
+	--no2bytes --enable_lpm --tosleep=50000 /dev/ttyHS2
     class main
     user bluetooth
     group bluetooth net_bt_admin
@@ -309,14 +332,6 @@ service hciattach /system/bin/bcm4330_bt_fw_loader.sh
   group system inet sdcard_rw sdcard_r
   class late_start
 ## {from cardhu for BCM47511} -
-
-# Mount usb drives as /usbdrive. Generally usb drives are formatted with FAT
-# filesystem, so we support FAT as of now.
-on device-added-/sys/block/sda
-  mount vfat /dev/block/sda /mnt/usbdrive
-
-on device-removed-/sys/block/sda
-  umount /mnt/usbdrive
 
 # Prepare TF service
 import init.tf.rc

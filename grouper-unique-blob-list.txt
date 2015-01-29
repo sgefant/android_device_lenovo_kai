@@ -18,7 +18,7 @@
 # module definitions is really to use sed when we're
 # adding the kai alternatives...
 #lenovo
-#btmacreader
+btmacreader
 #sensors-config
 #libsensors.lightsensor.so
 #broadcom
