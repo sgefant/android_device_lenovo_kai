@@ -38,5 +38,6 @@ The tf700t developers for Cyanogenmod
 |  |Microphone |X | | |
 |GPS | |X | | |
 |HDMI out | |X | | |
-|USB-OTG | | | |X |
+|USB-OTG | |X | | |
+
 

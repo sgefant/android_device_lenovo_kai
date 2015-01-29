@@ -163,9 +163,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
 
 # Camera...
-#PRODUCT_COPY_FILES += \
-#    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
-#    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
 
 
 # Miscellaneous
