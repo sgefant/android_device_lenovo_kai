@@ -307,7 +307,11 @@ service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugrep
 #    oneshot
 
 #BCM hciattach - bt firmware loader
-service hciattach /system/bin/bcm4330_bt_fw_loader.sh
+#DON'T KNOW WHETHER THIS IS REDUNDANT
+service hciattach brcm_patchram_plus \
+	--enable_hci --use_baudrate_for_download --scopcm=0,2,0,0,0,0,0,0,0,0  \
+	--baudrate 3000000 --patchram /etc/firmware/bcm4330.hcd \
+	--no2bytes --enable_lpm --tosleep=50000 /dev/ttyHS2
     class main
     user bluetooth
     group bluetooth net_bt_admin
