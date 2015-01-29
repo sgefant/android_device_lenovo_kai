@@ -333,14 +333,6 @@ service hciattach brcm_patchram_plus \
   class late_start
 ## {from cardhu for BCM47511} -
 
-# Mount usb drives as /usbdrive. Generally usb drives are formatted with FAT
-# filesystem, so we support FAT as of now.
-on device-added-/sys/block/sda
-  mount vfat /dev/block/sda /mnt/usbdrive
-
-on device-removed-/sys/block/sda
-  umount /mnt/usbdrive
-
 # Prepare TF service
 import init.tf.rc
 
