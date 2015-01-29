@@ -34,7 +34,6 @@
 /dev/nvhost-vi	0666	root	root
 /dev/tf_driver  0666    system  system
 /dev/ttyHS1	0664	root	system
-/dev/ttyHS2	0660	bluetooth	bluetooth
 #for FM V4L2 Radio
 /dev/radio      0666    system  radio
 /dev/mpu        0640    system  system
