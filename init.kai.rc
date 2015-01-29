@@ -219,6 +219,10 @@ on property:ro.debuggable=1
     # EMC debug interface
     chmod 666 /sys/kernel/debug/tegra_emc/eack_state
 
+# Write BT BD_ADDR
+service btmacreader /system/bin/btmacreader
+    class main
+    oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
