@@ -5,8 +5,8 @@
 
 set -e
 
-# Exclude asus directory, as well as elan and nxp
-DIRECTORIES="broadcom invensense lenovo nvidia widevine"
+# Exclude elan and nxp
+DIRECTORIES="asus broadcom invensense nvidia widevine"
 
 cd ../../../vendor
 
@@ -22,31 +22,34 @@ if [ -e lenovo ] ; then
 fi
 
 
-cp -a asus lenovo
-
-mv lenovo/grouper lenovo/kai
-
 for i in $DIRECTORIES ; do
   cd $i
-
   if [ -d "grouper" ]; then
     cp -a grouper kai
   fi
 
   cd kai
-
   for j in `grep -r -l grouper . | grep .mk` ; do
+    sed -i 's/tegra3/tegra/g' $j
     sed -i 's/asus/lenovo/g' $j
+    sed -i 's/Asus/Lenovo/g' $j
     sed -i 's/grouper/kai/g' $j
+    sed -i 's/Grouper/Kai/g' $j
   done
 
   cd ../.. 
-
 done
 
+mkdir lenovo
+
+mv asus/kai lenovo/kai
+
 # Deal with different names for same files
-mv nvidia/kai/proprietary/gralloc.tegra3.so nvidia/kai/proprietary/gralloc.tegra.so
-mv nvidia/kai/proprietary/hwcomposer.tegra3.so nvidia/kai/proprietary/hwcomposer.tegra.so
-mv broadcom/kai/proprietary/gps.tegra3.so broadcom/kai/proprietary/gps.tegra.so
-mv nvidia/kai/proprietary/nvram.txt nvidia/kai/proprietary/nvram_4330.txt
+mv nvidia/kai/keymaster/keymaster_grouper.cpp 	nvidia/kai/keymaster/keymaster_kai.cpp
+mv lenovo/kai/proprietary/sensors.grouper.so 	lenovo/kai/proprietary/sensors.kai.so
+mv lenovo/kai/proprietary/camera.tegra3.so 	lenovo/kai/proprietary/camera.tegra.so
+mv broadcom/kai/proprietary/gps.tegra3.so 	broadcom/kai/proprietary/gps.tegra.so
+mv nvidia/kai/proprietary/gralloc.tegra3.so 	nvidia/kai/proprietary/gralloc.tegra.so
+mv nvidia/kai/proprietary/hwcomposer.tegra3.so 	nvidia/kai/proprietary/hwcomposer.tegra.so
+mv nvidia/kai/proprietary/nvram.txt 		nvidia/kai/proprietary/nvram_4330.txt
 

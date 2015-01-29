@@ -17,6 +17,10 @@
 # Also, the easiest way of dealing with the associated
 # module definitions is really to use sed when we're
 # adding the kai alternatives...
+#lenovo
+#btmacreader
+#sensors-config
+#libsensors.lightsensor.so
 #broadcom
 #elan
 #touch_fw.ekt
@@ -28,5 +32,5 @@
 #nxp
 #libpn544_fw.so
 #widevine
-#libdrmdecrypt.so
+libdrmdecrypt.so
 

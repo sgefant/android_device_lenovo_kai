@@ -4,6 +4,12 @@
 # the vendor tree. Below, DO NOT PUT SPACES AFTER HASHES 
 # because it breaks the setup-makefiles.sh script
 
+#lenovo
+#vendor/lib/libwvm.so
+#vendor/lib/drm/libdrmwvmplugin.so
+lib/hw/camera.tegra.so
+lib/hw/sensors.kai.so
+
 #broadcom
 lib/hw/gps.tegra.so
 etc/firmware/bcm4330.hcd
@@ -36,10 +42,8 @@ lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
 lib/hw/audio_policy.tegra.so
 lib/hw/audio.primary.tegra.so
-lib/hw/camera.tegra.so
 lib/hw/lights.kai.so
 lib/hw/nfc.tegra.so
-lib/hw/sensors.kai.so
 lib/hw/ts.default.so
 # EGL
 lib/egl/libEGL_perfhud.so
@@ -133,15 +137,13 @@ etc/nvcamera.conf
 etc/nvram_4330.txt
 bin/hdcp_test
 bin/usb_config
-bin/tf_daemon
+#bin/tf_daemon
 bin/rm_ts_server
 bin/nvcpud
 
 #widevine
 #vendor/lib/libWVStreamControlAPI_L1.so
 #vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-#vendor/lib/drm/libdrmwvmplugin.so
 
 #configurations and miscellaneous
 #etc/permissions/com.google.widevine.software.drm.xml

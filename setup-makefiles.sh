@@ -5,7 +5,7 @@ set -e
 ./create-vendor-tree-from-grouper.sh
 
 DEVICE=kai
-VENDORS="broadcom invensense nvidia widevine"
+VENDORS="broadcom invensense lenovo nvidia widevine"
 
 init_makefiles () {
 # Call this function with $OUTDIR as argument
