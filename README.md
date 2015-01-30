@@ -40,3 +40,14 @@ Thanks to the A2109A pioneers::
 |HDMI out | | | |X |
 |USB-OTG | | | |X |
 
+Hardware info
+Bluetooth: BCM4330
+GPS: BCM47511
+WiFi: BCMDHD
+Audio: tegra-aic326x
+Touchscreen: ft5x0x_ts
+Accelerometer: lis3dh
+Ambient light sensor: Solteam JSA1127	
+Back camera: s5k5cag
+Front camera: mt9m114
+
