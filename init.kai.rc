@@ -11,6 +11,7 @@ import init.IdeaTabA2109A_board.usb.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
+on init
     # for backwards compatibility
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
