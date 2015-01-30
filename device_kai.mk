@@ -69,8 +69,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.NV_FPSLIMIT=0 \
     ro.debuggable=1 \
     tf.enable=y \
-    ro.opengles.version = 131072
-#    persist.tegra.nvmmlite = 1 \
+    ro.opengles.version = 131072 \
+    persist.tegra.nvmmlite = 1 
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     NvCPLSvc \
     libaudioutils \
     libinvensense_mpl \
+    libnetcmdiface \
 #    tinymix \
 #    tinyplay \
 #    tinyrec \
