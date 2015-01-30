@@ -20,13 +20,13 @@ Thanks to the A2109A pioneers::
 |---------|--------|--------|------------|--------|
 |EGL | | | |X |
 |WLAN | | | | |
-|  |Client mode | | |X |
-|  |P2P | | |X |
-|Bluetooth | | | |
+|  |Client mode |X | | |
+|  |P2P |X | | |
+|Bluetooth | |X | |
 |  |Send files | | |X |
 |  |Receive files | | |X |
 |  |Headset | | |X |
-|Camera | | | | |
+|Camera | | |X | |
 |  |Preview | | |X |
 |  |Regular pictures | | |X |
 |  |Panorama pictures | | |X |
@@ -34,7 +34,7 @@ Thanks to the A2109A pioneers::
 |  |HD Video recording | | |X |
 |Media | | | | |
 |  |Playing videos | | |X |
-|  |Playing sound | | |X |
+|  |Playing sound | |X | |
 |  |Microphone | | |X |
 |GPS | | | |X |
 |HDMI out | | | |X |
