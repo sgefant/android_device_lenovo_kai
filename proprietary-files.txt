@@ -1,4 +1,4 @@
-# This list is used for two purposes. First, extract-files.sh
+\# This list is used for two purposes. First, extract-files.sh
 # uses it to extract all files from the device. Second, all
 # non-commented files are added to the proprietary blobs in
 # the vendor tree. Below, DO NOT PUT SPACES AFTER HASHES 
@@ -7,7 +7,7 @@
 #lenovo
 #vendor/lib/libwvm.so
 #vendor/lib/drm/libdrmwvmplugin.so
-lib/hw/camera.tegra.so
+#lib/hw/camera.tegra.so
 lib/hw/sensors.kai.so
 
 #broadcom
@@ -38,7 +38,7 @@ etc/firmware/nvavp_os_0ff00000.bin
 etc/firmware/nvavp_os_eff00000.bin
 etc/firmware/nvavp_vid_ucode_alt.bin
 # HAL
-lib/hw/gralloc.tegra.so
+#lib/hw/gralloc.tegra.so
 #lib/hw/hwcomposer.tegra.so
 lib/hw/audio_policy.tegra.so
 lib/hw/audio.primary.tegra.so
@@ -46,40 +46,40 @@ lib/hw/lights.kai.so
 lib/hw/nfc.tegra.so
 lib/hw/ts.default.so
 # EGL
-lib/egl/libEGL_perfhud.so
-#lib/egl/libEGL_tegra.so
+#lib/egl/libEGL_perfhud.so
+lib/egl/libEGL_tegra.so
 lib/egl/libEGL_tegra_impl.so
-lib/egl/libGLESv1_CM_perfhud.so
+#lib/egl/libGLESv1_CM_perfhud.so
 #lib/egl/libGLESv1_CM_tegra.so
 lib/egl/libGLESv1_CM_tegra_impl.so
-lib/egl/libGLESv2_perfhud.so
+#lib/egl/libGLESv2_perfhud.so
 #lib/egl/libGLESv2_tegra.so
 lib/egl/libGLESv2_tegra_impl.so
-lib/libnvcap_video.so
-lib/libnvos.so
-lib/libnvrm.so
-lib/libnvrm_graphics.so
-lib/libnvddk_2d.so
-lib/libnvwsi.so
-lib/libardrv_dynamic.so
+#lib/libnvcap_video.so
+#lib/libnvos.so
+#lib/libnvrm.so
+#lib/libnvrm_graphics.so
+#lib/libnvddk_2d.so
+#lib/libnvwsi.so
+#lib/libardrv_dynamic.so
 lib/libnvglsi.so
-lib/libcgdrv.so
+#lib/libcgdrv.so
 # Camera
-lib/libnvomxilclient.so
-lib/libnvddk_2d_v2.so
-lib/libnvcamerahdr.so
-lib/libnvtvmr.so
-lib/libnvmm_utils.so
-lib/libnvmm_service.so
-lib/libnvmm_manager.so
-lib/libnvmm_contentpipe.so
-lib/libnvomx.so
-lib/libnvomxadaptor.so
-lib/libnvodm_imager.so
-lib/libnvodm_query.so
-lib/libnvwinsys.so
-lib/libnvmmlite.so
-lib/libnvmmlite_utils.so
+#lib/libnvomxilclient.so
+#lib/libnvddk_2d_v2.so
+#lib/libnvcamerahdr.so
+#lib/libnvtvmr.so
+#lib/libnvmm_utils.so
+#lib/libnvmm_service.so
+#lib/libnvmm_manager.so
+#lib/libnvmm_contentpipe.so
+#lib/libnvomx.so
+#lib/libnvomxadaptor.so
+#lib/libnvodm_imager.so
+#lib/libnvodm_query.so
+#lib/libnvwinsys.so
+#lib/libnvmmlite.so
+#lib/libnvmmlite_utils.so
 
 # Sound
 lib/libnvaudioservice.so

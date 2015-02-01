@@ -21,7 +21,7 @@ Thanks to the A2109A pioneers:
 
 |Category |Feature |Working |Not working |Unknown |
 |---------|--------|--------|------------|--------|
-|EGL | | | |X |
+|EGL | |X | | |
 |WLAN | | | | |
 |  |Client mode |X | | |
 |  |P2P |X | | |
@@ -36,8 +36,8 @@ Thanks to the A2109A pioneers:
 |  |SD Video recording | | |X |
 |  |HD Video recording | | |X |
 |Media | | | | |
-|  |Playing videos | | |X |
-|  |Playing sound | |X | |
+|  |Playing videos |X | | |
+|  |Playing sound |X | | |
 |  |Microphone | | |X |
 |GPS | | | |X |
 |HDMI out | | | |X |
