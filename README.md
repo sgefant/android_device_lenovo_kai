@@ -5,13 +5,16 @@ Lenovo Ideatab A2109A (kai)
 
 This is aosp for Lenovo Ideatab A2109A (kai)
 
+Special thanks to Aospplus developers, who already did most of what I'm trying to accomplish:
+  Lloir
+  Tom Briden
+
 Special thanks for JB-4.2 to the tf700t developers for Cyanogenmod:
   dasunsrule32
   xplodwild
   nycbjr
 
-
-Thanks to the A2109A pioneers::
+Thanks to the A2109A pioneers:
   superhansi
   gmarkall
   kahlo007
@@ -40,7 +43,7 @@ Thanks to the A2109A pioneers::
 |HDMI out | | | |X |
 |USB-OTG | | | |X |
 
-Hardware info
+Some basic hardware info
 Bluetooth: BCM4330
 GPS: BCM47511
 WiFi: BCMDHD
