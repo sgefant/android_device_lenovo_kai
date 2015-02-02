@@ -24,6 +24,10 @@
   <remove-project name="platform/external/tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="JellyBean-4.2.2" />
 
+<!-- Enable writing to external sdcard / -->
+  <remove-project name="platform/system/vold" />
+  <project path="system/vold" name="PJBrs/platform_system_vold" remote="github" revision="JellyBean-4.2.2" />
+
 <!-- TWRP / -->
   <!-- remove-project name="platform/bootable/recovery" / -->
   <!-- project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="github" revision="f5c904b2fffa0dcb2e4fb9285ba0b097c6603ebb" / -->
