@@ -44,7 +44,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_BOOTLOADER_BOARD_NAME := a2109a
 
 #BOARD_KERNEL_CMDLINE := tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 androidboot.commchip_id=0 video=tegrafb no_console_suspend=1 console=null,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=8197120@0xabc01000 core_edp_mv=0 displayboard=0x802a:0x50a0:0x35:0x80:0x00 board_info=f41:a00:1:44:2 tegraboot=sdmmc gpt gpt_sector=30535679 androidboot.hw_ramcode=0 androidboot.board_strap=1
-#BOARD_KERNEL_CMDLINE := tegraid=30.1.3.0.0 mem=1022M@2048M commchip_id=0 androidboot.commchip_id=0 no_console_suspend=1 console=null,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=8192@0xbddf9000 tegra_fbmem=8197120@0xabc01000 core_edp_mv=0 displayboard=0x802a:0x50a0:0x35:0x80:0x00 board_info=f41:a00:1:44:2 tegraboot=sdmmc gpt gpt_sector=30535679 androidboot.hw_ramcode=0 androidboot.board_strap=1
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
@@ -87,7 +86,7 @@ COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/kai/bluetooth/vnd_kai.txt
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lenovo/kai/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/kai/bluetooth
 
 # Use Cortex A9 optimizations for A7
 USE_ALL_OPTIMIZED_STRING_FUNCS := true

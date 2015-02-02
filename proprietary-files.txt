@@ -1,4 +1,4 @@
-\# This list is used for two purposes. First, extract-files.sh
+# This list is used for two purposes. First, extract-files.sh
 # uses it to extract all files from the device. Second, all
 # non-commented files are added to the proprietary blobs in
 # the vendor tree. Below, DO NOT PUT SPACES AFTER HASHES 
