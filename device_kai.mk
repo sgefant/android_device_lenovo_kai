@@ -145,7 +145,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
     device/lenovo/kai/lenovo-kai-proprietary/etc/enctune.conf:system/etc/enctune.conf \
     device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-    device/lenovo/kai/config/config/bt_vendor.conf:system/etc/bluetooth/config/bt_vendor.conf \
+    device/lenovo/kai/config/bt_vendor.conf:system/etc/bluetooth/config/bt_vendor.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
