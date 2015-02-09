@@ -37,35 +37,43 @@ echo "" >> $1/proprietary/Android.mk.new
 echo "ifeq (\$(TARGET_DEVICE),kai)" >> $1/proprietary/Android.mk.new
 echo "" >> $1/proprietary/Android.mk.new
 
+old_ifs=$IFS
+IFS=$'\n'
+
 # Then, echo the existing device-partial.mk into the new makefile
 # and copy over the module definitions from to the new Android.mk
-for i in $(cat $1/device-partial.mk | grep -v \# | awk '{ print $1 }' ) ; do 
-  if [ ! -z ${i// } ] ; then
-    if [[ $i == PRODUCT_PACKAGES ]] ; then
-      echo "PRODUCT_PACKAGES := \\" >> $1/device-partial.mk.new
-    # echo to device-partial.mk
-    else
-      COPY=true
-      for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | sed 's/\.[^.]*$//') ; do
-        if [[ \#$i == $m ]] ; then
-          COPY=false
-          echo Ignoring $i...
+for i in $(cat $1/device-partial.mk | grep -v \# ) ; do 
+  if [[ $i == "PRODUCT_PACKAGES := \\" ]] ; then
+    echo $i >> $1/device-partial.mk.new
+  # Exclude additional (open source) modules
+  elif [[ $i == "PRODUCT_PACKAGES +="* ]] ; then
+    continue
+  # echo to device-partial.mk
+  else
+    modname=$(echo $i | awk '{ print $1 }')
+    COPY=true
+    for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | sed 's/\.[^.]*$//') ; do
+      if [[ \#$modname == $m ]] ; then
+        COPY=false
+        echo Ignoring $i...
+      fi
+    done
+    if [[ $COPY == true ]] ; then 
+      echo "    $modname \\" >> $1/device-partial.mk.new
+      # Now grep over the module definitions; have to deal with
+      # grepping the filename.
+      for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $modname $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}') ; do
+        MODULE=$(echo $FULLNAME | sed 's/\.[^.]*$//')
+        if [[ "$MODULE" == "$modname" ]] ; then
+          grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
         fi
       done
-      if [[ $COPY == true ]] ; then 
-        echo "    $i \\" >> $1/device-partial.mk.new
-        # Now grep over the module definitions; have to deal with
-        # grepping the filename.
-        for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $i $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}') ; do
-          MODULE=$(echo $FULLNAME | sed 's/\.[^.]*$//')
-          if [[ "$MODULE" == "$i" ]] ; then
-            grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
-          fi
-        done
-      fi
     fi
   fi
 done
+
+
+IFS=$old_ifs
 
 # Deal with different names for same files
 sed -i 's/tegra3/tegra/' $1/device-partial.mk.new
@@ -73,6 +81,11 @@ sed -i 's/tegra3/tegra/' $1/proprietary/Android.mk.new
 sed -i 's/nvram/nvram_4330/' $1/device-partial.mk.new
 sed -i 's/nvram/nvram_4330/' $1/proprietary/Android.mk.new
 }
+
+for j in $VENDORS; do
+  echo Initiating $j makefiles
+  init_makefiles ../../../vendor/$j/$DEVICE
+done
 
 add_module() {
 # Call this function with $FILE as argument
@@ -136,11 +149,6 @@ echo "" >> $OUTDIR/proprietary/Android.mk.new
 echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
 
 }
-
-for j in $VENDORS; do
-  echo Initiating $j makefiles
-  init_makefiles ../../../vendor/$j/$DEVICE
-done
 
 # Now the real work starts
 # We read proprietary_files.txt
