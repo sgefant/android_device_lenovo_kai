@@ -50,7 +50,7 @@ for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
     continue
   # echo to device-partial.mk
   else
-    modname=$(echo $i | awk '{ print $1 }')
+    modname=$(echo $i | awk '{ print $1 }' )
     COPY=true
     for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | sed 's/\.[^.]*$//') ; do
       if [[ \#$modname == $m ]] ; then
@@ -62,12 +62,14 @@ for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
       echo "    $modname \\" >> $1/device-partial.mk.new
       # Now grep over the module definitions; have to deal with
       # grepping the filename.
-      for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $modname $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}') ; do
+      #IFS=$old_ifs
+      for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $modname $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}' | sed 's/[[:space:]]//g') ; do
         MODULE=$(echo $FULLNAME | sed 's/\.[^.]*$//')
-        if [[ "$MODULE" == "$modname" ]] ; then
+        if [[ "$modname" == "$MODULE" ]] ; then
           grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
         fi
       done
+      #IFS=$'\n'
     fi
   fi
 done
@@ -137,7 +139,7 @@ esac
 echo include \$\(CLEAR_VARS\) >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE := $LOCAL_MODULE >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_SRC_FILES := $LOCAL_SRC_FILES >> $OUTDIR/proprietary/Android.mk.new
-echo LOCAL_MODULE_SUFFIX := $LOCAL_MODULE_SUFFIX  >> $OUTDIR/proprietary/Android.mk.new
+echo LOCAL_MODULE_SUFFIX := $LOCAL_MODULE_SUFFIX >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE_CLASS := $LOCAL_MODULE_CLASS >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE_PATH := \$\(TARGET_OUT\)/$LOCAL_MODULE_PATH >> $OUTDIR/proprietary/Android.mk.new
 echo LOCAL_MODULE_TAGS := optional >> $OUTDIR/proprietary/Android.mk.new
