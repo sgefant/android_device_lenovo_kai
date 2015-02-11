@@ -39,8 +39,8 @@
   <!-- remove-project name="platform/external/fsck_msdos" / -->
 
 <!-- libjpeg-turbo, for camera / -->
-  <remove-project name="platform/external/jpeg" />
-  <project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" />
+  <!-- remove-project name="platform/external/jpeg" / -->
+  <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
   <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
   <!-- remove-project name="platform/external/skia" / -->
   <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="jellybean-stable" remote="github" / -->
