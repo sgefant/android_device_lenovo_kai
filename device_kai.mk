@@ -91,6 +91,7 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     libinvensense_mpl \
     libnetcmdiface \
+    keymaster.kai
 #    tinymix \
 #    tinyplay \
 #    tinyrec \
