@@ -29,6 +29,14 @@ for i in $DIRECTORIES ; do
   fi
 
   cd kai
+  # Remove any other directory than proprietary
+  for l in `ls | grep -v proprietary` ; do
+    if [ -d "$l" ] ; then 
+      echo Deleting directory $l
+      rm -r $l
+    fi
+  done
+
   for j in `grep -r -l grouper . | grep .mk` ; do
     sed -i 's/tegra3/tegra/g' $j
     sed -i 's/asus/lenovo/g' $j
@@ -45,7 +53,7 @@ mkdir lenovo
 mv asus/kai lenovo/kai
 
 # Deal with different names for same files
-mv nvidia/kai/keymaster/keymaster_grouper.cpp 	nvidia/kai/keymaster/keymaster_kai.cpp
+#mv nvidia/kai/keymaster/keymaster_grouper.cpp 	nvidia/kai/keymaster/keymaster_kai.cpp
 mv lenovo/kai/proprietary/sensors.grouper.so 	lenovo/kai/proprietary/sensors.kai.so
 mv lenovo/kai/proprietary/camera.tegra3.so 	lenovo/kai/proprietary/camera.tegra.so
 mv broadcom/kai/proprietary/gps.tegra3.so 	broadcom/kai/proprietary/gps.tegra.so
