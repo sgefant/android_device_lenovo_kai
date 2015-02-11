@@ -26,7 +26,7 @@ Thanks to the A2109A pioneers:
 |  |Client mode |X | | |
 |  |P2P |X | | |
 |Bluetooth | |X | |
-|  |Send files | | |X |
+|  |Send files | |X | |
 |  |Receive files | | |X |
 |  |Headset | | |X |
 |Camera | | |X | |
