@@ -44,13 +44,39 @@ Thanks to the A2109A pioneers:
 |USB-OTG | | | |X |
 
 Some basic hardware info
-Bluetooth: BCM4330
-GPS: BCM47511
-WiFi: BCMDHD
-Audio: tegra-aic326x
-Touchscreen: ft5x0x_ts
-Accelerometer: lis3dh
-Ambient light sensor: Solteam JSA1127	
-Back camera: s5k5cag
-Front camera: mt9m114
+-Bluetooth: BCM4330
+-GPS: BCM47511
+-WiFi: BCMDHD
+-Audio: tegra-aic326x
+-Touchscreen: ft5x0x_ts
+-Accelerometer: lis3dh
+-Ambient light sensor: Solteam JSA1127	
+-Back camera: s5k5cag
+-Front camera: mt9m114
+
+
+Errors:
+Vendor skia + jpeg:
+E/HAL     (  282): load: module=/system/lib/hw/camera.tegra3.so
+E/HAL     (  282): Cannot load library: soinfo_link_image(linker.cpp:1635): could not load library "libandroid_runtime.so" needed by "camera.tegra3.so"; caused by soinfo_relocate(linker.cpp:975): cannot locate symbol 
+"_ZN10SkLanguage7getInfoEPKc" referenced by "libandroid_runtime.so"...
+E/CameraService(  282): Could not load camera HAL module
+
+Vendor jpeg, aosp skia
+E/NvOmxCamera(  111): createCameraObjects: graph creation failed! [0x80001005]
+E/NvOmxCamera(  111): NvOmxCamera::createObjects :::: FAIL ::::::::::::::::: [0x80001005]
+E/gralloc (  108): failed to load symbol nvcap_video_create (Symbol not found: )
+
+Vendor jpeg, aosp skia, compiled against old libjpeg-turbo
+E/gralloc (  107): creating nvcap video capture service
+E/NvOmxCamera(  110): createCameraObjects: graph creation failed! [0x80001005]
+E/NvOmxCamera(  110): NvOmxCamera::createObjects :::: FAIL ::::::::::::::::: [0x80001005]
+E/gralloc (  107): failed to load symbol nvcap_video_create (Symbol not found: )
+
+Vendor skia + jpeg, compiled against old libjpeg-turbo
+I/CameraService(  111): CameraService started (pid=111)
+E/HAL     (  111): load: module=/system/lib/hw/camera.tegra3.so
+E/HAL     (  111): Cannot load library: soinfo_link_image(linker.cpp:1635): could not load library "libandroid_runtime.so" needed by "camera.tegra3.so"; caused by soinfo_relocate(linker.cpp:975): cannot locate symbol 
+"_ZN10SkLanguage7getInfoEPKc" referenced by "libandroid_runtime.so"...
+E/CameraService(  111): Could not load camera HAL module
 
