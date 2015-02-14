@@ -28,6 +28,9 @@
   <remove-project name="platform/system/vold" />
   <project path="system/vold" name="PJBrs/platform_system_vold" remote="github" revision="JellyBean-4.2.2" />
 
+<!-- Kernel -->
+  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="kai-kernel-sloppy" remote="github" />
+
 <!-- TWRP / -->
   <!-- remove-project name="platform/bootable/recovery" / -->
   <!-- project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="github" revision="f5c904b2fffa0dcb2e4fb9285ba0b097c6603ebb" / -->
@@ -40,6 +43,7 @@
 
 <!-- libjpeg-turbo, for camera / -->
   <!-- remove-project name="platform/external/jpeg" / -->
+  <project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" />
   <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
   <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
   <!-- remove-project name="platform/external/skia" / -->
