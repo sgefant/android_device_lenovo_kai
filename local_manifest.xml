@@ -24,6 +24,6 @@
   <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
 
 <!-- tinyalsa, for audio hal -->
-  <remove-project name="platform/external/tinyalsa" />
+  <remove-project name="CyanogenMod/android_external_tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="JellyBean-4.2.2" />
 </manifest>

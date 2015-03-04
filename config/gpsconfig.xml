@@ -6,39 +6,32 @@
     comments and valid code.
     
     This file is a primary template for Linux-like platforms.
+
+Unused parameters from original gpsconfig:
+    cLogEnableInitState="true"
+    acNvStoDir="/data/gps/"
+ 
+
+    
 -->
 
 <!-- HAL essentials: Serial port, log, NMEA, IRM, NVRAM, LTO -->
 <hal 
     acPortName="/dev/ttyHS1" 
     lBaudRate="115200"  
-    
-    cLogEnableInitState="true"
     cLogEnabled="false" 
     acLogDirectory="/data/gps/log/" 
-
-    acNmeaOutName="/data/gpspipe"  
-
-    ctrlPipe="/data/gps/glgpsctrl"
-    acNvStoDir="/data/gps/"
-    
-    ltoFileName="lto.dat" 
-/>
-
-<!-- GPIO is essential for reliable host interface reset and power saving.
-    There are currently two mutually exclusive mechanisms (sysfs or rfkill) to 
-    GPIO control the REGPU or NSTANDBY pin on the GNSS chipset.
--->
-
-<!-- GPIO sysfs (in most cases) -->
-<hal 
     gpioNStdbyPath="/sys/class/gpio/gpio162/value"
+    gpioDelayMs="120"
+    acNvStoDir="/data/gps/"
+    acNmeaOutName="/data/gps/nmea_out"
+    ctrlPipe="/data/gps/glgpsctrl"
+    SyncLto="true"
+    ltoFileName="lto2.dat"
+    acLtoDir="/data/gps/"
+    LbsSyncLtoThresholdDays="1" 
 />
 
-<!-- GPIO rfkill -->
-<!--hal
-    rfkillNStdby="gps"
-/-->
 
 <!--  (Re)aiding configuration options for LBS, SUPL (depending on type selected) -->
 <hal 

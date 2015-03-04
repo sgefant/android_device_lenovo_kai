@@ -167,8 +167,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera...
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so
-    #device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
+    device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so \
+#    device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
 
 
 # Miscellaneous

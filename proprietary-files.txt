@@ -6,7 +6,7 @@
 
 #lenovo
 vendor/lib/libwvm.so
-#vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/drm/libdrmwvmplugin.so
 lib/hw/camera.tegra.so
 lib/hw/sensors.kai.so
 
@@ -142,8 +142,8 @@ bin/rm_ts_server
 bin/nvcpud
 
 #widevine
-#vendor/lib/libWVStreamControlAPI_L1.so
-#vendor/lib/libwvdrm_L1.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libwvdrm_L1.so
 
 #configurations and miscellaneous
 etc/permissions/com.google.widevine.software.drm.xml

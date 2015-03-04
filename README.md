@@ -54,6 +54,10 @@ Some basic hardware info
 -Back camera: s5k5cag
 -Front camera: mt9m114
 
+Camera combo's
+CM: Nothing works
+With libjpeg-turbo + skia recompiled: panorama works
+
 
 Errors:
 Vendor skia + jpeg:
