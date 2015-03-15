@@ -153,7 +153,9 @@
    <!-- integer name="config_multiuserMaximumUsers">8</integer -->
  
    <!-- string-array name="config_locationProviderPackageNames" translatable="false">
-        <item>com.google.android.location</item>
+        <!-- The Google provider -->
+        <item>com.google.android.gms</item>
+        <!-- The standard AOSP fused location provider -->
         <item>com.android.location.fused</item>
     </string-array -->
 
