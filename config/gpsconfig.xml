@@ -7,11 +7,11 @@
     
     This file is a primary template for Linux-like platforms.
 
-Unused parameters from original gpsconfig:
-    cLogEnableInitState="true"
-    acNvStoDir="/data/gps/"
+    Unused parameters from original gpsconfig:
  
 
+    Saw this somewhere else:
+    bPrintToConsole="true"
     
 -->
 
@@ -19,17 +19,18 @@ Unused parameters from original gpsconfig:
 <hal 
     acPortName="/dev/ttyHS1" 
     lBaudRate="115200"  
-    cLogEnabled="false" 
+    cLogEnableInitState="true"
+    cLogEnabled="true" 
     acLogDirectory="/data/gps/log/" 
-    gpioNStdbyPath="/sys/class/gpio/gpio162/value"
-    gpioDelayMs="120"
-    acNvStoDir="/data/gps/"
-    acNmeaOutName="/data/gps/nmea_out"
+    acNmeaOutName="/data/gps/nmeapipe"
     ctrlPipe="/data/gps/glgpsctrl"
+    acNvStoDir="/data/gps/"
+    lcsApiSockName="/dev/socket/gps"
     SyncLto="true"
-    ltoFileName="lto2.dat"
+    ltoFileName="lto.dat"
     acLtoDir="/data/gps/"
     LbsSyncLtoThresholdDays="1" 
+    gpioNStdbyPath="/sys/class/gpio/gpio162/value"
 />
 
 
@@ -49,23 +50,6 @@ Unused parameters from original gpsconfig:
     LbsSyncTimeSec="60"
     LbsSyncLto="true"
     LbsSyncCells="true"
-/>
-
-<!-- SUPL: only applicable to devices with cellular modem
-    "arp-supl-use-apn" is attribute used in Android only
- -->
-<hal 
-    arp-supl-enable="false"
-    arp-supl-cap-msb="true"
-    arp-supl-cap-msa="true"
-    arp-supl-cap-ecid="false"
-    enhanced-assisted="false"
-    arp-supl-use-apn="true"
-    acSuplServer="www.spirent-lcs.com"
-    SuplPort="7275"
-    tlsCertPath="/system/bin/gpsd/"
-    TISEnabled="false" 
-    RILEnabled="true" 
 />
 
 <!-- Client-Base Extended Ephemeris (CBEE) -->
@@ -100,11 +84,6 @@ Unused parameters from original gpsconfig:
     SensorsAcclInRunBiasCal="true" 
     SensorsEstBiasInWalking="true" 
     req_pos.acc="1000"    
-/>
-
-<!-- Android: -->
-<hal 
-    lcsApiSockName="/data/gps/lcs.socket" 
 />
 
 <!-- GLL Engine: See glgpsapi.h for supported parameters -->

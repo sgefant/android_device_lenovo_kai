@@ -59,7 +59,19 @@ CM: Nothing works
 With libjpeg-turbo + skia recompiled: panorama works
 
 
-Errors:
+GPS errors with grouper HAL:
+D/libgps  (  385): proxy_gps_set_position_mode()
+D/libgps  (  385): gps_set_position_mode: Waiting for IPC connection...
+D/libgps  (  385): gps_set_position_mode: Waiting for IPC connection - timeout
+E/libgps  (  385): LIBGPS: Cannot communicate (write) with a GPSD
+E/libgps  (  385): IPC Communication Error, /tmp/11862727/customers/Asustek/Tabletandroid/../../../proprietary/deliverables/android/gps_interface/../gps_interface/gpsi_client/GpsiClient.cpp:915 gps_set_position_mode
+E/GpsLocationProvider(  385): set_position_mode failed in startNavigating()
+
+Working GPS combo's:
+tf700 gpsconfig.xml gps.tegra.so and kai glgps
+
+
+Camera errors:
 Vendor skia + jpeg:
 E/HAL     (  282): load: module=/system/lib/hw/camera.tegra3.so
 E/HAL     (  282): Cannot load library: soinfo_link_image(linker.cpp:1635): could not load library "libandroid_runtime.so" needed by "camera.tegra3.so"; caused by soinfo_relocate(linker.cpp:975): cannot locate symbol 

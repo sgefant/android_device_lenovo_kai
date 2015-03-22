@@ -55,7 +55,7 @@ for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
     for m in $(cat grouper-unique-blob-list.txt | grep \# | sed 's/^#[[:space:]]\+.*//g' | sed 's/\.[^.]*$//') ; do
       if [[ \#$modname == $m ]] ; then
         COPY=false
-        echo Ignoring $i...
+        echo Ignoring $modname...
       fi
     done
     if [[ $COPY == true ]] ; then 
