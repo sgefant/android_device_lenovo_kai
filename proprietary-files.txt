@@ -46,40 +46,40 @@ lib/hw/lights.kai.so
 lib/hw/nfc.tegra.so
 lib/hw/ts.default.so
 # EGL
-#lib/egl/libEGL_perfhud.so
+lib/egl/libEGL_perfhud.so
 lib/egl/libEGL_tegra.so
 lib/egl/libEGL_tegra_impl.so
-#lib/egl/libGLESv1_CM_perfhud.so
-#lib/egl/libGLESv1_CM_tegra.so
+lib/egl/libGLESv1_CM_perfhud.so
+lib/egl/libGLESv1_CM_tegra.so
 lib/egl/libGLESv1_CM_tegra_impl.so
-#lib/egl/libGLESv2_perfhud.so
-#lib/egl/libGLESv2_tegra.so
+lib/egl/libGLESv2_perfhud.so
+lib/egl/libGLESv2_tegra.so
 lib/egl/libGLESv2_tegra_impl.so
-#lib/libnvcap_video.so
-#lib/libnvos.so
-#lib/libnvrm.so
-#lib/libnvrm_graphics.so
-#lib/libnvddk_2d.so
-#lib/libnvwsi.so
-#lib/libardrv_dynamic.so
+lib/libnvcap_video.so
+lib/libnvomxadaptor.so
+lib/libnvos.so
+lib/libnvrm.so
+lib/libnvrm_graphics.so
+lib/libnvddk_2d.so
+lib/libnvwsi.so
+lib/libardrv_dynamic.so
 lib/libnvglsi.so
-#lib/libcgdrv.so
+lib/libcgdrv.so
 # Camera
-#lib/libnvomxilclient.so
-#lib/libnvddk_2d_v2.so
-#lib/libnvcamerahdr.so
-#lib/libnvtvmr.so
-#lib/libnvmm_utils.so
-#lib/libnvmm_service.so
-#lib/libnvmm_manager.so
-#lib/libnvmm_contentpipe.so
-#lib/libnvomx.so
-#lib/libnvomxadaptor.so
+lib/libnvomxilclient.so
+lib/libnvddk_2d_v2.so
+lib/libnvcamerahdr.so
+lib/libnvtvmr.so
+lib/libnvmm_utils.so
+lib/libnvmm_service.so
+lib/libnvmm_manager.so
+lib/libnvmm_contentpipe.so
+lib/libnvomx.so
 lib/libnvodm_imager.so
 lib/libnvodm_query.so
-#lib/libnvwinsys.so
-#lib/libnvmmlite.so
-#lib/libnvmmlite_utils.so
+lib/libnvwinsys.so
+lib/libnvmmlite.so
+lib/libnvmmlite_utils.so
 
 # Sound
 lib/libnvaudioservice.so
@@ -87,8 +87,8 @@ lib/libaudioavp.so
 lib/libnvavp.so
 
 # Below here, it is just brute force adding everything in
-#lib/libnvcap.so
-#lib/libnvcapclk.so
+lib/libnvcap.so
+lib/libnvcapclk.so
 #lib/libnvmm.so
 #lib/libnvmm_audio.so
 #lib/libnvmm_camera.so
