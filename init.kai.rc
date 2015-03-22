@@ -177,6 +177,16 @@ on boot
     chown root system /sys/class/gpio/gpio163/value
     chmod 0664 /sys/class/gpio/gpio163/value
 
+    mkdir /data/gps
+    mkdir /data/gps/log/
+    chown root system /data/gps
+    chown root system /data/gps/log
+    chmod 0770 /data/gps
+    chmod 0770 /data/gps/log
+    chown gps system /dev/ttyHS1
+    chmod 0660 /dev/ttyHS1
+
+
 # Load WiFi driver
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
@@ -306,19 +316,6 @@ service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugrep
 #    group bluetooth net_bt_admin
 #    oneshot
 
-#BCM hciattach - bt firmware loader
-#DON'T KNOW WHETHER THIS IS REDUNDANT
-#service hciattach brcm_patchram_plus \
-#	--enable_hci --use_baudrate_for_download --scopcm=0,2,0,0,0,0,0,0,0,0  \
-#	--baudrate 3000000 --patchram /etc/firmware/bcm4330.hcd \
-#	--no2bytes --enable_lpm --tosleep=50000 /dev/ttyHS2
-#    class main
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    disabled
-## {from cardhu for BCM4330} -
-
-## {from cardhu for BCM47511} +
 # Start GPS daemon
   on boot
   service gps-daemon /system/bin/glgps -c /system/etc/gps/gpsconfig.xml
@@ -326,7 +323,6 @@ service bugreport /system/bin/dumpstate -d -v -o /data/storage/bugreports/bugrep
   socket gps seqpacket 0660 gps system
   group system inet sdcard_rw sdcard_r
   class late_start
-## {from cardhu for BCM47511} -
 
 # Prepare TF service
 import init.tf.rc
@@ -364,14 +360,6 @@ service navl_server /system/bin/navd --android_log NAVD  -p3 -nav\"-c/system/etc
     class main
     user root
     oneshot
-
-## {CL2} +
-service gpsID /system/bin/gps_util
-    class late_start
-    user root
-    group root
-    oneshot
-## {CL2} -
 
 ## {CL2} +
 service usb_config /system/bin/usb_config

@@ -6,39 +6,33 @@
     comments and valid code.
     
     This file is a primary template for Linux-like platforms.
+
+    Unused parameters from original gpsconfig:
+ 
+
+    Saw this somewhere else:
+    bPrintToConsole="true"
+    
 -->
 
 <!-- HAL essentials: Serial port, log, NMEA, IRM, NVRAM, LTO -->
 <hal 
     acPortName="/dev/ttyHS1" 
     lBaudRate="115200"  
-    
     cLogEnableInitState="true"
-    cLogEnabled="false" 
+    cLogEnabled="true" 
     acLogDirectory="/data/gps/log/" 
-
-    acNmeaOutName="/data/gpspipe"  
-
+    acNmeaOutName="/data/gps/nmeapipe"
     ctrlPipe="/data/gps/glgpsctrl"
     acNvStoDir="/data/gps/"
-    
-    ltoFileName="lto.dat" 
-/>
-
-<!-- GPIO is essential for reliable host interface reset and power saving.
-    There are currently two mutually exclusive mechanisms (sysfs or rfkill) to 
-    GPIO control the REGPU or NSTANDBY pin on the GNSS chipset.
--->
-
-<!-- GPIO sysfs (in most cases) -->
-<hal 
+    lcsApiSockName="/dev/socket/gps"
+    SyncLto="true"
+    ltoFileName="lto.dat"
+    acLtoDir="/data/gps/"
+    LbsSyncLtoThresholdDays="1" 
     gpioNStdbyPath="/sys/class/gpio/gpio162/value"
 />
 
-<!-- GPIO rfkill -->
-<!--hal
-    rfkillNStdby="gps"
-/-->
 
 <!--  (Re)aiding configuration options for LBS, SUPL (depending on type selected) -->
 <hal 
@@ -56,23 +50,6 @@
     LbsSyncTimeSec="60"
     LbsSyncLto="true"
     LbsSyncCells="true"
-/>
-
-<!-- SUPL: only applicable to devices with cellular modem
-    "arp-supl-use-apn" is attribute used in Android only
- -->
-<hal 
-    arp-supl-enable="false"
-    arp-supl-cap-msb="true"
-    arp-supl-cap-msa="true"
-    arp-supl-cap-ecid="false"
-    enhanced-assisted="false"
-    arp-supl-use-apn="true"
-    acSuplServer="www.spirent-lcs.com"
-    SuplPort="7275"
-    tlsCertPath="/system/bin/gpsd/"
-    TISEnabled="false" 
-    RILEnabled="true" 
 />
 
 <!-- Client-Base Extended Ephemeris (CBEE) -->
@@ -107,11 +84,6 @@
     SensorsAcclInRunBiasCal="true" 
     SensorsEstBiasInWalking="true" 
     req_pos.acc="1000"    
-/>
-
-<!-- Android: -->
-<hal 
-    lcsApiSockName="/data/gps/lcs.socket" 
 />
 
 <!-- GLL Engine: See glgpsapi.h for supported parameters -->

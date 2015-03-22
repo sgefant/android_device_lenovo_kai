@@ -140,6 +140,8 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    device/lenovo/kai/config/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    device/lenovo/kai/config/gps.conf:system/etc/gps.conf \
     device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
     device/lenovo/kai/config/media_codecs.xml:system/etc/media_codecs.xml \
     device/lenovo/kai/config/audio_policy.conf:system/etc/audio_policy.conf \
@@ -165,8 +167,12 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
 
-# Camera...
+# GPS ; This is the GPS HAL from asus tf700
 PRODUCT_COPY_FILES += \
+    device/lenovo/kai/blobs/gps.tegra.so:system/lib/hw/gps.tegra.so
+
+# Camera...
+#PRODUCT_COPY_FILES += \
     #device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so
     #device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
 

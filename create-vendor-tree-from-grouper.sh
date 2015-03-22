@@ -37,14 +37,6 @@ for i in $DIRECTORIES ; do
     fi
   done
 
-  for j in `grep -r -l grouper . | grep .mk` ; do
-    sed -i 's/tegra3/tegra/g' $j
-    sed -i 's/asus/lenovo/g' $j
-    sed -i 's/Asus/Lenovo/g' $j
-    sed -i 's/grouper/kai/g' $j
-    sed -i 's/Grouper/Kai/g' $j
-  done
-
   cd ../.. 
 done
 
@@ -60,4 +52,17 @@ mv broadcom/kai/proprietary/gps.tegra3.so 	broadcom/kai/proprietary/gps.tegra.so
 mv nvidia/kai/proprietary/gralloc.tegra3.so 	nvidia/kai/proprietary/gralloc.tegra.so
 mv nvidia/kai/proprietary/hwcomposer.tegra3.so 	nvidia/kai/proprietary/hwcomposer.tegra.so
 mv nvidia/kai/proprietary/nvram.txt 		nvidia/kai/proprietary/nvram_4330.txt
+
+for k in $(find */kai -name *.mk) ; do
+  sed -i 's/tegra3/tegra/g' $k
+  sed -i 's/asus/lenovo/g' $k
+  sed -i 's/Asus/Lenovo/g' $k
+  sed -i 's/grouper/kai/g' $k
+  sed -i 's/Grouper/Kai/g' $k
+done
+
+
+
+
+
 
