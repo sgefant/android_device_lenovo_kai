@@ -43,7 +43,7 @@
 
 <!-- libjpeg-turbo, for camera / -->
   <!-- remove-project name="platform/external/jpeg" / -->
-  <project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" />
+  <!-- project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" / -->
   <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
   <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
   <!-- remove-project name="platform/external/skia" / -->

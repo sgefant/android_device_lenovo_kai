@@ -66,6 +66,13 @@ E/GpsLocationProvider(  385): set_position_mode failed in startNavigating()
 Working GPS combo's:
 tf700 gpsconfig.xml gps.tegra.so and kai glgps
 
+Some notes on other repos. ParanoidAndroid uses the following from tf700 (excluding gsm / apps):
+device/common
+frameworks/av
+frameworks/native
+hardware/libhardware
+hardware/libhardware_legacy
+
 
 Camera errors:
 Vendor skia + jpeg:

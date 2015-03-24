@@ -25,6 +25,7 @@ libsensors.lightsensor.so
 #elan
 #touch_fw.ekt
 #nvidia
+#camera.tegra.so
 #nvavp_os_00001000.bin
 #nvavp_os_e0000000.bin
 libnvmm_misc.so

@@ -176,6 +176,11 @@ PRODUCT_COPY_FILES += \
     #device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so
     #device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
 
+# Camera wrapper
+PRODUCT_PACKAGES += \
+    camera.tegra
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/lenovo-kai-proprietary/lib/hw/camera.tegra.so:system/lib/hw/vendor-camera.tegra.so
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
