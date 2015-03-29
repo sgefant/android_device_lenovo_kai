@@ -2,7 +2,7 @@
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
-  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="JellyBean-4.2.2" />
+  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-10.1" />
 
 <!-- Unavailable repos -->
   <remove-project  name="CyanogenMod/android_external_svox" />
@@ -11,16 +11,16 @@
 <!-- Kernel -->
   <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="kai-kernel-sloppy" remote="github" />
 
-<!-- libjpeg-turbo, for camera / -->
-  <remove-project name="CyanogenMod/android_external_jpeg" />
+<!-- libjpeg-turbo, skia, for camera / -->
+  <!-- remove-project name="CyanogenMod/android_external_jpeg" / -->
   <!-- project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" / -->
   <project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" />
   <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
+
   <!-- remove-project name="platform/external/skia" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="jellybean-stable" remote="github" / -->
+  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
 
   <!-- remove-project name="platform/external/webp" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
   <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
 
 <!-- tinyalsa, for audio hal -->
