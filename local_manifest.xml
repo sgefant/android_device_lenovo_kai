@@ -1,22 +1,41 @@
 <manifest>
   <remote name="github" fetch="https://github.com" />
+  <remote name="cyanogenmod" fetch="https://github.com" />
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
   <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="JellyBean-4.2.2" />
 
+<!-- Fixes -->
+<!-- Bluedroid -->
+  <remove-project name="platform/external/bluetooth/bluedroid" />
+  <project path="external/bluetooth/bluedroid" name="PJBrs/android_external_bluetooth_bluedroid" remote="github" revision="JellyBean-4.2.2" />
+
+<!-- BCMDHD -->
+  <remove-project name="platform/hardware/broadcom/wlan" />
+  <project path="hardware/broadcom/wlan" name="PJBrs/platform_hardware_broadcom_wlan" remote="github" revision="JellyBean-4.2.2" />
+
+
 <!-- Compatibility updates -->
-<!-- EGL -->
+<!-- Frameworks -->
   <remove-project name="platform/frameworks/native" />
-  <project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="JellyBean-4.2.2" />
-  <!-- remove-project name="platform/frameworks/base" / -->
-  <!-- project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="JellyBean-4.2.2" / -->
+  <!-- project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="JellyBean-4.2.2" / -->
+  <project path="frameworks/native" name="CyanogenMod/android_frameworks_native" remote="github" revision="cm-10.1" />
+
+  <remove-project name="platform/frameworks/base" />
+  <project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="JellyBean-4.2.2" />
+  <!-- project path="frameworks/base" name="CyanogenMod/android_frameworks_base" remote="github" revision="cm-10.1" / -->
+
+  <remove-project name="platform/frameworks/av" />
+  <!-- project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="JellyBean-4.2.2" / -->
+  <project path="frameworks/av" name="CyanogenMod/android_frameworks_av" remote="github" revision="cm-10.1" />
+
   <remove-project name="platform/system/core" />
   <project path="system/core" name="PJBrs/platform_system_core" remote="github" revision="JellyBean-4.2.2" />
-  <remove-project name="platform/frameworks/av" />
-  <project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="JellyBean-4.2.2" />
+
   <!-- remove-project name="platform/hardware/libhardware" / -->
   <!-- project path="hardware/libhardware" name="PJBrs/platform_hardware_libhardware" remote="github" revision="JellyBean-4.2.2" / -->
+
   <!-- remove-project name="platform/hardware/libhardware_legacy" / -->
   <!-- project path="hardware/libhardware" name="PJBrs/platform_hardware_libhardware_legacy" remote="github" revision="JellyBean-4.2.2" / -->
 
@@ -42,15 +61,14 @@
   <!-- remove-project name="platform/external/fsck_msdos" / -->
 
 <!-- libjpeg-turbo, for camera / -->
-  <!-- remove-project name="platform/external/jpeg" / -->
-  <project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" />
+  <remove-project name="platform/external/jpeg" />
+  <!-- project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" / -->
   <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
-  <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
-  <!-- remove-project name="platform/external/skia" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="jellybean-stable" remote="github" / -->
+  <project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" />
+  <remove-project name="platform/external/skia" />
+  <project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" />
 
   <!-- remove-project name="platform/external/webp" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
   <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
 
 </manifest>
