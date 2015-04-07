@@ -29,12 +29,12 @@ Thanks to the A2109A pioneers:
 |  |Send files |X | | |
 |  |Receive files | |X | |
 |  |Headset |X | | |
-|Camera | | |X | |
-|  |Preview | | |X |
-|  |Regular pictures | | |X |
-|  |Panorama pictures | | |X |
-|  |SD Video recording | | |X |
-|  |HD Video recording | | |X |
+|Camera | | | | |
+|  |Preview |X | | |
+|  |Regular pictures | |X | |
+|  |Panorama pictures |X | | |
+|  |SD Video recording |X | | |
+|  |HD Video recording |X | | |
 |Media | | | | |
 |  |Playing videos |X | | |
 |  |Playing sound |X | | |
