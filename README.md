@@ -25,13 +25,13 @@ Thanks to the A2109A pioneers:
 |WLAN | | | | |
 |  |Client mode |X | | |
 |  |P2P | | |X |
-|Bluetooth | |X | |
+|Bluetooth | | | |
 |  |Send files |X | | |
-|  |Receive files | |X | |
+|  |Receive files |X | | |
 |  |Headset |X | | |
-|Camera | | |X | |
+|Camera | | | | |
 |  |Preview |X | | |
-|  |Regular pictures | |X | |
+|  |Regular pictures |X | | |
 |  |Panorama pictures |X | | |
 |  |SD Video recording |X | | |
 |  |HD Video recording |X | | |
@@ -54,8 +54,8 @@ Some basic hardware info
 -Back camera: s5k5cag
 -Front camera: mt9m114
 
-Camera combo's
-
+Camera combo's:
+tf700 camera.tegra.so and libnvcamerahdr.so
 
 Working GPS combo's:
 tf700 gpsconfig.xml gps.tegra.so and kai glgps
@@ -66,7 +66,3 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
-
-
-Camera
-With libjpeg-turbo + skia recompiled: panorama works
