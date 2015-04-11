@@ -98,9 +98,6 @@ PRODUCT_PACKAGES += \
 #    audio.primary.kai \
 #    power.kai
 
-    #lights.grouper \
-
-
 # for bugmailer
 PRODUCT_PACKAGES += send_bug
 PRODUCT_COPY_FILES += \
@@ -167,14 +164,14 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
 
-# GPS ; This is the GPS HAL from asus tf700
+# GPS; This is the GPS HAL from asus tf700
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/blobs/gps.tegra.so:system/lib/hw/gps.tegra.so
 
-# Camera...
-#PRODUCT_COPY_FILES += \
-    #device/lenovo/kai/lenovo-kai-proprietary/lib/libjpeg.so:system/lib/libjpeg.so
-    #device/lenovo/kai/lenovo-kai-proprietary/lib/libskia.so:system/lib/libskia.so 
+# Camera; This is the camera HAL from tf700
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/blobs/camera.tegra.so:system/lib/hw/camera.tegra.so \
+    device/lenovo/kai/blobs/libnvcamerahdr.so:system/lib/libnvcamerahdr.so
 
 
 # Miscellaneous

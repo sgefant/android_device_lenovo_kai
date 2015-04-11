@@ -22,8 +22,8 @@
   <!-- project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="JellyBean-4.2.2" / -->
   <project path="frameworks/native" name="CyanogenMod/android_frameworks_native" remote="github" revision="cm-10.1" />
 
-  <remove-project name="platform/frameworks/base" />
-  <project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="JellyBean-4.2.2" />
+  <!-- remove-project name="platform/frameworks/base" / -->
+  <!-- project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="JellyBean-4.2.2" / -->
   <!-- project path="frameworks/base" name="CyanogenMod/android_frameworks_base" remote="github" revision="cm-10.1" / -->
 
   <remove-project name="platform/frameworks/av" />

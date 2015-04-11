@@ -25,13 +25,13 @@ Thanks to the A2109A pioneers:
 |WLAN | | | | |
 |  |Client mode |X | | |
 |  |P2P | | |X |
-|Bluetooth | |X | |
+|Bluetooth | | | |
 |  |Send files |X | | |
 |  |Receive files | |X | |
 |  |Headset |X | | |
 |Camera | | | | |
 |  |Preview |X | | |
-|  |Regular pictures | |X | |
+|  |Regular pictures |X | | |
 |  |Panorama pictures |X | | |
 |  |SD Video recording |X | | |
 |  |HD Video recording |X | | |
@@ -117,3 +117,32 @@ git bisect bad 778777acb3567c51681bb29c3ca081694ae70969
 # bad: [d262585108ecede466678a84ddb3cb190935b12e] Add setOrientation back
 git bisect bad d262585108ecede466678a84ddb3cb190935b12e
 # first bad commit: [d262585108ecede466678a84ddb3cb190935b12e] Add setOrientation back
+
+Some Build errors:
+device/lenovo/kai/config/nvaudio_conf.xml:19: validity error : Redefinition of element alsa_device
+  <!ELEMENT alsa_device EMPTY>
+                              ^
+device/lenovo/kai/config/nvaudio_conf.xml:24: validity error : Redefinition of element alsa_device
+  <!ELEMENT alsa_device EMPTY>
+                              ^
+device/lenovo/kai/config/nvaudio_conf.xml:35: validity error : Redefinition of element pcm_config
+  <!ELEMENT pcm_config EMPTY>
+                             ^
+device/lenovo/kai/config/nvaudio_conf.xml:36: validity error : Redefinition of element device
+  <!ELEMENT device EMPTY>
+                         ^
+device/lenovo/kai/config/nvaudio_conf.xml:38: validity error : Redefinition of element device
+  <!ELEMENT device EMPTY>
+                         ^
+device/lenovo/kai/config/nvaudio_conf.xml:39: validity error : Redefinition of element path
+  <!ELEMENT path EMPTY>
+                       ^
+device/lenovo/kai/config/nvaudio_conf.xml:41: validity error : Redefinition of element path
+  <!ELEMENT path EMPTY>
+                       ^
+device/lenovo/kai/config/nvaudio_conf.xml:45: validity error : Redefinition of element param
+  <!ELEMENT param EMPTY>
+                        ^
+device/lenovo/kai/config/nvaudio_conf.xml:49: validity error : Redefinition of element ctl
+  <!ELEMENT ctl EMPTY>
+
