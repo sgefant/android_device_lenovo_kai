@@ -67,7 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
     drm.service.enabled=true \
     persist.sys.NV_FPSLIMIT=0 \
-    ro.debuggable=1 \
     tf.enable=y \
     ro.opengles.version = 131072 \
     persist.tegra.nvmmlite = 1 
