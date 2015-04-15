@@ -19,16 +19,16 @@
 <!-- Compatibility updates -->
 <!-- Frameworks -->
   <remove-project name="platform/frameworks/native" />
-  <!-- project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="JellyBean-4.2.2" / -->
-  <project path="frameworks/native" name="CyanogenMod/android_frameworks_native" remote="github" revision="cm-10.1" />
+  <project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="JellyBean-4.2.2" />
+  <!-- project path="frameworks/native" name="CyanogenMod/android_frameworks_native" remote="github" revision="cm-10.1" / -->
 
   <!-- remove-project name="platform/frameworks/base" / -->
   <!-- project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="JellyBean-4.2.2" / -->
   <!-- project path="frameworks/base" name="CyanogenMod/android_frameworks_base" remote="github" revision="cm-10.1" / -->
 
   <remove-project name="platform/frameworks/av" />
-  <!-- project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="JellyBean-4.2.2" / -->
-  <project path="frameworks/av" name="CyanogenMod/android_frameworks_av" remote="github" revision="cm-10.1" />
+  <project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="JellyBean-4.2.2" / -->
+  <!-- project path="frameworks/av" name="CyanogenMod/android_frameworks_av" remote="github" revision="cm-10.1" / -->
 
   <remove-project name="platform/system/core" />
   <project path="system/core" name="PJBrs/platform_system_core" remote="github" revision="JellyBean-4.2.2" />
