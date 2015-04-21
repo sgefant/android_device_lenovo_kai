@@ -170,10 +170,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/blobs/gps.tegra.so:system/lib/hw/gps.tegra.so
 
-# Camera; This is the camera HAL from tf700
+# Camera; This is the camera HAL from stock ICS
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/blobs/camera.tegra.so:system/lib/hw/camera.tegra.so \
-    device/lenovo/kai/blobs/libnvcamerahdr.so:system/lib/libnvcamerahdr.so
+    device/lenovo/kai/blobs/camera.tegra.so:system/lib/hw/camera.tegra.so
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \

@@ -88,6 +88,9 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/kai/bluetooth/vnd_kai.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/kai/bluetooth
 
+# Camera
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
+
 # Sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 
