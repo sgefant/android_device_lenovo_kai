@@ -62,14 +62,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ap.interface=wlan0 \
     ro.carrier=wifi-only \
     ro.sf.lcd_density=160 \
-    ro.sf.override_null_lcd_density = 1 \
+    ro.sf.override_null_lcd_density=1 \
     keyguard.no_require_sim=true \
     persist.sys.usb.config=mtp \
     drm.service.enabled=true \
     persist.sys.NV_FPSLIMIT=0 \
+    persist.sys.NV_OTAFREQ = 0 \
+    persist.tegra.nvmmlite=1 \
     tf.enable=y \
-    ro.opengles.version = 131072 \
-    persist.tegra.nvmmlite = 1 
+    ro.opengles.version=131072
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
