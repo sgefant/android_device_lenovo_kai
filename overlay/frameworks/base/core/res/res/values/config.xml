@@ -79,14 +79,10 @@
         <item>500</item>
         <item>600</item>
         <item>700</item>
+        <item>800</item>
         <item>900</item>
+        <item>1000</item>
         <item>1100</item>
-        <item>1400</item>
-        <item>1700</item>
-        <item>2100</item>
-        <item>2500</item>
-        <item>3000</item>
-        <item>4000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -108,10 +104,6 @@
         <item>191</item>
         <item>200</item>
         <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -120,10 +112,6 @@
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
         <item>0</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
         <item>255</item>
         <item>255</item>
         <item>255</item>
@@ -147,12 +135,12 @@
     <bool name="config_voice_capable">false</bool>
     <bool name="config_sms_capable">false</bool>
 
-     <!-- bool name="config_screenOffAnimation">false</bool -->
+    <!-- bool name="config_screenOffAnimation">false</bool -->
 
-   <bool name="config_showNavigationBar">true</bool>
-   <!-- integer name="config_multiuserMaximumUsers">8</integer -->
+    <bool name="config_showNavigationBar">true</bool>
+    <!-- integer name="config_multiuserMaximumUsers">8</integer -->
 
-   <string-array name="config_locationProviderPackageNames" translatable="false">
+    <string-array name="config_locationProviderPackageNames" translatable="false">
         <!-- The Google provider -->
         <item>com.google.android.gms</item>
         <!-- The standard AOSP fused location provider -->
@@ -160,4 +148,6 @@
     </string-array>
 
 </resources>
+
+
 
