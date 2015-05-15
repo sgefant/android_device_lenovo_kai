@@ -21,25 +21,25 @@ Thanks to the A2109A pioneers:
 
 |Category |Feature |Working |Not working |Unknown |
 |---------|--------|--------|------------|--------|
-|EGL | |X | | |
+|EGL | | | |X |
 |WLAN | | | | |
-|  |Client mode |X | | |
+|  |Client mode | | |X |
 |  |P2P | | |X |
 |Bluetooth | | | |
-|  |Send files |X | | |
-|  |Receive files |X | | |
-|  |Headset |X | | |
+|  |Send files | | |X |
+|  |Receive files | | |X |
+|  |Headset | | |X |
 |Camera | | | | |
-|  |Preview |X | | |
-|  |Regular pictures |X | | |
-|  |Panorama pictures |X | | |
-|  |SD Video recording |X | | |
-|  |HD Video recording |X | | |
+|  |Preview | | |X |
+|  |Regular pictures | | |X |
+|  |Panorama pictures | | |X |
+|  |SD Video recording | | |X |
+|  |HD Video recording | | |X |
 |Media | | | | |
-|  |Playing videos |X | | |
-|  |Playing sound |X | | |
-|  |Microphone |X | | |
-|GPS | |X | | |
+|  |Playing videos | | |X |
+|  |Playing sound | | |X |
+|  |Microphone | | |X |
+|GPS | | | |X |
 |HDMI out | | | |X |
 |USB-OTG | | | |X |
 
@@ -66,3 +66,12 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
+
+
+TODO:
+
+mediacodecs
+init (restorecon)
+device.mk
+boardconfig
+bdaddr?
