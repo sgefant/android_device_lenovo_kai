@@ -61,7 +61,6 @@ on post-fs-data
     mkdir /data/misc/wifi 0775 wifi wifi
     mkdir /data/misc/wifi/sockets 0775 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-    symlink /system/etc/bluetooth/bdaddr /data/misc/bluetooth/bdaddr
 
 # &*&*&*cj1_mod: for CL2-N
     mkdir /data/nvcam 0660 system system
@@ -117,6 +116,7 @@ on boot
 # didim
     chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
+    restorecon /sys/class/graphics/fb0/device/smartdimmer/enable
 
 # power
     chown system system /sys/kernel/tegra_cap/core_cap_level
@@ -238,11 +238,6 @@ on property:ro.debuggable=1
     # EMC debug interface
     chmod 666 /sys/kernel/debug/tegra_emc/eack_state
 
-# Write BT BD_ADDR
-service btmacreader /system/bin/btmacreader
-    class main
-    oneshot
-
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -puse_p2p_group_interface=1
@@ -321,11 +316,11 @@ service sdcard /system/bin/sdcard /data/media mnt/shell/emulated 1023 1023
 
 ## {from cardhu for BCM4330} +
 ## btmacwriter - to create unique BD address
-#service btmacwriter /system/bin/btmacwriter
-#    class main
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    oneshot
+service btmacwriter /system/bin/btmacwriter
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    oneshot
 
 # Start GPS daemon
   on boot
