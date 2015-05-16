@@ -31,8 +31,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/init.kai.rc:root/init.kai.rc \
     device/lenovo/kai/init.tf.rc:root/init.tf.rc \
     device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
-    device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc \
-    device/lenovo/kai/vold.fstab:system/etc/vold.fstab 
+    device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc
 
 # Kernel modules
 PRODUCT_COPY_FILES += \
@@ -93,30 +92,6 @@ PRODUCT_PACKAGES += \
     libinvensense_mpl \
     libnetcmdiface \
     keymaster.kai
-#    tinymix \
-#    tinyplay \
-#    tinyrec \
-#    audio.primary.kai \
-#    power.kai
-#    su \
-
-    #lights.grouper \
-
-
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-    system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-    system/extras/bugmailer/send_bug:system/bin/send_bug
-
-# NFC packages, from grouper
-#PRODUCT_PACKAGES += \
-#    nfc.grouper \
-#    libnfc \
-#    libnfc_jni \
-#    Nfc \
-#    Tag \
-#    com.android.nfc_extras
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

@@ -3,7 +3,9 @@ android_device_lenovo_kai
 
 Lenovo Ideatab A2109A (kai)
 
-This is aosp for Lenovo Ideatab A2109A (kai)
+This is cm-10.2 for Lenovo Ideatab A2109A (kai)
+
+WARNING: THIS BRANCH WAS NEVER BUILT!!!
 
 Special thanks to Aospplus developers, who already did most of what I'm trying to accomplish:
   Lloir
@@ -69,9 +71,6 @@ hardware/libhardware_legacy
 
 
 TODO:
-
-mediacodecs
 init (restorecon)
-device.mk
-boardconfig
 bdaddr?
+wifip2p?
