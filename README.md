@@ -3,15 +3,11 @@ android_device_lenovo_kai
 
 Lenovo Ideatab A2109A (kai)
 
-This is cm-10.2 for Lenovo Ideatab A2109A (kai)
+This is cm-11.0 for Lenovo Ideatab A2109A (kai)
 
 WARNING: THIS BRANCH WAS NEVER BUILT!!!
 
-Special thanks to Aospplus developers, who already did most of what I'm trying to accomplish:
-  Lloir
-  Tom Briden
-
-Special thanks for JB-4.2 to the tf700t developers for Cyanogenmod:
+Special thanks to the tf700t developers for Cyanogenmod:
   dasunsrule32
   xplodwild
   nycbjr
@@ -65,8 +61,3 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
-
-
-TODO:
-Wifip2p
-Bluetooth supported MAP is false
