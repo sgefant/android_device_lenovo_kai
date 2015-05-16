@@ -68,6 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.NV_FPSLIMIT=0 \
     persist.sys.NV_OTAFREQ = 0 \
     persist.tegra.nvmmlite=1 \
+    ro.zygote.disable_gl_preload=true \
     tf.enable=y \
     ro.opengles.version=131072
 
@@ -79,6 +80,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
+    audio.r_submix.default \
     librs_jni \
     make_ext4fs \
     setup_fs \

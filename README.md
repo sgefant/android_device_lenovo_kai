@@ -65,3 +65,10 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
+
+
+TODO:
+Wifip2p
+Bluetooth supported MAP is false
+dumpstate.kai
+build system?

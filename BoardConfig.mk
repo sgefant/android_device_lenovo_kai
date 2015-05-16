@@ -79,7 +79,12 @@ USE_PROPRIETARY_AUDIO_EXTENSIONS := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := false
 BOARD_USES_TINY_AUDIO_HW := false
+BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
+
+# Camera options
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -97,7 +102,10 @@ TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu
 BOARD_USES_HGL := true
 BOARD_EGL_NEEDS_LEGACY_FB := true
 USE_OPENGL_RENDERER := true
+BOARD_HAVE_PIXEL_FORMAT_INFO := true
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_EGL_CFG := device/lenovo/kai/config/egl.cfg
+
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
 -include vendor/nvidia/proprietary_src/build/definitions.mk
@@ -111,8 +119,7 @@ BOARD_SEPOLICY_UNION := \
         file_contexts \
         genfs_contexts \
         app.te \
-        btmacreader.te \
-        compatibility.te \
+        btmacwriter.te \
         device.te \
         init_shell.te \
         file.te \
