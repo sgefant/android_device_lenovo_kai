@@ -56,9 +56,6 @@ Some basic hardware info
 -Back camera: s5k5cag
 -Front camera: mt9m114
 
-Camera combo's:
-tf700 camera.tegra.so and libnvcamerahdr.so
-
 Working GPS combo's:
 tf700 gpsconfig.xml gps.tegra.so and kai glgps
 
@@ -68,9 +65,3 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
-
-
-TODO:
-init (restorecon)
-bdaddr?
-wifip2p?
