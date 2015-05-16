@@ -314,6 +314,15 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
+# bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
+service bugreport /system/bin/dumpstate -d -p -B \
+        -o /data/data/com.android.shell/files/bugreports/bugreport \
+        -b /system/media/audio/ui/Dock.ogg -e /system/media/audio/ui/Undock.ogg
+    class main
+    disabled
+    oneshot
+    keycodes 115 114
+
 ## {from cardhu for BCM4330} +
 ## btmacwriter - to create unique BD address
 service btmacwriter /system/bin/btmacwriter
