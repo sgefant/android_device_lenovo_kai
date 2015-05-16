@@ -360,13 +360,6 @@ service setup_fs /system/bin/setup_fs \
     group root
     oneshot
     
-#gps
-service navl_server /system/bin/navd --android_log NAVD  -p3 -nav\"-c/system/etc/gps/config/pathconfigfile.txt\"
-    disabled
-    class main
-    user root
-    oneshot
-
 ## {CL2} +
 service usb_config /system/bin/usb_config
     class late_start
