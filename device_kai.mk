@@ -98,9 +98,8 @@ PRODUCT_PACKAGES += \
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# Broadcom (Bluetooth, WiFi)
+# Bluetooth: btmacwriter
 PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.nonsmartphone.le.conf:system/etc/bluetooth/main.conf \
     device/lenovo/kai/blobs/btmacwriter:system/bin/btmacwriter
 
 # Stupid hack because of missing reference in grouper makefile
