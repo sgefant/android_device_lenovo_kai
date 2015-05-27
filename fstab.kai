@@ -11,8 +11,10 @@
 
 # VOLD
 # Mounts the first usable partition of the specified device
-/devices/platform/sdhci-tegra.0/mmc_host/mmc2           /storage/sdcard1    auto      defaults                                                                            voldmanaged=sdcard1:auto
-/devices/platform/tegra-ehci.0/usb2                     /storage/usbdrive   auto      defaults                                                                            voldmanaged=usbdrive:auto
+/devices/platform/sdhci-tegra.0/mmc_host/mmc2           auto                auto      defaults                                                                            
+voldmanaged=sdcard1:auto
+/devices/platform/tegra-ehci.0/usb2                     auto                auto      defaults                                                                            
+voldmanaged=usbdrive:auto
 
 # RECOVERY
 /dev/block/platform/sdhci-tegra.3/by-name/SOS           /recovery           emmc      defaults                                                                            recoveryonly
