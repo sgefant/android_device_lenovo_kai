@@ -53,24 +53,35 @@ PRODUCT_COPY_FILES += \
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
 
-
+# Copied from grouper
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
-    ro.wifi.channels=14 \
-    ap.interface=wlan0 \
-    ro.carrier=wifi-only \
-    ro.sf.lcd_density=160 \
-    ro.sf.override_null_lcd_density=1 \
-    keyguard.no_require_sim=true \
-    persist.sys.usb.config=mtp \
-    drm.service.enabled=true \
-    persist.sys.NV_FPSLIMIT=0 \
-    persist.sys.NV_OTAFREQ = 0 \
-    persist.tegra.nvmmlite=1 \
-    ro.zygote.disable_gl_preload=true \
     tf.enable=y \
-    ro.opengles.version=131072
+    drm.service.enabled=true
+
+# Some options for tegra
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.NV_FPSLIMIT=0 \
+    persist.sys.NV_OTAFREQ=0
+
+## Miscellaneous
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.wifi.channels=14 \
+#    ap.interface=wlan0 \
+#    ro.sf.override_null_lcd_density=1 \
+#    keyguard.no_require_sim=true \
+
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,adb
+
+# Debugging options
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1 \
+    ro.kernel.qemu=1 \
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -88,9 +99,7 @@ PRODUCT_PACKAGES += \
     hcitool \
     bttest \
     com.android.future.usb.accessory \
-    whisperd \
     NvCPLSvc \
-    libaudioutils \
     libinvensense_mpl \
     libnetcmdiface \
     keymaster.kai
