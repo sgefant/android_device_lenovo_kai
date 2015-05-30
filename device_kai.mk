@@ -74,14 +74,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp
 
 # Debugging options
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.adb.secure=0 \
-    ro.secure=0 \
-    ro.debuggable=1 \
-    ro.kernel.qemu=1 \
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.adb.secure=0 \
+#    ro.secure=0 \
+#    ro.debuggable=1 \
+#    ro.kernel.qemu=1 # This boots in emulator mode, without EGL
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
