@@ -91,3 +91,34 @@ camera.tegra.so
 1: libnvrm.so
 2: libnvrm_graphics.so, libardrv_dynamic.so
 3: libnvddk_2d_v2.so
+
+
+Try from grouper
+libEGL_tegra.so
+libEGL_tegra_impl.so
+libGLESv1_CM_tegra.so
+libGLESv2_tegra.so
+libGLESv1_CM_tegra_impl.so
+libGLESv2_tegra_impl.so
+libnvwsi.tegra.so
+libnvos.so
+hwcomposer.tegra.so
+libcgdrv.so
+gralloc.tegra.so
+libnvddk_2d_v2.so
+
+libstagefrighthw.so
+#libnvmm* ### THIS IS ALSO PROBLEMATIC: OMX GRAPH CREATION FAILED
+
+libnvrm.so ### THIS IS ALSO PROBLEMATIC: OMX GRAPH CREATION FAILED
+libnvrm_graphics.so  ### THIS IS ALSO PROBLEMATIC: OMX GRAPH CREATION FAILED
+libardrv_dynamic.so ### THIS IS THE PROBLEMATIC LIB FOR THE CAM!
+
+Note-- If I then add 
+libnvrm.so
+libnvrm_graphics.so
+libardrv_dynamic.so
+... it is actually libnvomx.so that appears to choke, in the camera thread
+
+And after adding libnvomx.so:
+connectCameraGraph: setup video port [1280x720] failed
