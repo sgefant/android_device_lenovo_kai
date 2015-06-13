@@ -22,11 +22,13 @@ on init
     export EMULATED_STORAGE_TARGET /storage/emulated
 
     # secondary storage
-    mkdir /storage/sdcard1 0000 system system
+    mkdir /storage/sdcard1 0700 system system
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     export SECONDARY_STORAGE /storage/sdcard1
 
     # usb storage
-    mkdir /storage/usbdrive 0000 system system
+    mkdir /storage/usbdrive 0700 root root
+    mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
     export EXTERNAL_USB_STORAGE /storage/usbdrive
 
     # Support legacy paths

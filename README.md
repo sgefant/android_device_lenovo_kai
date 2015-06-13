@@ -19,27 +19,31 @@ Thanks to the A2109A pioneers:
 
 |Category |Feature |Working |Not working |Unknown |
 |---------|--------|--------|------------|--------|
-|EGL | | | |X |
+|EGL | |X | | |
 |WLAN | | | | |
-|  |Client mode | | |X |
-|  |P2P | | |X |
+|  |Client mode |X | | |
+|  |P2P | |X | |
 |Bluetooth | | | |
-|  |Send files | | |X |
-|  |Receive files | | |X |
+|  |Send files |X | | |
+|  |Receive files |X | | |
 |  |Headset | | |X |
-|Camera | | | | |
+|  |Browse files |X | | |
+|Camera | | | |X |
 |  |Preview | | |X |
 |  |Regular pictures | | |X |
 |  |Panorama pictures | | |X |
 |  |SD Video recording | | |X |
 |  |HD Video recording | | |X |
 |Media | | | | |
-|  |Playing videos | | |X |
-|  |Playing sound | | |X |
-|  |Microphone | | |X |
-|GPS | | | |X |
-|HDMI out | | | |X |
-|USB-OTG | | | |X |
+|  |Playing videos |X | | |
+|  |Playing sound |X | | |
+|  |Microphone |X | | |
+|GPS | |X | | |
+|HDMI out | |X | | |
+|USB-OTG | | |X | |
+|SELinux | | | |X |
+
+
 
 Some basic hardware info
 -Bluetooth: BCM4330
@@ -61,3 +65,29 @@ frameworks/av
 frameworks/native
 hardware/libhardware
 hardware/libhardware_legacy
+
+
+camera.tegra.so
+  #libnvomxilclient.so
+  libnvos.so
+  #libjpeg.so
+  #libnvmm_utils.so
+  libnvddk_2d_v2.so
+    libardrv_dynamic.so
+       libnvrm.so
+       libnvrm_graphics.so
+    libnvos.so
+    libnvrm.so
+    libnvrm_graphics.so
+       libnvrm.so
+       libnvos.so
+  libnvrm.so
+     libnvos.so
+  #libnvcamerahdr.so
+  #libnvtvmr.so
+
+
+0: libnvos.so
+1: libnvrm.so
+2: libnvrm_graphics.so, libardrv_dynamic.so
+3: libnvddk_2d_v2.so
