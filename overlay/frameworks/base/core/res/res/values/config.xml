@@ -70,18 +70,18 @@
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>100</item>
-        <item>150</item>
-        <item>200</item>
-        <item>300</item>
-        <item>400</item>
-        <item>550</item>
-        <item>700</item>
-        <item>900</item>
-        <item>1100</item>
+        <item>50</item>
+        <item>80</item>
+        <item>140</item>
+        <item>270</item>
+        <item>500</item>
+        <item>800</item>
+        <item>1400</item>
+        <item>2200</item>
+        <item>4000</item>
+        <item>7000</item>
+        <item>12000</item>
+        <item>20000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -146,7 +146,7 @@
         <item>com.android.location.fused</item>
     </string-array>
 
+    <!-- Device has a h/w rotation lock switch -->
+    <bool name="config_hasRotationLockSwitch">true</bool>
+
 </resources>
-
-
-
