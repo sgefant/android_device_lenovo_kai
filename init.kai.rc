@@ -91,8 +91,11 @@ on boot
     # power up/down interface
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/type
+    write /sys/class/rfkill/rfkill0/state 0
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+    restorecon /sys/class/rfkill/rfkill0/state
+    restorecon /sys/class/rfkill/rfkill0/type
 ## {from cardhu for BCM4330} -
 
     # bluetooth MAC address programming
@@ -104,10 +107,10 @@ on boot
 ## {from cardhu for BCM4330} -
 
     # bluetooth LPM
-    chmod 0220 /proc/bluetooth/sleep/lpm
-    chmod 0220 /proc/bluetooth/sleep/btwrite
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+    #chmod 0220 /proc/bluetooth/sleep/lpm
+    #chmod 0220 /proc/bluetooth/sleep/btwrite
+    #chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
+    #chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
 
 # NFC
     setprop ro.nfc.port "I2C"
@@ -322,6 +325,14 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 # underlying files in /data/media wil be created with user and group media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdrive /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdrive /storage/usbdrive
+    class late_start
+    disabled
 
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -p -B \
