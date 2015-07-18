@@ -8,7 +8,10 @@
 #vendor/lib/libwvm.so
 #vendor/lib/drm/libdrmwvmplugin.so
 lib/hw/camera.tegra.so
-#lib/hw/sensors.kai.so
+lib/hw/sensors.kai.so
+lib/libsensors.base.so
+lib/libsensors.jsa1127.so
+lib/libsensors.lis3dh.so
 
 #broadcom
 lib/hw/gps.tegra.so
@@ -23,13 +26,10 @@ bin/glgps
 #etc/gps/gpsconfig.xml
 
 #invensense
-#lib/libmplmpu.so
-#lib/libmllite.so
+lib/libmplmpu.so
+lib/libmllite.so
 lib/libmlplatform.so
-#lib/libinvensense_hal.so
-lib/libsensors.base.so
-lib/libsensors.jsa1127.so
-lib/libsensors.lis3dh.so
+lib/libinvensense_hal.so
 lib/libsensors.isl29018.so
 lib/libsensors.isl29028.so
 lib/libsensors.mpl.so
@@ -90,9 +90,6 @@ lib/libnvmmlite_utils.so
 lib/libnvaudioservice.so
 lib/libaudioavp.so
 lib/libnvavp.so
-
-#
-
 
 # Below here, it is just brute force adding everything in
 lib/libnvcap.so
