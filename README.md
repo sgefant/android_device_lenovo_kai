@@ -22,26 +22,26 @@ Thanks to the A2109A pioneers:
 |EGL | |X | | |
 |WLAN | | | | |
 |  |Client mode |X | | |
-|  |P2P | |X | |
+|  |P2P |X | | |
 |Bluetooth | | | |
 |  |Send files |X | | |
 |  |Receive files |X | | |
 |  |Headset | | |X |
 |  |Browse files |X | | |
-|Camera | | | |X |
-|  |Preview | | |X |
-|  |Regular pictures | | |X |
-|  |Panorama pictures | | |X |
-|  |SD Video recording | | |X |
-|  |HD Video recording | | |X |
+|Camera | |X | | |
+|  |Preview |X | | |
+|  |Regular pictures |X | | |
+|  |Panorama pictures |X | | |
+|  |SD Video recording |X | | |
+|  |HD Video recording |X | | |
 |Media | | | | |
 |  |Playing videos |X | | |
 |  |Playing sound |X | | |
 |  |Microphone |X | | |
 |GPS | |X | | |
 |HDMI out | |X | | |
-|USB-OTG | | |X | |
-|SELinux | | | |X |
+|USB-OTG | |X | | |
+|SELinux | |X | | |
 
 
 
@@ -122,3 +122,13 @@ libardrv_dynamic.so
 
 And after adding libnvomx.so:
 connectCameraGraph: setup video port [1280x720] failed
+
+
+About the kernel--it apparently uses the following modules:
+#lsmod
+bcmdhd 395935 0 - Live 0x00000000
+mac80211 191112 0 - Live 0x00000000
+cfg80211 163320 2 bcmdhd,mac80211, Live 0x00000000
+inv_mpu_ak89xx 3978 0 - Live 0x00000000
+mpu6050b1 42477 1 inv_mpu_ak89xx, Live 0x00000000
+
