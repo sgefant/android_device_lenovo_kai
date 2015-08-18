@@ -17,16 +17,21 @@
 
 <StorageList  xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- internal emulated storage -->
-    <storage 	android:storageDescription="@string/storage_internal" 
+    <storage 	
+		android:storageDescription="@string/storage_internal" 
 		android:primary="true" 
 		android:emulated="true" 
 		android:mtpReserve="100" />
     <!-- Micro SD card -->
-    <storage 	android:mountPoint="/storage/sdcard1" 
+    <storage
+	 	android:mountPoint="/storage/sdcard1" 
 		android:storageDescription="@string/storage_sd_card" 
-		android:removable="true" />
+		android:removable="true"
+		android:maxFileSize="4096" />
+
     <!-- external USB drive -->
-    <storage 	android:mountPoint="/storage/usbdrive" 
+    <storage
+	 	android:mountPoint="/storage/usbdrive" 
 		android:storageDescription="@string/storage_usb" 
 		android:removable="true" />
 </StorageList>

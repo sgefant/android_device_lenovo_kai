@@ -14,7 +14,6 @@ on early-init
 on init
     # emulated primary storage
     mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage 0550 system sdcard_r
     mkdir /storage/emulated 0555 root root
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
@@ -29,17 +28,12 @@ on init
     # usb storage
     mkdir /storage/usbdrive 0700 root root
     mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
-    export EXTERNAL_USB_STORAGE /storage/usbdrive
 
-    # Support legacy paths
+    # support legacy paths
     symlink /storage/emulated/legacy /sdcard
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-    symlink /storage/sdcard1 /sdcard2
-    symlink /storage/sdcard1 /mnt/sdcard2
-    symlink /storage/usbdrive /usbdrive
-    symlink /storage/usbdrive /mnt/usbdrive
 
     mkdir /.preload 0000 system system
 
@@ -74,7 +68,7 @@ on post-fs-data
 
     mkdir /data/misc/wminput 0776 system system
 
-    # we will remap this as /storage/sdcard0 with the sdcard fuse tool
+    # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
