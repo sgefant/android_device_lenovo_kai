@@ -115,6 +115,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      device/lenovo/kai/lenovo-kai-proprietary/bin/tf_daemon:system/bin/tf_daemon
 
+# Firmware and config for bcmdhd
+PRODUCT_COPY_FILES += \
+    device/lenovo/kai/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/lenovo/kai/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/lenovo/kai/blobs/fw_bcm4330_apsta_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    device/lenovo/kai/blobs/fw_bcm4330_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin
+
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/idc/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
@@ -140,8 +147,6 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/etc/enctune.conf:system/etc/enctune.conf \
     device/lenovo/kai/config/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
     device/lenovo/kai/config/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    device/lenovo/kai/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/lenovo/kai/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
