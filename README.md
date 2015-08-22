@@ -1,6 +1,3 @@
-TODO:
-- Perhaps change the device tree so that I don't need to copy bcmdhd firmware
-
 android_device_lenovo_kai
 =========================
 
