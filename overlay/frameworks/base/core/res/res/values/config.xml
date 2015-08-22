@@ -146,7 +146,4 @@
         <item>com.android.location.fused</item>
     </string-array>
 
-    <!-- Device has a h/w rotation lock switch -->
-    <bool name="config_hasRotationLockSwitch">true</bool>
-
 </resources>
