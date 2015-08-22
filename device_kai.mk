@@ -20,7 +20,6 @@ PRODUCT_NAME := full_kai
 PRODUCT_DEVICE := kai
 PRODUCT_MODEL := Lenovo A2109A
 
-
 PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
     
@@ -35,20 +34,12 @@ PRODUCT_COPY_FILES += \
 
 # Kernel modules
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/kernel-modules/baseband_usb_chr.ko:system/lib/modules/baseband_usb_chr.ko \
-    device/lenovo/kai/kernel-modules/baseband-xmm-power2.ko:system/lib/modules/baseband-xmm-power2.ko \
+    device/lenovo/kai/kernel-modules/inv_mpu_ak89xx.ko:system/lib/modules/inv_mpu_ak89xx.ko \
     device/lenovo/kai/kernel-modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
     device/lenovo/kai/kernel-modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-    device/lenovo/kai/kernel-modules/inv_mpu_ak8975.ko:system/lib/modules/inv_mpu_ak8975.ko \
-    device/lenovo/kai/kernel-modules/inv_mpu_ak89xx.ko:system/lib/modules/inv_mpu_ak89xx.ko \
-    device/lenovo/kai/kernel-modules/inv_mpu_kxtf9.ko:system/lib/modules/inv_mpu_kxtf9.ko \
     device/lenovo/kai/kernel-modules/lib80211.ko:system/lib/modules/lib80211.ko \
     device/lenovo/kai/kernel-modules/mac80211.ko:system/lib/modules/mac80211.ko \
-    device/lenovo/kai/kernel-modules/mpu3050.ko:system/lib/modules/mpu3050.ko \
-    device/lenovo/kai/kernel-modules/mpu6050b1.ko:system/lib/modules/mpu6050b1.ko \
-    device/lenovo/kai/kernel-modules/raw_ip_net.ko:system/lib/modules/raw_ip_net.ko \
-    device/lenovo/kai/kernel-modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
-    device/lenovo/kai/kernel-modules/tcrypt.ko:system/lib/modules/tcrypt.ko 
+    device/lenovo/kai/kernel-modules/mpu6050b1.ko:system/lib/modules/mpu6050b1.ko 
 
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
@@ -101,8 +92,9 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     NvCPLSvc \
     libinvensense_mpl \
-    libnetcmdiface \
-    keymaster.kai
+    keymaster.kai \
+    dhdutil \
+    libnetcmdiface
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -116,11 +108,11 @@ PRODUCT_COPY_FILES += \
      device/lenovo/kai/lenovo-kai-proprietary/bin/tf_daemon:system/bin/tf_daemon
 
 # Firmware and config for bcmdhd
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/lenovo/kai/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    device/lenovo/kai/blobs/fw_bcm4330_apsta_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
-    device/lenovo/kai/blobs/fw_bcm4330_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin
+#PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+#    device/lenovo/kai/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+#    device/lenovo/kai/blobs/fw_bcm4330_apsta_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+#    device/lenovo/kai/blobs/fw_bcm4330_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin
 
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
@@ -181,7 +173,7 @@ PRODUCT_COPY_FILES += \
     #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
     #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.jar:system/framework/com.nvidia.nvstereoutils.jar \
     #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml \
-    #device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so \
+    #device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so 
 
 
 # Add permissions, copied straight from grouper
@@ -199,4 +191,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml 
+
+WIFI_BAND := 802_11_BG
+ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
