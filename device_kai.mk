@@ -92,9 +92,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     NvCPLSvc \
     libinvensense_mpl \
-    keymaster.kai \
-    dhdutil \
-    libnetcmdiface
+    keymaster.kai
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -106,13 +104,6 @@ PRODUCT_COPY_FILES += \
 # Stupid hack because of missing reference in grouper makefile
 PRODUCT_COPY_FILES += \
      device/lenovo/kai/lenovo-kai-proprietary/bin/tf_daemon:system/bin/tf_daemon
-
-# Firmware and config for bcmdhd
-#PRODUCT_COPY_FILES += \
-#    device/lenovo/kai/config/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-#    device/lenovo/kai/config/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-#    device/lenovo/kai/blobs/fw_bcm4330_apsta_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
-#    device/lenovo/kai/blobs/fw_bcm4330_bg.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin
 
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
