@@ -20,9 +20,8 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    <bool name="config_batterySdCardAccessibility">true</bool>
-
-    <bool name="config_allowAllRotations">true</bool>
+    <!-- Software blur is too slow on this device. -->
+    <bool name="config_sf_slowBlur">true</bool>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
@@ -157,21 +156,71 @@
         <item>255</item>
     </integer-array>
 
-    <integer name="config_downloadDataDirSize">200</integer>
-
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
-
+    <integer name="config_screenBrightnessDim">10</integer>   
+    
+    <!-- This device is not "voice capable"; it's data-only. -->
     <bool name="config_voice_capable">false</bool>
+    
+    <!-- This device does not allow sms service. -->
     <bool name="config_sms_capable">false</bool>
+    
+    <!-- Enable puk unlockscreen -->
+    <bool name="config_enable_puk_unlock_screen">true</bool>
 
-    <!-- bool name="config_screenOffAnimation">false</bool -->
+    <!-- Number of database connections opened and managed by framework layer
+         to handle queries on each database. -->
+    <integer name="db_connection_pool_size">3</integer>
+    
+    <!-- Max space (in MB) allocated to DownloadManager to store the downloaded files
+         if they are to be stored in DownloadManager's data dir,
+         which typically is /data/data/com.android.providers.downloads/files. -->
+    <integer name="config_downloadDataDirSize">200</integer>
+    
+    <!-- When the free space available in DownloadManager's data dir falls
+         below the percentage value specified by this param, DownloadManager
+         starts removing files to try to make percentage of available
+         free space above this threshold value. -->
+    <integer name="config_downloadDataDirLowSpaceThreshold">10</integer>
+         
+    <!-- When a database query is executed, the results retuned are paginated
+         in pages of size (in KB) indicated by this value -->
+    <integer name="config_cursorWindowSize">2048</integer>
+    
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">false</bool>
+    
+    
+    <!-- Base "touch slop" value used by ViewConfiguration as a
+         movement threshold where scrolling should begin.
+    
+          -->
+    <dimen name="config_viewConfigurationTouchSlop">12dp</dimen>
 
+
+    <!-- Separate software navigation bar required on this device. -->
     <bool name="config_showNavigationBar">true</bool>
     
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+    
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+         
     <!-- Boolean indicating if current platform need do one-time bluetooth address
          re-validation -->
     <bool name="config_bluetooth_address_validation">true</bool>
+         
+    <!-- The attenuation in dB applied to the lock/unlock sounds. -->
+    <integer name="config_lockSoundVolumeDb">0</integer>
+    
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">8</integer>
+    
+    <!-- reference volume index for music stream to limit headphone volume and display warning -->
+    <!-- integer name="config_safe_media_volume_index" 6 /integer -->
     
     <string-array name="config_locationProviderPackageNames" translatable="false">
         <!-- The Google provider -->
@@ -179,6 +228,10 @@
         <!-- The standard AOSP fused location provider -->
         <item>com.android.location.fused</item>
     </string-array>
+
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
+    <bool name="config_allowAllRotations">true</bool>
 
     <!-- Device has a h/w rotation lock switch -->
     <bool name="config_hasRotationLockSwitch">true</bool>
