@@ -88,6 +88,9 @@ BOARD_HAL_STATIC_LIBRARIES := \
     libdumpstate.kai
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUEDROID_VENDOR_CONF := device/lenovo/kai/bluetooth/vnd_kai.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/lenovo/kai/bluetooth
 
 # Use Cortex A9 optimizations for A7

@@ -72,10 +72,6 @@ on fs
     symlink /system/lib/hw/camera.tegra.so /system/lib/hw/camera.tegra3.so
     symlink /system/lib/hw/audio.primary.tegra.so /system/lib/hw/audio.primary.tegra3.so
 
-    # Create symlinks to weird bcmdhd firmware path
-    symlink /system/vendor/firmware/fw_bcmdhd.bin /system/vendor/firmware/bcm4330/fw_bcmdhd.bin
-    symlink /system/vendor/firmware/fw_bcmdhd_apsta.bin /system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin
-
     mount_all /fstab.kai
 
 on post-fs-data
