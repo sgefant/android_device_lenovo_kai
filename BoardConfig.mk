@@ -121,7 +121,6 @@ BOARD_SEPOLICY_UNION := \
         file_contexts \
         genfs_contexts \
         app.te \
-        btmacreader.te \
         device.te \
         init_shell.te \
         file.te \
