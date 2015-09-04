@@ -18,7 +18,6 @@
 # module definitions is really to use sed when we're
 # adding the kai alternatives...
 #lenovo
-btmacreader
 #sensors-config
 #libsensors.lightsensor.so
 #broadcom
@@ -27,8 +26,8 @@ btmacreader
 #nvidia
 #nvavp_os_00001000.bin
 #nvavp_os_e0000000.bin
-libnvmm_misc.so
-libnvdispmgr_d.so
+#libnvmm_misc.so
+#libnvdispmgr_d.so
 #nxp
 #libpn544_fw.so
 #widevine
