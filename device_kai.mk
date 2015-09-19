@@ -97,10 +97,6 @@ PRODUCT_PACKAGES += \
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# Bluetooth: btmacwriter
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/blobs/btmacwriter:system/bin/btmacwriter
-
 # Stupid hack because of missing reference in grouper makefile
 PRODUCT_COPY_FILES += \
      device/lenovo/kai/lenovo-kai-proprietary/bin/tf_daemon:system/bin/tf_daemon
