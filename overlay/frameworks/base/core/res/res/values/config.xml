@@ -72,6 +72,7 @@
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
+        <item>"bt-pan"</item>
     </string-array>
 
     <string translatable="false" name="config_ethernet_iface_regex">(eth|usb)\\d</string>
@@ -123,15 +124,15 @@
         <item>79</item>
         <item>125</item>
         <item>130</item>
-        <item>135</item>
         <item>140</item>
         <item>150</item>
         <item>160</item>
         <item>170</item>
         <item>180</item>
-        <item>190</item>
-        <item>200</item>
-        <item>220</item>
+        <item>195</item>
+        <item>210</item>
+        <item>225</item>
+        <item>240</item>
         <item>255</item>
     </integer-array>
 
