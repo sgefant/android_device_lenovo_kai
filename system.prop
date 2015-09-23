@@ -9,6 +9,3 @@ ro.sf.lcd_density=160
 
 # don't preload OpenGL in Zygote, the Tegra drivers do not like it
 ro.zygote.disable_gl_preload=true
-
-# Bluetooth
-ro.bluetooth.request.master=true
