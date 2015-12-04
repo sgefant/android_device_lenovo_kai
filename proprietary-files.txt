@@ -16,13 +16,7 @@ lib/libsensors.lis3dh.so
 #broadcom
 lib/hw/gps.tegra.so
 etc/firmware/bcm4330.hcd
-#vendor/firmware/bcm4330/fw_bcmdhd.bin
-#vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin
-#vendor/firmware/bcm4330/fw_bcmdhd_p2p.bin
-#vendor/firmware/bcm4330/mfg.bin
 bin/glgps
-#bin/gps_util
-#etc/bluetooth/bdaddr
 #etc/gps/gpsconfig.xml
 
 #invensense
@@ -51,13 +45,10 @@ lib/hw/lights.kai.so
 lib/hw/nfc.tegra.so
 lib/hw/ts.default.so
 # EGL
-#lib/egl/libEGL_perfhud.so
 lib/egl/libEGL_tegra.so
 lib/egl/libEGL_tegra_impl.so
-#lib/egl/libGLESv1_CM_perfhud.so
 lib/egl/libGLESv1_CM_tegra.so
 lib/egl/libGLESv1_CM_tegra_impl.so
-#lib/egl/libGLESv2_perfhud.so
 lib/egl/libGLESv2_tegra.so
 lib/egl/libGLESv2_tegra_impl.so
 lib/libnvcap_video.so
@@ -134,7 +125,6 @@ lib/libnvcontrol_jni.so
 etc/nvcamera.conf
 etc/nvram_4330.txt
 bin/hdcp_test
-#bin/usb_config
 bin/tf_daemon
 bin/rm_ts_server
 bin/nvcpud
@@ -146,7 +136,6 @@ vendor/lib/libwvdrm_L1.so
 #configurations and miscellaneous
 etc/permissions/com.google.widevine.software.drm.xml
 #framework/com.google.widevine.software.drm.jar
-#bin/brcm_patchram_plus
 #media/audio/notifications/bootsound_depop.wav
 #media/audio/notifications/bootsound.wav
 #usr/idc/ft5x0x_ts.idc
