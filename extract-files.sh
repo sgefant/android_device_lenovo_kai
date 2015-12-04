@@ -30,7 +30,8 @@ for FILE in `cat proprietary-files.txt | grep \/ | sed 's/#//g' `; do
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
     fi
-    adb pull /system/$FILE $BASE/$FILE
+    echo "Extracting $FILE..."
+    adb pull /system/$FILE $BASE/$FILE 2>/dev/null || echo "Could not find $FILE"
 done
 
 #./setup-makefiles.sh
