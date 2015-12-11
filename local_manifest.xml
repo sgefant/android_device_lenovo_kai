@@ -2,7 +2,7 @@
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
-  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-11.0" />
+  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-12.1" />
 
 <!-- Kernel -->
   <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="kernel-kai-clean" remote="github" />

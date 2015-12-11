@@ -3,11 +3,9 @@ android_device_lenovo_kai
 
 Lenovo Ideatab A2109A (kai)
 
-This is cm-11.0 for Lenovo Ideatab A2109A (kai)
+This is cm-12.1 for Lenovo Ideatab A2109A (kai)
 
-WARNING: THIS BRANCH WAS NEVER BUILT!!!
-
-Special thanks to the tf700t developers for Cyanogenmod:
+Special thanks to the tf700t and tf300t developers for Cyanogenmod:
   dasunsrule32
   xplodwild
   nycbjr
@@ -122,13 +120,4 @@ libardrv_dynamic.so
 
 And after adding libnvomx.so:
 connectCameraGraph: setup video port [1280x720] failed
-
-
-About the kernel--it apparently uses the following modules:
-#lsmod
-bcmdhd 395935 0 - Live 0x00000000
-mac80211 191112 0 - Live 0x00000000
-cfg80211 163320 2 bcmdhd,mac80211, Live 0x00000000
-inv_mpu_ak89xx 3978 0 - Live 0x00000000
-mpu6050b1 42477 1 inv_mpu_ak89xx, Live 0x00000000
 

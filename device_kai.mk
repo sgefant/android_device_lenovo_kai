@@ -20,9 +20,12 @@ PRODUCT_NAME := full_kai
 PRODUCT_DEVICE := kai
 PRODUCT_MODEL := Lenovo A2109A
 
-PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_CONFIG := normal large
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
-    
+
+# A list of dpis to select prebuilt apk, in precedence order.
+PRODUCT_AAPT_PREBUILT_DPI := hdpi
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
@@ -49,19 +52,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     tf.enable=y \
+    persist.sys.media.legacy-drm=true \
     drm.service.enabled=true
+
+# libhwui flags
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.render_dirty_regions=false
 
 # Some options for tegra
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.NV_FPSLIMIT=0 \
     persist.sys.NV_OTAFREQ=0
-
-## Miscellaneous
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.wifi.channels=14 \
-#    ap.interface=wlan0 \
-#    ro.sf.override_null_lcd_density=1 \
-#    keyguard.no_require_sim=true \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -74,9 +75,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #    ro.debuggable=1 \
 #    ro.kernel.qemu=1 # This boots in emulator mode, without EGL
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
+
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+PRODUCT_PACKAGES := \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 
 # From Grouper and additions from superhansi (NvCPLSvc and further down the list)
 PRODUCT_PACKAGES += \
@@ -84,8 +97,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     librs_jni \
-    make_ext4fs \
-    setup_fs \
     l2ping \
     hcitool \
     bttest \
@@ -93,6 +104,13 @@ PRODUCT_PACKAGES += \
     NvCPLSvc \
     libinvensense_mpl \
     keymaster.kai
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    e2fsck \
+    setup_fs
+
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -120,6 +138,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/config/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
     device/lenovo/kai/config/gps.conf:system/etc/gps.conf \
     device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     device/lenovo/kai/config/media_codecs.xml:system/etc/media_codecs.xml \
     device/lenovo/kai/config/audio_policy.conf:system/etc/audio_policy.conf \
     device/lenovo/kai/lenovo-kai-proprietary/etc/asound.conf:system/etc/asound.conf \
@@ -176,6 +197,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \

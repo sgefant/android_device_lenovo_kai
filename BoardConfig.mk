@@ -48,6 +48,8 @@ BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
+# System partition might be too small, if so, disable journaling on system.img to save space.
+#BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
 BOARD_FLASH_BLOCK_SIZE := 4096
 
@@ -59,7 +61,6 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE           := bcmdhd
-#WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/bcm4329.ko"
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
@@ -71,17 +72,21 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_USES_GENERIC_INVENSENSE := false
 
+MALLOC_IMPL := dlmalloc
+
 # Audio Options
-USE_PROPRIETARY_AUDIO_EXTENSIONS := true
 BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_ALSA_AUDIO := false
-BOARD_USES_TINY_AUDIO_HW := false
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
+USE_LEGACY_AUDIO_POLICY := 1
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 
-# Camera options
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+# Defines for legacy blobs
+COMMON_GLOBAL_CFLAGS += \
+    -DNEEDS_VECTORIMPL_SYMBOLS \
+    -DADD_LEGACY_SET_POSITION_SYMBOL \
+    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
+    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
@@ -117,18 +122,29 @@ endif
 BOARD_SEPOLICY_DIRS := \
         device/lenovo/kai/sepolicy
 
+# TODO: Check the necessity of bluetooth.te, drmserver.te, sensors-config.te
 BOARD_SEPOLICY_UNION := \
         file_contexts \
         genfs_contexts \
-        app.te \
+        bluetooth.te \
         device.te \
+        domain.te \
+        drmserver.te \
         init_shell.te \
         file.te \
+        gpsd.te \
+        keystore.te \
+        lmkd.te \
+        mediaserver.te \
+        recovery.te \
         rild.te \
-        sensors_config.te \
         surfaceflinger.te \
-        system.te \
-        zygote.te
+        system_app.te \
+        system_server.te \
+        ueventd.te \
+        vold.te \
+        radio.te
+
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
