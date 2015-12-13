@@ -17,30 +17,60 @@ Thanks to the A2109A pioneers:
 
 |Category |Feature |Working |Not working |Unknown |
 |---------|--------|--------|------------|--------|
-|EGL | |X | | |
+|EGL | | | |X |
 |WLAN | | | | |
-|  |Client mode |X | | |
-|  |P2P |X | | |
+|  |Client mode | | |X |
+|  |P2P | | |X |
 |Bluetooth | | | |
-|  |Send files |X | | |
-|  |Receive files |X | | |
+|  |Send files | | |X |
+|  |Receive files | | |X |
 |  |Headset | | |X |
-|  |Browse files |X | | |
-|Camera | |X | | |
-|  |Preview |X | | |
-|  |Regular pictures |X | | |
-|  |Panorama pictures |X | | |
-|  |SD Video recording |X | | |
-|  |HD Video recording |X | | |
-|Media | | | | |
-|  |Playing videos |X | | |
-|  |Playing sound |X | | |
-|  |Microphone |X | | |
-|GPS | |X | | |
-|HDMI out | |X | | |
-|USB-OTG | |X | | |
-|SELinux | |X | | |
+|  |Browse files | | |X |
+|Camera | | | | |
+|  |Preview | | |X |
+|  |Regular pictures | | |X |
+|  |Panorama pictures | | |X |
+|  |SD Video recording | | |X |
+|  |HD Video recording | | |X |
+|Media | | | |X |
+|  |Playing videos | | |X |
+|  |Playing sound | | |X |
+|  |Microphone | | |X |
+|GPS | | | |X |
+|HDMI out | | | |X |
+|USB-OTG | | | |X |
+|SELinux | | | |X |
 
+
+Other tegra3 devices and their repos:
+grouper (Nexus 7 2012)
+https://github.com/CyanogenMod/android_device_asus_grouper
+devs: Lloir, jrizzoli, thoemy, dhacker29
+https://android.googlesource.com/device/asus/grouper/
+
+tf300t (Asus Transformer Pad TF300T)
+https://github.com/CyanogenMod/android_device_asus_tf300t
+devs: chrmhoffmann, jruesga, dasunsrule32
+
+tf700t (Asus Transformer Pad Infinity TF700T)
+https://github.com/CyanogenMod/android_device_asus_tf700t
+devs: jruesga, dasunsrule32, tombriden, rmcc
+
+a500 (Acer Iconia A500 Picasso)
+https://github.com/CyanogenMod/android_device_acer_a500
+
+p880 (LG Optimus 4X HD)
+https://github.com/CyanogenMod/android_device_lge_p880
+devs: Ntemis, rmcc
+https://github.com/P880-dev/proprietary_vendor_lge
+devs: laufersteppenwolf
+
+endeavoru (HTC One X)
+https://github.com/CyanogenMod/android_device_htc_endeavoru
+enrc2b (HTC One X+ (international))
+https://github.com/cyanogenmod/android_device_htc_enrc2b
+https://github.com/CyanogenMod/android_device_htc_tegra3-common
+devs: Lloir, thoemy
 
 
 Some basic hardware info
@@ -120,4 +150,3 @@ libardrv_dynamic.so
 
 And after adding libnvomx.so:
 connectCameraGraph: setup video port [1280x720] failed
-
