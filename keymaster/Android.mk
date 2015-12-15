@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ifeq ($(TARGET_ARCH),arm)
-ifeq (kai,$(TARGET_DEVICE))
+ifeq ($(TARGET_DEVICE),kai)
 
 LOCAL_PATH := $(call my-dir)
 
