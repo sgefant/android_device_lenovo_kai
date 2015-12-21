@@ -17,7 +17,7 @@ Thanks to the A2109A pioneers:
 
 |Category |Feature |Working |Not working |Unknown |
 |---------|--------|--------|------------|--------|
-|EGL | | | |X |
+|EGL | |X | | |
 |WLAN | | | | |
 |  |Client mode | | |X |
 |  |P2P | | |X |

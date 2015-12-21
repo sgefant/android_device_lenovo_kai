@@ -5,7 +5,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # This directory did not exist, adapted from grouper proprietary files
 $(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
@@ -15,10 +14,6 @@ ifeq ($(TARGET_PREBUILT_KERNEL),)
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
-
-PRODUCT_NAME := full_kai
-PRODUCT_DEVICE := kai
-PRODUCT_MODEL := Lenovo A2109A
 
 PRODUCT_AAPT_CONFIG := normal large
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
@@ -83,7 +78,7 @@ include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
@@ -101,7 +96,6 @@ PRODUCT_PACKAGES += \
     hcitool \
     bttest \
     com.android.future.usb.accessory \
-    NvCPLSvc \
     libinvensense_mpl \
     keymaster.kai
 
@@ -179,10 +173,6 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
     #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
-    #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.jar:system/framework/com.nvidia.nvstereoutils.jar \
-    #device/lenovo/kai/nvstereoutils/com.nvidia.nvstereoutils.xml:system/etc/permissions/com.nvidia.nvstereoutils.xml \
-    #device/lenovo/kai/nvstereoutils/libnvstereoutils_jni.so:system/lib/libnvstereoutils_jni.so 
-
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \

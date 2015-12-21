@@ -47,20 +47,6 @@ on fs
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
     setprop ro.crypto.umount_sd false
 
-    # PLEASE DO NOT REMOVE NVSI SYMLINK! IF CHANGES ARE NEEDED PLEASE ENSURE THAT NVSI SYMLINK IS ALWAYS CREATED.
-    # Mount system to allow NVSI symlink
-    mount ext4 /dev/block/platform/sdhci-tegra.3/by-name/APP /system rw
-
-    # Create NVSI filter symlink
-    symlink /data/data/com.nvidia.NvCPLSvc/files/com.nvidia.nvsiutilv1.xml /system/etc/permissions/com.nvidia.nvsiutilv1.xml
-
-    # Create symlinks to .tegra3.so modules
-    symlink /system/lib/hw/gralloc.tegra.so /system/lib/hw/gralloc.tegra3.so
-    symlink /system/lib/hw/hwcomposer.tegra.so /system/lib/hw/hwcomposer.tegra3.so
-    symlink /system/lib/hw/gps.tegra.so /system/lib/hw/gps.tegra3.so
-    symlink /system/lib/hw/camera.tegra.so /system/lib/hw/camera.tegra3.so
-    symlink /system/lib/hw/audio.primary.tegra.so /system/lib/hw/audio.primary.tegra3.so
-
     mount_all /fstab.kai
 
 on post-fs-data
@@ -81,14 +67,6 @@ on post-fs-data
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
-
-    # gps
-    mkdir /data/gps
-    mkdir /data/gps/log/
-    chown root system /data/gps
-    chown root system /data/gps/log
-    chmod 0770 /data/gps
-    chmod 0770 /data/gps/log
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -199,9 +177,14 @@ on boot
     chown root system /sys/class/gpio/gpio163/value
     chmod 0664 /sys/class/gpio/gpio163/value
 
+    mkdir /data/gps
+    mkdir /data/gps/log/
+    chown root system /data/gps
+    chown root system /data/gps/log
+    chmod 0770 /data/gps
+    chmod 0770 /data/gps/log
     chown gps system /dev/ttyHS1
     chmod 0660 /dev/ttyHS1
-
 
 # Load WiFi driver
     insmod /system/lib/modules/cfg80211.ko

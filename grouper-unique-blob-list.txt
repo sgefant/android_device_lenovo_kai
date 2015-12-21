@@ -19,6 +19,7 @@
 # adding the kai alternatives...
 #lenovo
 #sensors-config
+#gps.tegra3.so
 #libsensors.lightsensor.so
 #broadcom
 #elan

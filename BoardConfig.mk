@@ -27,7 +27,7 @@ RECOVERY_FSTAB_VERSION := 2
 # inherit from the proprietary version
 -include vendor/lenovo/kai/BoardConfigVendor.mk
 
-TARGET_BOARD_PLATFORM := tegra3
+TARGET_BOARD_PLATFORM := tegra
 TARGET_TEGRA_VERSION := t30
  
 TARGET_CPU_ABI := armeabi-v7a
@@ -79,7 +79,6 @@ BOARD_USES_GENERIC_AUDIO := false
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 USE_LEGACY_AUDIO_POLICY := 1
-COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 
 # Defines for legacy blobs
 COMMON_GLOBAL_CFLAGS += \

@@ -4,5 +4,4 @@ ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 
 ifneq ($(filter kai,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
--include vendor/nvidia/common/TegraBoard.mk
 endif
