@@ -157,7 +157,9 @@ echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
 # For each line, we check whether it is commented out, ("#"),
 # whether it contains a filename ("/") and to which vendor package it belongs.
 
-for FILE in `cat proprietary-files.txt`; do
+for FILE in `cat proprietary-files.txt \
+		| sed  's/lib\/hw\/audio.primary.tegra.so/vendor\/lib\/hw\/audio.primary_vendor.tegra.so/' \
+		| sed  's/lib\/hw\/audio_policy.tegra.so/vendor\/lib\/hw\/audio_policy.vendor.tegra.so/'   `; do
   case $FILE in
     "#"*)
       for k in $VENDORS; do

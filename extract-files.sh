@@ -34,4 +34,7 @@ for FILE in `cat proprietary-files.txt | grep \/ | sed 's/#//g' `; do
     adb pull /system/$FILE $BASE/$FILE 2>/dev/null || echo "Could not find $FILE"
 done
 
-#./setup-makefiles.sh
+# Deal with HALs to be wrapped
+mkdir -p $BASE/vendor/lib/hw
+mv $BASE/lib/hw/audio.primary.tegra.so   $BASE/vendor/lib/hw/audio.primary_vendor.tegra.so
+mv $BASE/lib/hw/audio_policy.tegra.so   $BASE/vendor/lib/hw/audio_policy.vendor.tegra.so

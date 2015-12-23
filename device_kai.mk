@@ -105,6 +105,10 @@ PRODUCT_PACKAGES += \
     e2fsck \
     setup_fs
 
+# Wrappers
+PRODUCT_PACKAGES += \
+    audio.primary.tegra \
+    audio_policy.tegra 
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
