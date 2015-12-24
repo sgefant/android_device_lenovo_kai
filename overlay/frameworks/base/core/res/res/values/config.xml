@@ -235,6 +235,6 @@
     <bool name="config_allowAllRotations">true</bool>
 
     <!-- Device has a h/w rotation lock switch -->
-    <!-- bool name="config_hasRotationLockSwitch">true</bool -->
+    <bool name="config_hasRotationLockSwitch">true</bool>
 
 </resources>

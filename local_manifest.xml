@@ -20,6 +20,10 @@
   <!-- remove-project name="platform/external/webp" / -->
   <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
 
+<!-- frameworks/base -->
+  <remove-project name="CyanogenMod/android_frameworks_base" />
+  <project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="cm-12.1" />
+
 <!-- tinyalsa, for audio hal -->
   <remove-project name="CyanogenMod/android_external_tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="Lollipop-5.1" />
