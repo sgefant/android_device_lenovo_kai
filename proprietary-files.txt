@@ -16,9 +16,9 @@ lib/libsensors.jsa1127.so
 lib/libsensors.lis3dh.so
 
 #broadcom
-lib/hw/gps.tegra.so
+#lib/hw/gps.tegra.so
 etc/firmware/bcm4330.hcd
-bin/glgps
+#bin/glgps
 #etc/gps/gpsconfig.xml
 
 #invensense

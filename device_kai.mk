@@ -163,9 +163,10 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
 
-# GPS ; This is the GPS HAL from asus tf700
+# GPS ; This is the GPS HAL from asus tf700t and glgps from tf300t
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/blobs/gps.tegra.so:system/lib/hw/gps.tegra.so
+    device/lenovo/kai/blobs/gps.tegra.so:system/lib/hw/gps.tegra.so \
+    device/lenovo/kai/blobs/glgps:system/bin/glgps 
 
 # Camera; This is the stock camera HAL and stock libjpeg, but renamed libtjpg.so
 PRODUCT_COPY_FILES += \
