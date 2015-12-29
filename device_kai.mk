@@ -54,11 +54,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.render_dirty_regions=false
 
-# Some options for tegra
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.NV_FPSLIMIT=0 \
-    persist.sys.NV_OTAFREQ=0
-
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -120,21 +115,15 @@ PRODUCT_COPY_FILES += \
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/idc/ft5x0x_ts.idc:system/usr/idc/ft5x0x_ts.idc \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
     device/lenovo/kai/lenovo-kai-proprietary/usr/idc/raydium_ts.idc:system/usr/idc/raydium_ts.idc \
     device/lenovo/kai/lenovo-kai-proprietary/usr/idc/sensor00fn11.idc:system/usr/idc/sensor00fn11.idc \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Bluetooth_00_06_66_42.kl:system/usr/keylayout/Bluetooth_00_06_66_42.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_044f_Product_d007.kl:system/usr/keylayout/Vendor_044f_Product_d007.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_045e_Product_0719.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21d.kl:system/usr/keylayout/Vendor_046d_Product_c21d.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21e.kl:system/usr/keylayout/Vendor_046d_Product_c21e.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_046d_Product_c21f.kl:system/usr/keylayout/Vendor_046d_Product_c21f.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_2378_Product_100a.kl:system/usr/keylayout/Vendor_2378_Product_100a.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
     device/lenovo/kai/config/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
-    device/lenovo/kai/config/gps.conf:system/etc/gps.conf \
     device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \

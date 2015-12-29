@@ -80,7 +80,8 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 USE_LEGACY_AUDIO_POLICY := 1
 
-# Defines for legacy blobs
+### Defines for legacy blobs
+# Used in tf300t, tf700t, htc-tegra3 and p880
 COMMON_GLOBAL_CFLAGS += \
     -DNEEDS_VECTORIMPL_SYMBOLS \
     -DADD_LEGACY_SET_POSITION_SYMBOL \
@@ -103,14 +104,21 @@ USE_ALL_OPTIMIZED_STRING_FUNCS := true
 # Turn on Cortex A9 Optimizations for A7
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
 
-# EGL
+### EGL
 USE_OPENGL_RENDERER := true
+# Used in tf300t, tf700t, p880
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
 BOARD_EGL_CFG := device/lenovo/kai/config/egl.cfg
-BOARD_EGL_SKIP_FIRST_DEQUEUE := true
+
+# Used in htc-tegra3 and p880
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
+
+# Used only in kai
+BOARD_EGL_SKIP_FIRST_DEQUEUE := true
 BOARD_USE_MHEAP_SCREENSHOT := true
+###
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
