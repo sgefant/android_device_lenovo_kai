@@ -30,15 +30,6 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
     device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc
 
-# Kernel modules
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/kernel-modules/inv_mpu_ak89xx.ko:system/lib/modules/inv_mpu_ak89xx.ko \
-    device/lenovo/kai/kernel-modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-    device/lenovo/kai/kernel-modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-    device/lenovo/kai/kernel-modules/lib80211.ko:system/lib/modules/lib80211.ko \
-    device/lenovo/kai/kernel-modules/mac80211.ko:system/lib/modules/mac80211.ko \
-    device/lenovo/kai/kernel-modules/mpu6050b1.ko:system/lib/modules/mpu6050b1.ko 
-
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
 

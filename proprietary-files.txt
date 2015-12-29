@@ -43,7 +43,7 @@ lib/hw/gralloc.tegra.so
 lib/hw/hwcomposer.tegra.so
 lib/hw/lights.kai.so
 #lib/hw/nfc.tegra.so
-#lib/hw/ts.default.so
+lib/hw/ts.default.so
 # EGL
 lib/egl/libEGL_tegra.so
 lib/egl/libEGL_tegra_impl.so
