@@ -129,8 +129,8 @@ endif
 BOARD_SEPOLICY_DIRS := \
         device/lenovo/kai/sepolicy
 
-# TODO: Check the necessity of bluetooth.te, drmserver.te, sensors-config.te
 BOARD_SEPOLICY_UNION := \
+	service_contexts \
         file_contexts \
         genfs_contexts \
         bluetooth.te \
