@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
     bttest \
     com.android.future.usb.accessory \
     libinvensense_mpl \
+    power.kai \
     keymaster.kai
 
 # Filesystem management tools
