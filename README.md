@@ -5,6 +5,33 @@ Lenovo Ideatab A2109A (kai)
 
 This is cm-12.1 for Lenovo Ideatab A2109A (kai)
 
+CAMERA PROBLEMS:
+E/NvOmxCamera(  152): createCameraObjects: graph creation failed! [0x80001005]
+E/NvOmxCamera(  152): NvOmxCamera::createObjects :::: FAIL ::::::::::::::::: [0x80001005]
+
+OTHER OMX:
+E/OMXMaster(  151): OMX plugin failed w/ error 0x80001001 after registering 0 components
+E/OMXMaster(  151): A component of name 'OMX.ffmpeg.wmv.decoder' already exists, ignoring this one.
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.mp4.decode'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.h263.decode'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.h264.decode'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.h264.decode.secure'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.mpeg2v.decode'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.mp2.decoder'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.mp4.encoder'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.h263.encoder'
+E/OMX     (  151): FAILED to allocate omx component 'OMX.Nvidia.h264.encoder'
+
+BLUETOOTH
+E/bt_osi_config( 1484): config_new unable to open file '/etc/bluetooth/ble_stack.conf': No such file or directory
+
+AUDIT
+E/audit_rules(  131): Could not read audit rules /data/misc/audit/audit.rules: No such file or directory
+
+MINIKIN
+E/Minikin (  139): addFont failed to create font /system/fonts/NotoSansGujarati-Regular.ttf
+
+
 Special thanks to the tf700t and tf300t developers for Cyanogenmod:
   dasunsrule32
   xplodwild
@@ -19,27 +46,30 @@ Thanks to the A2109A pioneers:
 |---------|--------|--------|------------|--------|
 |EGL | |X | | |
 |WLAN | | | | |
-|  |Client mode | | |X |
+|  |Client mode |X | | |
 |  |P2P | | |X |
 |Bluetooth | | | |
 |  |Send files | | |X |
 |  |Receive files | | |X |
 |  |Headset | | |X |
 |  |Browse files | | |X |
-|Camera | | | | |
-|  |Preview | | |X |
-|  |Regular pictures | | |X |
-|  |Panorama pictures | | |X |
-|  |SD Video recording | | |X |
-|  |HD Video recording | | |X |
-|Media | | | |X |
-|  |Playing videos | | |X |
-|  |Playing sound | | |X |
-|  |Microphone | | |X |
-|GPS | | | |X |
+|Camera | | |X | |
+|  |Preview | |X | |
+|  |Regular pictures | |X | |
+|  |Panorama pictures | |X | |
+|  |SD Video recording | |X | |
+|  |HD Video recording | |X | |
+|Media | | | | |
+|  |Playing videos | |X | |
+|  |Playing sound |X | | |
+|  |Microphone |X | | |
+|Sensors | | | |
+|  |GPS |X | | |
+|  |Accellerometer |X | | |
+|  |Lightsensor |X | | |
 |HDMI out | | | |X |
 |USB-OTG | | | |X |
-|SELinux | | | |X |
+|SELinux |X | | | |
 
 
 Other tegra3 devices and their repos:
