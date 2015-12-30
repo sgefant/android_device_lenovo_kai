@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     libinvensense_mpl \
     power.kai \
+    lights.kai \
     keymaster.kai
 
 # Filesystem management tools
