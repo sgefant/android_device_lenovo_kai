@@ -96,7 +96,8 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
-    audio_policy.tegra 
+    audio_policy.tegra \
+    camera.tegra
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -152,7 +153,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera; This is the stock camera HAL and stock libjpeg, but renamed libtjpg.so
 PRODUCT_COPY_FILES += \
-    device/lenovo/kai/blobs/camera.tegra.so:system/lib/hw/camera.tegra.so \
+    device/lenovo/kai/blobs/camera.tegra.so:system/vendor/lib/hw/camera.vendor.tegra.so \
     device/lenovo/kai/blobs/libtjpg.so:system/lib/libtjpg.so
 
 # Miscellaneous

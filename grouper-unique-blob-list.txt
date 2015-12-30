@@ -21,6 +21,7 @@
 #sensors-config
 #gps.tegra.so
 #glgps
+#camera.tegra.so
 #libsensors.lightsensor.so
 #broadcom
 #elan

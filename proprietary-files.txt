@@ -39,29 +39,29 @@ etc/firmware/nvavp_os_0ff00000.bin
 etc/firmware/nvavp_os_eff00000.bin
 etc/firmware/nvavp_vid_ucode_alt.bin
 # HAL
-lib/hw/gralloc.tegra.so
-lib/hw/hwcomposer.tegra.so
-lib/hw/lights.kai.so
+#lib/hw/gralloc.tegra.so
+#lib/hw/hwcomposer.tegra.so
+#lib/hw/lights.kai.so
 #lib/hw/nfc.tegra.so
 lib/hw/ts.default.so
 # EGL
-lib/egl/libEGL_tegra.so
+#lib/egl/libEGL_tegra.so
 lib/egl/libEGL_tegra_impl.so
-lib/egl/libGLESv1_CM_tegra.so
+#lib/egl/libGLESv1_CM_tegra.so
 lib/egl/libGLESv1_CM_tegra_impl.so
-lib/egl/libGLESv2_tegra.so
+#lib/egl/libGLESv2_tegra.so
 lib/egl/libGLESv2_tegra_impl.so
 lib/libnvcap_video.so
 lib/libnvomxadaptor.so
-lib/libnvos.so
-lib/libnvrm.so
-lib/libnvrm_graphics.so
-lib/libnvddk_2d.so
-lib/libnvwsi.so
-lib/libnvddk_2d_v2.so
-lib/libardrv_dynamic.so
+#lib/libnvos.so
+#lib/libnvrm.so
+#lib/libnvrm_graphics.so
+#lib/libnvddk_2d.so
+#lib/libnvwsi.so
+#lib/libnvddk_2d_v2.so
+#lib/libardrv_dynamic.so
 lib/libnvglsi.so
-lib/libcgdrv.so
+#lib/libcgdrv.so
 # Camera
 lib/libnvomxilclient.so
 lib/libnvcamerahdr.so
@@ -70,10 +70,10 @@ lib/libnvmm_utils.so
 lib/libnvmm_service.so
 lib/libnvmm_manager.so
 lib/libnvmm_contentpipe.so
-lib/libnvomx.so
+#lib/libnvomx.so
 lib/libnvodm_imager.so
 lib/libnvodm_query.so
-lib/libnvwinsys.so
+#lib/libnvwinsys.so
 lib/libnvmmlite.so
 lib/libnvmmlite_utils.so
 
