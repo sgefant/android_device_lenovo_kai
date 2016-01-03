@@ -104,7 +104,7 @@ lib/libnvcapclk.so
 #lib/libnvodm_hdmi.so
 #lib/libnvodm_misc.so
 
-lib/libstagefrighthw.so
+#lib/libstagefrighthw.so
 #lib/libnvhdmi3dplay_jni.so
 #lib/libnvsystemuiext_jni.so
 #lib/libnvapputil.so
