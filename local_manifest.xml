@@ -25,8 +25,8 @@
   <project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="cm-12.1" />
 
 <!-- libhardware -->
-  <remove-project name="CyanogenMod/android_hardware_libhardware" />
-  <project path="hardware/libhardware" name="PJBrs/platform_hardware_libhardware" remote="github" revision="cm-12.1" />
+  <!-- remove-project name="CyanogenMod/android_hardware_libhardware" / -->
+  <!-- project path="hardware/libhardware" name="PJBrs/platform_hardware_libhardware" remote="github" revision="cm-12.1" / -->
 
 <!-- tinyalsa, for audio hal -->
   <remove-project name="CyanogenMod/android_external_tinyalsa" />
