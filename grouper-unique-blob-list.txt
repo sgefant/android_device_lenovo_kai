@@ -31,15 +31,14 @@
 #touch_fw.ekt
 
 #nvidia
-#libaudioavp.so
 #libstagefrighthw.so
 #nvavp_os_00001000.bin
 #nvavp_os_e0000000.bin
-#libnvmm_misc.so
-#libnvdispmgr_d.so
+libnvmm_misc.so
+libnvdispmgr_d.so
 
 #nxp
 #libpn544_fw.so
 #widevine
-#libdrmdecrypt.so
+libdrmdecrypt.so
 

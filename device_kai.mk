@@ -30,15 +30,6 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
     device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc
 
-# Kernel modules
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/kernel-modules/inv_mpu_ak89xx.ko:system/lib/modules/inv_mpu_ak89xx.ko \
-    device/lenovo/kai/kernel-modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-    device/lenovo/kai/kernel-modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-    device/lenovo/kai/kernel-modules/lib80211.ko:system/lib/modules/lib80211.ko \
-    device/lenovo/kai/kernel-modules/mac80211.ko:system/lib/modules/mac80211.ko \
-    device/lenovo/kai/kernel-modules/mpu6050b1.ko:system/lib/modules/mpu6050b1.ko 
-
 # Build characteristics setting 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -92,8 +83,9 @@ PRODUCT_PACKAGES += \
     bttest \
     com.android.future.usb.accessory \
     libinvensense_mpl \
-    keymaster.kai \
-    libstagefrighthw
+    power.kai \
+    lights.kai \
+    keymaster.kai
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -163,13 +155,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/blobs/camera.tegra.so:system/vendor/lib/hw/camera.vendor.tegra.so \
     device/lenovo/kai/blobs/libtjpg.so:system/lib/libtjpg.so
-
-# Audio Hack files for grouper libs
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/lenovo-hack-files/vendor/lib/libntavp.so:system/vendor/lib/libntavp.so \
-    device/lenovo/kai/lenovo-hack-files/vendor/lib/libaudioavp.so:system/vendor/lib/libaudioavp.so \
-    device/lenovo/kai/lenovo-hack-files/vendor/lib/hw/audio_policy.vendor.tegra.so:system/vendor/lib/hw/audio_policy.vendor.tegra.so \
-    device/lenovo/kai/lenovo-hack-files/vendor/lib/hw/audio.primary_vendor.tegra.so:system/vendor/lib/hw/audio.primary_vendor.tegra.so
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
