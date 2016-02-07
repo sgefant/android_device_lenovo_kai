@@ -151,9 +151,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/blobs/glgps:system/bin/glgps 
 
 # Camera; This is the stock camera HAL and stock libjpeg, but renamed libtjpg.so
-PRODUCT_COPY_FILES += \
-    device/lenovo/kai/blobs/camera.tegra.so:system/vendor/lib/hw/camera.vendor.tegra.so \
-    device/lenovo/kai/blobs/libtjpg.so:system/lib/libtjpg.so
+#PRODUCT_COPY_FILES += \
+#    device/lenovo/kai/blobs/camera.tegra.so:system/vendor/lib/hw/camera.vendor.tegra.so \
+#    device/lenovo/kai/blobs/libtjpg.so:system/lib/libtjpg.so
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
