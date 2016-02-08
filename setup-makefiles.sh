@@ -94,7 +94,7 @@ add_module() {
 echo Adding $(basename $FILE) to makefiles
 
 # Copy the file
-cp lenovo-kai-proprietary/$FILE $OUTDIR/proprietary/
+cp $SRCDIR/$FILE $OUTDIR/proprietary/
 
 # Add to Android.mk: We need to set several fields. First the simple ones.
 LOCAL_SRC_FILES=$(basename $FILE)
@@ -153,11 +153,11 @@ echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
 }
 
 # Now the real work starts
-# We read proprietary_files.txt
+# We read proprietary-files.txt
 # For each line, we check whether it is commented out, ("#"),
 # whether it contains a filename ("/") and to which vendor package it belongs.
-
 for FILE in `cat proprietary-files.txt` ; do
+  SRCDIR="lenovo-kai-proprietary"
   case $FILE in
     "#"*)
       for k in $VENDORS; do
@@ -176,7 +176,7 @@ for FILE in `cat proprietary-files.txt` ; do
       case $EXISTING in
         true)
           echo Overwriting vendor/$VENDOR/$DEVICE/proprietary/$(basename $FILE)
-          cp lenovo-kai-proprietary/$FILE $OUTDIR/proprietary/
+          cp $SRCDIR/$FILE $OUTDIR/proprietary/
           ;;
         false)
           add_module $FILE
@@ -186,6 +186,14 @@ for FILE in `cat proprietary-files.txt` ; do
   esac
 done
 
+# Do the same for binary_hack_files.txt
+# For each line, we check whether it is commented out, ("#"),
+# whether it contains a filename ("/") and to which vendor package it belongs.
+for FILE in `cat binary-hack-files.txt` ; do
+  SRCDIR="lenovo-binary-hack"
+  VENDOR="nvidia"
+  add_module $FILE
+done
 
 
 # Now finish the makefiles
