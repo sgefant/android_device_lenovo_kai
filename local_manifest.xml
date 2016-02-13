@@ -5,7 +5,7 @@
   <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-11.0" />
 
 <!-- Kernel -->
-  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="kernel-kai-clean" remote="github" />
+  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="A2109-l4t-clean-kitkat" remote="github" />
 
 <!-- libjpeg-turbo, skia, for camera / -->
   <!-- remove-project name="CyanogenMod/android_external_jpeg" / -->
