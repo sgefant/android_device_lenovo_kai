@@ -64,7 +64,7 @@ lib/libnvglsi.so
 #lib/libcgdrv.so
 # Camera
 #lib/libnvomxilclient.so
-lib/libnvcamerahdr.so
+#lib/libnvcamerahdr.so
 #lib/libnvtvmr.so
 #lib/libnvmm_utils.so
 #lib/libnvmm_service.so

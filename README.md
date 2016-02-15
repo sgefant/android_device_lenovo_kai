@@ -50,7 +50,7 @@ Thanks to the A2109A pioneers:
 |  |P2P | | |X |
 |Bluetooth | | | |
 |  |Send files | | |X |
-|  |Receive files | | |X |
+|  |Receive files |X | | |
 |  |Headset | | |X |
 |  |Browse files | | |X |
 |Camera | | |X | |
@@ -60,7 +60,7 @@ Thanks to the A2109A pioneers:
 |  |SD Video recording | |X | |
 |  |HD Video recording | |X | |
 |Media | | | | |
-|  |Playing videos | |X | |
+|  |Playing videos |X | | |
 |  |Playing sound |X | | |
 |  |Microphone |X | | |
 |Sensors | | | |
