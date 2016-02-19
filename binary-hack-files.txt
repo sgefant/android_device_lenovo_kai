@@ -1,0 +1,4 @@
+vendor/lib/hw/audio_policy.vendor.tegra.so
+vendor/lib/hw/audio.primary_vendor.tegra.so
+vendor/lib/libaudioavp.so
+vendor/lib/libntavp.so
