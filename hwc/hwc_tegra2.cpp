@@ -65,7 +65,7 @@ static hwc_module_t* get_hwc(void)
         void* handle;
         ALOGI("Resolving original HWC module...");
 
-        handle = dlopen("/system/lib/hw/hwcomposer.tegra_v0.so",RTLD_LAZY);
+        handle = dlopen("/system/vendor/lib/hw/hwcomposer.tegra_v0.so",RTLD_LAZY);
         if(!handle) {
             ALOGE("Unable to load original hwc module");
             return NULL;
