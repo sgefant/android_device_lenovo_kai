@@ -41,5 +41,10 @@
   <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
   <remove-project name="platform/frameworks/testing" />
 
+<!-- TWRP / -->
+  <remove-project name="platform/bootable/recovery" />
+  <project path="bootable/recovery" name="omnirom/android_bootable_recovery" remote="github" />
+
+
 </manifest>
 
