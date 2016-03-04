@@ -8,8 +8,8 @@
 #vendor/lib/libwvm.so
 #vendor/lib/drm/libdrmwvmplugin.so
 #lib/hw/camera.tegra.so
-#lib/hw/audio_policy.tegra.so
-#lib/hw/audio.primary.tegra.so
+lib/hw/audio_policy.tegra.so
+lib/hw/audio.primary.tegra.so
 lib/hw/sensors.kai.so
 lib/libsensors.base.so
 lib/libsensors.jsa1127.so

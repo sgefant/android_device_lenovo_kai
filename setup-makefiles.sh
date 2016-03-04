@@ -156,7 +156,9 @@ echo "    $LOCAL_MODULE \\" >> $OUTDIR/device-partial.mk.new
 # We read proprietary-files.txt
 # For each line, we check whether it is commented out, ("#"),
 # whether it contains a filename ("/") and to which vendor package it belongs.
-for FILE in `cat proprietary-files.txt` ; do
+for FILE in `cat proprietary-files.txt \
+               | sed  's/lib\/hw\/audio.primary.tegra.so/vendor\/lib\/hw\/audio.primary_vendor.tegra.so/' \
+               | sed  's/lib\/hw\/audio_policy.tegra.so/vendor\/lib\/hw\/audio_policy.vendor.tegra.so/'   `; do
   SRCDIR="lenovo-kai-proprietary"
   case $FILE in
     "#"*)
@@ -188,12 +190,15 @@ done
 
 # Do the same for binary_hack_files.txt
 # For each line, we check whether it is commented out, ("#"),
-# whether it contains a filename ("/") and to which vendor package it belongs.
-for FILE in `cat binary-hack-files.txt` ; do
+for FILE in `cat binary-hack-files.txt | grep -v \\# ` ; do
   SRCDIR="lenovo-binary-hack"
   VENDOR="nvidia"
   add_module $FILE
 done
+
+
+
+
 
 
 # Now finish the makefiles
