@@ -97,7 +97,8 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
-    audio_policy.tegra
+    audio_policy.tegra \
+    camera.tegra
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
