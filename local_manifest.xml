@@ -7,20 +7,12 @@
 <!-- Kernel -->
   <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="kernel-kai-clean" remote="github" />
 
-<!-- libjpeg-turbo, skia, for camera / -->
-  <!-- remove-project name="CyanogenMod/android_external_jpeg" / -->
-  <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
-
-  <!-- project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" / -->
-  <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
-
-  <!-- remove-project name="platform/external/skia" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
-
-  <!-- remove-project name="platform/external/webp" / -->
-  <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
-
 <!-- tinyalsa, for audio hal -->
   <remove-project name="CyanogenMod/android_external_tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="JellyBean-4.2.2" />
+
+<!-- Readd deprecated CMAccount, because leaving it out makes Google's setup wizard misbehave... -->
+  <project path="packages/apps/CMAccount" name="CyanogenMod/android_packages_apps_CMAccount" />
+
 </manifest>
+

@@ -92,7 +92,8 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     NvCPLSvc \
     libinvensense_mpl \
-    keymaster.kai
+    keymaster.kai \
+    CMAccount
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
