@@ -2,31 +2,18 @@
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
-  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-12.1" />
+  <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-12.1-hwc" />
 
 <!-- Kernel -->
-  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="A2109-l4t-clean-lollipop" remote="github" />
-
-<!-- libjpeg-turbo, skia, for camera / -->
-  <!-- remove-project name="CyanogenMod/android_external_jpeg" / -->
-  <!-- project path="external/jpeg" name="git-ro/gwg/libjpeg-turbo.git" revision="libjpeg-turbo" remote="linaro" / -->
-
-  <!-- project path="external/libjpeg-turbo" name="people/tomgall/libjpeg-turbo/libjpeg-turbo.git" revision="linaro-android" remote="linaro" / -->
-  <!-- project path="external/jpeg" name="android/platform/external/jpeg" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
-
-  <!-- remove-project name="platform/external/skia" / -->
-  <!-- project path="external/skia" name="CyanogenMod/android_external_skia/" revision="cm-10.1" remote="github" / -->
-
-  <!-- remove-project name="platform/external/webp" / -->
-  <!-- project path="external/webp" name="android/platform/external/webp" revision="rel-tegranote-r2-partner" remote="nvidia" / -->
+  <project name="PJBrs/android_kernel_lenovo_kai" path="kernel/lenovo/kai" remote="github" revision="A2109-l4t-clean-lollipop" />
 
 <!-- frameworks/base -->
-  <!-- remove-project name="CyanogenMod/android_frameworks_base" / -->
-  <!-- project path="frameworks/base" name="PJBrs/platform_frameworks_base" remote="github" revision="cm-12.1" / -->
+  <remove-project name="CyanogenMod/android_frameworks_base" />
+  <project name="PJBrs/platform_frameworks_base" path="frameworks/base" remote="github" revision="cm-12.1" />
 
 <!-- libhardware -->
-  <!-- remove-project name="CyanogenMod/android_hardware_libhardware" / -->
-  <!-- project path="hardware/libhardware" name="PJBrs/platform_hardware_libhardware" remote="github" revision="cm-12.1" / -->
+  <remove-project name="CyanogenMod/android_hardware_libhardware" />
+  <project name="PJBrs/platform_hardware_libhardware" path="hardware/libhardware" remote="github" revision="cm-12.1" />
 
 <!-- tinyalsa, for audio hal -->
   <remove-project name="CyanogenMod/android_external_tinyalsa" />
