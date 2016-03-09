@@ -35,9 +35,9 @@ lib/libakmd.so
 # Probably related to camera
 etc/firmware/nvavp_aud_ucode.bin
 etc/firmware/nvavp_vid_ucode.bin
-etc/firmware/nvavp_os_0ff00000.bin
-etc/firmware/nvavp_os_eff00000.bin
-etc/firmware/nvavp_vid_ucode_alt.bin
+#etc/firmware/nvavp_os_0ff00000.bin
+#etc/firmware/nvavp_os_eff00000.bin
+#etc/firmware/nvavp_vid_ucode_alt.bin
 # HAL
 #lib/hw/gralloc.tegra.so
 #lib/hw/hwcomposer.tegra.so
@@ -46,13 +46,13 @@ etc/firmware/nvavp_vid_ucode_alt.bin
 lib/hw/ts.default.so
 # EGL
 #lib/egl/libEGL_tegra.so
-lib/egl/libEGL_tegra_impl.so
+#lib/egl/libEGL_tegra_impl.so
 #lib/egl/libGLESv1_CM_tegra.so
-lib/egl/libGLESv1_CM_tegra_impl.so
+#lib/egl/libGLESv1_CM_tegra_impl.so
 #lib/egl/libGLESv2_tegra.so
-lib/egl/libGLESv2_tegra_impl.so
-lib/libnvcap_video.so
-lib/libnvomxadaptor.so
+#lib/egl/libGLESv2_tegra_impl.so
+#lib/libnvcap_video.so
+#lib/libnvomxadaptor.so
 #lib/libnvos.so
 #lib/libnvrm.so
 #lib/libnvrm_graphics.so
@@ -60,7 +60,7 @@ lib/libnvomxadaptor.so
 #lib/libnvwsi.so
 #lib/libnvddk_2d_v2.so
 #lib/libardrv_dynamic.so
-lib/libnvglsi.so
+#lib/libnvglsi.so
 #lib/libcgdrv.so
 # Camera
 #lib/libnvomxilclient.so
@@ -78,13 +78,13 @@ lib/libnvglsi.so
 #lib/libnvmmlite_utils.so
 
 # Sound
-lib/libnvaudioservice.so
+#lib/libnvaudioservice.so
 #lib/libaudioavp.so
 #lib/libnvavp.so
 
 # Below here, it is just brute force adding everything in
-lib/libnvcap.so
-lib/libnvcapclk.so
+#lib/libnvcap.so
+#lib/libnvcapclk.so
 #lib/libnvmm.so
 #lib/libnvmm_audio.so
 #lib/libnvmm_camera.so
@@ -113,19 +113,24 @@ lib/libnvcapclk.so
 #lib/libjpeg.so
 #lib/libskia.so
 lib/libasound.so
+
 #lib/libtf_crypto_sst.so
 #lib/libnvhdmi3dplay_jni.so
 #lib/libnvsystemuiext_jni.so
+
 lib/librm31080.so
 lib/librm_ts_service.so
+
 #lib/libnvcpud.so
 #lib/libnvcpud_client.so
 #lib/libnvcontrol_jni.so
 #etc/enctune.conf
+
 etc/nvcamera.conf
 etc/nvram_4330.txt
 bin/hdcp_test
 bin/tf_daemon
+
 #bin/rm_ts_server
 #bin/nvcpud
 

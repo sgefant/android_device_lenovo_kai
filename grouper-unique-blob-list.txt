@@ -32,8 +32,8 @@
 
 #nvidia
 #libstagefrighthw.so
-#nvavp_os_00001000.bin
-#nvavp_os_e0000000.bin
+nvavp_os_00001000.bin
+nvavp_os_e0000000.bin
 libnvmm_misc.so
 libnvdispmgr_d.so
 
