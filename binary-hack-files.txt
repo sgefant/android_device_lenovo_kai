@@ -1,5 +1,5 @@
 vendor/lib/hw/gr_allo.tegra.so
-vendor/lib/hw/camera.vendor.tegra.so
+vendor/lib/hw/camera.tegra.so
 vendor/lib/hw/audio_policy.vendor.tegra.so
 vendor/lib/hw/audio.primary_vendor.tegra.so
 vendor/lib/hw/gps.tegra.so
