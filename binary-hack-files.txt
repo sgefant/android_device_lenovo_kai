@@ -43,4 +43,4 @@ vendor/lib/libntmm_utils.so
 vendor/lib/libnttvmr.so
 vendor/lib/libntmmlite.so
 vendor/lib/libntmmlite_audio.so
-vendor/bin/glgps
+bin/glgps
