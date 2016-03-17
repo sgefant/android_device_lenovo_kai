@@ -91,7 +91,6 @@ done
 
 add_module() {
 # Call this function with $FILE as argument
-echo Adding $(basename $FILE) to makefiles
 
 # Copy the file
 cp $SRCDIR/$FILE $OUTDIR/proprietary/
@@ -181,6 +180,7 @@ for FILE in `cat proprietary-files.txt \
           cp $SRCDIR/$FILE $OUTDIR/proprietary/
           ;;
         false)
+          echo Adding vendor/$VENDOR/$DEVICE/proprietary/$(basename $FILE) to makefiles
           add_module $FILE
           ;;
       esac
@@ -193,6 +193,8 @@ done
 for FILE in `cat binary-hack-files.txt | grep -v \\# ` ; do
   SRCDIR="lenovo-binary-hack"
   VENDOR="nvidia"
+  OUTDIR="../../../vendor/$VENDOR/$DEVICE"
+  echo Adding vendor/$VENDOR/$DEVICE/proprietary/$(basename $FILE) to makefiles
   add_module $FILE
 done
 
