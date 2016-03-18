@@ -311,16 +311,6 @@ service bugreport /system/bin/dumpstate -d -p -B \
 # Prepare TF service
 import init.tf.rc
 
-# Enable NvCpuD, and set it to never poll config again
-on boot
-    setprop nvcpud.enabled true
-    setprop nvcpud.config_refresh_ms -1
-
-service nvcpud /system/bin/nvcpud
-    class main
-    user root
-    group root
-
 #Raydium touch setting
 service rm_ts_service    /system/bin/rm_ts_server
     class main
@@ -337,11 +327,3 @@ service setup_fs /system/bin/setup_fs \
     user root
     group root
     oneshot
-    
-## {CL2} +
-service usb_config /system/bin/usb_config
-    class late_start
-    user root
-    group root
-    oneshot
-## {CL2} -
