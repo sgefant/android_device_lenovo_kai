@@ -32,7 +32,7 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
-//#define BOOST_PATH      "/sys/devices/system/cpu/cpufreq/interactive/boost"
+#define BOOST_PATH      "/sys/devices/system/cpu/cpufreq/interactive/boost"
 #define UEVENT_MSG_LEN 2048
 #define TOTAL_CPUS 4
 #define RETRY_TIME_CHANGING_FREQ 20
@@ -113,9 +113,8 @@ static int uevent_event()
 
         pthread_mutex_lock(&low_power_mode_lock);
         if (low_power_mode && !freq_set[cpu]) {
-             ALOGI("%s: Switching to low power mode: min_freq = %s, max_freq = %s.", LOG_TAG, LOW_POWER_MIN_FREQ, LOW_POWER_MAX_FREQ);
+             ALOGI("%s: Switching to low power mode: max_freq = %s.", LOG_TAG, LOW_POWER_MAX_FREQ);
              while (retry) {
-                sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
                 ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
                 if (!ret) {
                     freq_set[cpu] = true;
@@ -125,9 +124,8 @@ static int uevent_event()
                 retry--;
            }
         } else if (!low_power_mode && freq_set[cpu]) {
-             ALOGI("%s: Switching to normal power mode: min_freq = %s, max_freq = %s.", LOG_TAG, NORMAL_MIN_FREQ, NORMAL_MAX_FREQ);
+             ALOGI("%s: Switching to normal power mode: max_freq = %s.", LOG_TAG, NORMAL_MAX_FREQ);
              while (retry) {
-                  sysfs_write(cpu_path_min[cpu], NORMAL_MIN_FREQ);
                   ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
                   if (!ret) {
                       freq_set[cpu] = false;
@@ -195,29 +193,37 @@ static void kai_power_init( __attribute__((unused)) struct power_module *module)
                 "50000");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time",
                 "500000");
-    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load",
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load",
                 "75");
     sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/boost_factor",
 		"0");
-//    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost",
-//		"1");
+    sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost",
+		"1");
     uevent_init();
 }
 
 static void kai_power_set_interactive(__attribute__((unused)) struct power_module *module,
                                           __attribute__((unused)) int on)
 {
+	int cpu;
+
 	if (on) {
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load", "75");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "3000000");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "2");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "1");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "75");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "3000000");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "2");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "1");
+	        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+	                sysfs_write(cpu_path_min[cpu], NORMAL_MIN_FREQ);
+                }
 	}
 	else {
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_maxspeed_load", "85");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "200000");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "0");
-//		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "0");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "85");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "200000");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "0");
+		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "0");
+	        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+		        sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
+                }
 	}
 }
 
@@ -235,9 +241,8 @@ static void kai_power_hint(__attribute__((unused)) struct power_module *module, 
         pthread_mutex_lock(&low_power_mode_lock);
         if (data) {
             low_power_mode = true;
-            ALOGI("%s: Switching to low power mode: min_freq = %s, max_freq = %s.", LOG_TAG, LOW_POWER_MIN_FREQ, LOW_POWER_MAX_FREQ);
+            ALOGI("%s: Switching to low power mode: max_freq = %s.", LOG_TAG, LOW_POWER_MAX_FREQ);
             for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-                sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
                 ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
                 if (!ret) {
                     freq_set[cpu] = true;
@@ -245,9 +250,8 @@ static void kai_power_hint(__attribute__((unused)) struct power_module *module, 
             }
         } else {
             low_power_mode = false;
-            ALOGI("%s: Switching to normal power mode: min_freq = %s, max_freq = %s.", LOG_TAG, NORMAL_MIN_FREQ, NORMAL_MAX_FREQ);
+            ALOGI("%s: Switching to normal power mode: max_freq = %s.", LOG_TAG, NORMAL_MAX_FREQ);
             for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-                sysfs_write(cpu_path_min[cpu], NORMAL_MIN_FREQ);
                 ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
                 if (!ret) {
                     freq_set[cpu] = false;
