@@ -63,6 +63,7 @@ lib/hw/ts.default.so
 #lib/libnvglsi.so
 #lib/libcgdrv.so
 # Camera
+etc/nvcamera.conf
 #lib/libnvomxilclient.so
 #lib/libnvcamerahdr.so
 #lib/libnvtvmr.so
@@ -81,6 +82,11 @@ lib/hw/ts.default.so
 #lib/libnvaudioservice.so
 #lib/libaudioavp.so
 #lib/libnvavp.so
+lib/libasound.so
+
+etc/nvram_4330.txt
+bin/hdcp_test
+bin/tf_daemon
 
 # Below here, it is just brute force adding everything in
 #lib/libnvcap.so
@@ -112,24 +118,18 @@ lib/hw/ts.default.so
 #lib/libnvsm.so
 #lib/libjpeg.so
 #lib/libskia.so
-lib/libasound.so
 
 #lib/libtf_crypto_sst.so
 #lib/libnvhdmi3dplay_jni.so
 #lib/libnvsystemuiext_jni.so
 
-lib/librm31080.so
-lib/librm_ts_service.so
+#lib/librm31080.so
+#lib/librm_ts_service.so
 
 #lib/libnvcpud.so
 #lib/libnvcpud_client.so
 #lib/libnvcontrol_jni.so
 #etc/enctune.conf
-
-etc/nvcamera.conf
-etc/nvram_4330.txt
-bin/hdcp_test
-bin/tf_daemon
 
 #bin/rm_ts_server
 #bin/nvcpud
@@ -139,7 +139,7 @@ bin/tf_daemon
 #vendor/lib/libwvdrm_L1.so
 
 #configurations and miscellaneous
-etc/permissions/com.google.widevine.software.drm.xml
+#etc/permissions/com.google.widevine.software.drm.xml
 #framework/com.google.widevine.software.drm.jar
 #media/audio/notifications/bootsound_depop.wav
 #media/audio/notifications/bootsound.wav
