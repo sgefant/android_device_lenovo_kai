@@ -135,8 +135,8 @@ bin/tf_daemon
 #bin/nvcpud
 
 #widevine
-#vendor/lib/libWVStreamControlAPI_L1.so
-#vendor/lib/libwvdrm_L1.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libwvdrm_L1.so
 
 #configurations and miscellaneous
 #etc/permissions/com.google.widevine.software.drm.xml
