@@ -38,9 +38,9 @@
 #define RETRY_TIME_CHANGING_FREQ 20
 #define SLEEP_USEC_BETWN_RETRY 200
 #define LOW_POWER_MAX_FREQ "640000"
-#define LOW_POWER_MIN_FREQ "51000"
+//#define LOW_POWER_MIN_FREQ "51000"
 #define NORMAL_MAX_FREQ "1300000"
-#define NORMAL_MIN_FREQ "204000"
+//#define NORMAL_MIN_FREQ "204000"
 #define UEVENT_STRING "online@/devices/system/cpu/"
 
 static int boost_fd = -1;
@@ -59,6 +59,12 @@ static char *cpu_path_max[] = {
     "/sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq",
     "/sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq",
 };
+/*static char *cpu_online_path[] = {
+    "/sys/devices/system/cpu/cpu0/online",
+    "/sys/devices/system/cpu/cpu1/online",
+    "/sys/devices/system/cpu/cpu2/online",
+    "/sys/devices/system/cpu/cpu3/online",
+};  */
 static bool freq_set[TOTAL_CPUS];
 static bool low_power_mode = false;
 static pthread_mutex_t low_power_mode_lock = PTHREAD_MUTEX_INITIALIZER;
@@ -205,26 +211,52 @@ static void kai_power_init( __attribute__((unused)) struct power_module *module)
 static void kai_power_set_interactive(__attribute__((unused)) struct power_module *module,
                                           __attribute__((unused)) int on)
 {
-	int cpu;
+    // int cpu;
 
-	if (on) {
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "75");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "3000000");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "2");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "1");
-	        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-	                sysfs_write(cpu_path_min[cpu], NORMAL_MIN_FREQ);
-                }
+    if (on) {
+        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "75");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "3000000");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "2");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "1");
+        /*
+        sysfs_write("/sys/module/cpu_tegra3/parameters/auto_hotplug", "0");
+        sysfs_write("/sys/kernel/cluster/immediate", "1");
+        sysfs_write("/sys/kernel/cluster/force", "1");
+        usleep(300000);
+	for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_online_path[cpu], "1");
+        }
+        usleep(300000);
+	for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_path_min[cpu], NORMAL_MIN_FREQ);
 	}
-	else {
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "85");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "200000");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "0");
-		sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "0");
-	        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-		        sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
-                }
-	}
+        sysfs_write("/sys/module/cpu_tegra3/parameters/auto_hotplug", "1");
+        sysfs_write("/sys/kernel/cluster/immediate", "0");
+        sysfs_write("/sys/kernel/cluster/force", "0");
+        */
+    }
+    else {
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "85");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_period", "200000");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/core_lock_count", "0");
+	sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/input_boost", "0");
+        /*
+        sysfs_write("/sys/module/cpu_tegra3/parameters/auto_hotplug", "0");
+        sysfs_write("/sys/kernel/cluster/immediate", "1");
+        sysfs_write("/sys/kernel/cluster/force", "1");
+        usleep(300000);
+	for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_online_path[cpu], "1");
+        }
+        usleep(30000);
+	for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
+        }
+        sysfs_write("/sys/module/cpu_tegra3/parameters/auto_hotplug", "1");
+        sysfs_write("/sys/kernel/cluster/immediate", "0");
+        sysfs_write("/sys/kernel/cluster/force", "0");
+        */
+    }
 }
 
 static void kai_power_hint(__attribute__((unused)) struct power_module *module, power_hint_t hint,
