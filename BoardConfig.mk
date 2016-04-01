@@ -117,11 +117,11 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 BOARD_EGL_CFG := device/lenovo/kai/config/egl.cfg
 
 # Used in htc-tegra3 and p880
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
+//BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # Used only in kai
-BOARD_EGL_SKIP_FIRST_DEQUEUE := true
-BOARD_USE_MHEAP_SCREENSHOT := true
+//BOARD_EGL_SKIP_FIRST_DEQUEUE := true
+//BOARD_USE_MHEAP_SCREENSHOT := true
 ###
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
