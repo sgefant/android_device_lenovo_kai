@@ -92,6 +92,10 @@ COMMON_GLOBAL_CFLAGS += \
     -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL \
     -DMR0_CAMERA_BLOB
 
+
+# Includes for camera wrapper
+TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
+
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
     libdumpstate.kai

@@ -53,10 +53,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #    ro.debuggable=1 \
 #    ro.kernel.qemu=1 # This boots in emulator mode, without EGL
 
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -94,7 +90,8 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
-    audio_policy.tegra 
+    audio_policy.tegra \
+    camera.tegra
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
