@@ -21,6 +21,7 @@
 #sensors-config
 #libsensors.lightsensor.so
 #broadcom
+#gpsconfig.xml
 #elan
 #touch_fw.ekt
 #nvidia

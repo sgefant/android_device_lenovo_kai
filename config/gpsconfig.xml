@@ -20,7 +20,7 @@
     acPortName="/dev/ttyHS1" 
     lBaudRate="115200"  
     cLogEnableInitState="true"
-    cLogEnabled="true" 
+    cLogEnabled="false" 
     acLogDirectory="/data/gps/log/" 
     acNmeaOutName="/data/gps/nmeapipe"
     ctrlPipe="/data/gps/glgpsctrl"
