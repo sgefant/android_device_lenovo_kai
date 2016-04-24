@@ -2,31 +2,31 @@
   <remote name="nvidia" fetch="git://nv-tegra.nvidia.com" />
   <remote name="linaro" fetch="http://git.linaro.org" />
 
+<!-- device tree, kernel -->
   <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-12.1" />
-
-<!-- Kernel -->
-  <project name="PJBrs/android_kernel_lenovo_kai" path="kernel/lenovo/kai" remote="github" revision="A2109-l4t-clean-lollipop" />
+  <!-- project name="PJBrs/android_kernel_lenovo_kai" path="kernel/lenovo/kai" remote="github" revision="A2109-l4t-clean-lollipop" / -->
+  <!-- project name="PJBrs/android_kernel_lenovo_kai" path="kernel/lenovo/kai" remote="github" revision="cm-12.1" / -->
 
 <!-- frameworks/base -->
   <remove-project name="CyanogenMod/android_frameworks_base" />
   <project name="PJBrs/platform_frameworks_base" path="frameworks/base" remote="github" revision="cm-12.1" />
 
 <!-- libhardware -->
-  <remove-project name="CyanogenMod/android_hardware_libhardware" />
-  <project name="PJBrs/platform_hardware_libhardware" path="hardware/libhardware" remote="github" revision="cm-12.1" />
+  <!-- remove-project name="CyanogenMod/android_hardware_libhardware" / -->
+  <!-- project name="PJBrs/platform_hardware_libhardware" path="hardware/libhardware" remote="github" revision="cm-12.1" / -->
 
 <!-- tinyalsa, for audio hal -->
   <remove-project name="CyanogenMod/android_external_tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="Lollipop-5.1" />
 
 <!-- These only add compilation problems... / -->
-  <remove-project name="CyanogenMod/android_packages_wallpapers_Galaxy4" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_HoloSpiral" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_LivePicker" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_MusicVisualization" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_NoiseField" />
-  <remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" />
-  <remove-project name="platform/frameworks/testing" />
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_Galaxy4" / -->
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_HoloSpiral" / -->
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_LivePicker" / -->
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_MusicVisualization" / -->
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_NoiseField" / -->
+  <!-- remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" / -->
+  <!-- remove-project name="platform/frameworks/testing" / -->
 
 </manifest>
 
