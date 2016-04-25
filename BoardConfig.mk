@@ -154,8 +154,8 @@ BOARD_SEPOLICY_UNION := \
         system_server.te \
         ueventd.te \
         vold.te \
-        radio.te
-
+        radio.te \
+	bootanim.te
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
