@@ -3,6 +3,7 @@
 # package. Files commented out will not be copied
 # to the kai vendor files. Uncommented files will
 # be carried over.
+#
 # Some files have kai blob counterparts with
 # different names. These probably are:
 #	kai			grouper
@@ -10,6 +11,7 @@
 #	gralloc.tegra.so	gralloc.tegra3.so
 #	hwcomposer.tegra.so	hwcomposer.tegra3.so
 #	nvram_4330.txt		nvram.txt
+#
 # Perhaps the best way of dealing with this is to
 # add one of the above to the vendor tree. and add
 # a symlink later on in the build process, by including
@@ -27,6 +29,7 @@
 #libsensors.lightsensor.so
 
 #broadcom
+#gpsconfig.xml
 
 #elan
 #touch_fw.ekt
@@ -40,6 +43,7 @@
 
 #nxp
 #libpn544_fw.so
+
 #widevine
 libdrmdecrypt.so
 

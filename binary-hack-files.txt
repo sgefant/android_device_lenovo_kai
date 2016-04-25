@@ -6,4 +6,4 @@ vendor/lib/libntavp.so
 vendor/lib/hw/camera.tegra.so
 vendor/lib/hw/gps.tegra.so
 vendor/lib/libtjpg.so
-system/bin/glgps
+bin/glgps

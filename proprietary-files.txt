@@ -8,8 +8,8 @@
 #vendor/lib/libwvm.so
 #vendor/lib/drm/libdrmwvmplugin.so
 #lib/hw/camera.tegra.so
-lib/hw/audio_policy.tegra.so
-lib/hw/audio.primary.tegra.so
+#lib/hw/audio_policy.tegra.so
+#lib/hw/audio.primary.tegra.so
 lib/hw/sensors.kai.so
 lib/libsensors.base.so
 lib/libsensors.jsa1127.so
@@ -104,7 +104,7 @@ lib/libnvodm_dtvtuner.so
 lib/libnvodm_hdmi.so
 lib/libnvodm_misc.so
 
-lib/libstagefrighthw.so
+#lib/libstagefrighthw.so
 lib/libnvapputil.so
 lib/libnvasfparserhal.so
 lib/libnvaviparserhal.so
@@ -112,8 +112,8 @@ lib/libnvparser.so
 lib/libnvsm.so
 
 lib/libasound.so
-lib/librm31080.so
-lib/librm_ts_service.so
+#lib/librm31080.so
+#lib/librm_ts_service.so
 
 etc/nvcamera.conf
 etc/nvram_4330.txt
@@ -137,7 +137,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/libwvdrm_L1.so
 
 #configurations and miscellaneous
-etc/permissions/com.google.widevine.software.drm.xml
+#etc/permissions/com.google.widevine.software.drm.xml
 #framework/com.google.widevine.software.drm.jar
 #media/audio/notifications/bootsound_depop.wav
 #media/audio/notifications/bootsound.wav
