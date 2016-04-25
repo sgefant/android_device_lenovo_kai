@@ -15,11 +15,8 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
-PRODUCT_AAPT_CONFIG := normal large xlarge hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -57,8 +54,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #    ro.kernel.qemu=1 # This boots in emulator mode, without EGL
 
 # Camera
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    camera2.portability.force_api=1
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
 
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -98,7 +95,7 @@ PRODUCT_PACKAGES += \
     audio.primary.tegra \
     audio_policy.tegra \
     hwcomposer.tegra \
-    camera.tegra
+    libstagefrighthw
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
