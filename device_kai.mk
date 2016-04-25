@@ -82,7 +82,8 @@ PRODUCT_PACKAGES += \
     libinvensense_mpl \
     power.kai \
     lights.kai \
-    keymaster.kai 
+    keymaster.kai \
+    libstagefrighthw
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
