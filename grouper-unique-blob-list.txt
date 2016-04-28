@@ -27,6 +27,7 @@
 #camera.tegra.so
 #hwcomposer.tegra.so
 #libsensors.lightsensor.so
+#btmacreader
 
 #broadcom
 #gpsconfig.xml
