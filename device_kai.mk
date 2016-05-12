@@ -83,7 +83,9 @@ PRODUCT_PACKAGES += \
     power.kai \
     lights.kai \
     keymaster.kai \
-    libstagefrighthw
+    libstagefrighthw \
+    libkaicompat \
+    libdgv1
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

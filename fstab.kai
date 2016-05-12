@@ -19,6 +19,6 @@
 /dev/block/platform/sdhci-tegra.3/by-name/LNX           /boot               emmc      defaults                                                                            recoveryonly
 /dev/block/platform/sdhci-tegra.3/by-name/MSC           /misc               emmc      defaults                                                                            recoveryonly
 /dev/block/platform/sdhci-tegra.3/by-name/USP           /staging            emmc      defaults                                                                            recoveryonly
-/dev/block/platform/sdhci-tegra.3/by-name/PRE           /preload            ext4      defaults                                                                            recoveryonly
+/dev/block/platform/sdhci-tegra.3/by-name/PRE           /preload            emmc      defaults                                                                            recoveryonly
 # I wonder very much whether the below is necessary...
 #/dev/block/platform/sdhci-tegra.0/by-num/p1             /external_sd        auto      defaults                                                                            recoveryonly

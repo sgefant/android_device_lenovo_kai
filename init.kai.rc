@@ -10,32 +10,14 @@ import init.IdeaTabA2109A_board.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
+    export LD_SHIM_LIBS /vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/lib/libnvcap_video.so|libkaicompat.so:/system/lib/libnvwinsys.so|libkaicompat.so:/vendor/lib/libwvm.so|libkaicompat.so:/system/lib/hw/sensors.tegra.so|libkaicompat.so
 
 on init
-    # emulated primary storage
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage/emulated 0555 root root
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-
-    # secondary storage
-    mkdir /storage/sdcard1 0700 system system
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    export SECONDARY_STORAGE /storage/sdcard1
-
-    # usb storage
-    mkdir /storage/usbdrive 0700 root root
-    mkdir /mnt/media_rw/usbdrive 0700 media_rw media_rw
+    export LD_SHIM_LIBS /vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/lib/libnvcap_video.so|libkaicompat.so:/system/lib/libnvwinsys.so|libkaicompat.so:/vendor/lib/libwvm.so|libkaicompat.so:/system/lib/hw/sensors.tegra.so|libkaicompat.so
 
     # support legacy paths
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-
-    mkdir /.preload 0000 system system
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on early-boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -60,10 +42,6 @@ on post-fs-data
 # &*&*&*cj2_mod: for CL2-N
 
     mkdir /data/misc/wminput 0776 system system
-
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
 
     # change back to bluetooth from system
     chown bluetooth net_bt_stack /data/misc/bluetooth
@@ -294,20 +272,6 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 
-# create virtual SD card at /storage/sdcard0, based on the /data/media directory
-# deamon will drop to user/group system/media_rw after initializing
-# underlying files in /data/media wil be created with user and group media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -t 4 -l /data/media /mnt/shell/emulated
-    class late_start
-
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-service fuse_usbdrive /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdrive /storage/usbdrive
-    class late_start
-    disabled
-
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys
 service bugreport /system/bin/dumpstate -d -p -B \
         -o /data/data/com.android.shell/files/bugreports/bugreport
@@ -334,12 +298,3 @@ service rm_ts_service    /system/bin/rm_ts_server
 #Synaptics touch, allow low power mode
 on boot
     write /sys/devices/sensor00/fn01/nosleep 0
-
-# create filesystems if necessary
-service setup_fs /system/bin/setup_fs \
-        /dev/block/platform/sdhci-tegra.3/by-name/UDA \
-        /dev/block/platform/sdhci-tegra.3/by-name/CAC
-    class core
-    user root
-    group root
-    oneshot

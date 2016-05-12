@@ -84,13 +84,18 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 USE_LEGACY_AUDIO_POLICY := 1
 
 ### Defines for legacy blobs
+# Marshmallow
+TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
+# Needed in p880 to fix fullscreen video playback
+TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
+
 # Used in tf300t, tf700t, htc-tegra3 and p880
 COMMON_GLOBAL_CFLAGS += \
-    -DNEEDS_VECTORIMPL_SYMBOLS \
-    -DADD_LEGACY_SET_POSITION_SYMBOL \
-    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
-    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL \
-    -DMR0_CAMERA_BLOB
+     -DMR0_CAMERA_BLOB
+#    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
+#    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL \
+#    -DNEEDS_VECTORIMPL_SYMBOLS \
+#    -DADD_LEGACY_SET_POSITION_SYMBOL \
 
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
@@ -114,8 +119,6 @@ USE_OPENGL_RENDERER := true
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-BOARD_EGL_CFG := device/lenovo/kai/config/egl.cfg
-
 # Used in htc-tegra3 and p880
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
@@ -132,30 +135,6 @@ endif
 
 BOARD_SEPOLICY_DIRS := \
         device/lenovo/kai/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-	service_contexts \
-        file_contexts \
-        genfs_contexts \
-        bluetooth.te \
-        device.te \
-        domain.te \
-        drmserver.te \
-        init_shell.te \
-        file.te \
-        gpsd.te \
-        keystore.te \
-        lmkd.te \
-        mediaserver.te \
-        recovery.te \
-        rild.te \
-        surfaceflinger.te \
-        system_app.te \
-        system_server.te \
-        ueventd.te \
-        vold.te \
-        radio.te \
-	bootanim.te
 
 # Avoid the generation of ldrcc instructions
 NEED_WORKAROUND_CORTEX_A9_745320 := true
