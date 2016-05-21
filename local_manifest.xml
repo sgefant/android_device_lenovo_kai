@@ -38,5 +38,27 @@
   <!-- remove-project name="CyanogenMod/android_packages_wallpapers_PhaseBeam" / -->
   <!-- remove-project name="platform/frameworks/testing" / -->
 
+<!-- Security patches -->
+  <remove-project name="platform/external/aac" />
+  <project path="external/aac" name="PJBrs/platform_external_aac" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/external/bluetooth/bluedroid" />
+  <project path="external/bluetooth/bluedroid" name="PJBrs/android_external_bluetooth_bluedroid" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/external/flac" />
+  <project path="external/flac" name="PJBrs/platform_external_flac" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/external/openssl" />
+  <project path="external/openssl" name="PJBrs/platform_external_openssl" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/external/wpa_supplicant_8" />
+  <project path="external/wpa_supplicant_8" name="PJBrs/platform_external_wpa_supplicant_8" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/packages/apps/Email" />
+  <project path="packages/apps/Email" name="PJBrs/android_packages_apps_Email" remote="github" revision="lollipop-mr1" />
+
+  <remove-project name="platform/packages/apps/UnifiedEmail" />
+  <project path="packages/apps/UnifiedEmail" name="PJBrs/android_packages_apps_UnifiedEmail" remote="github" revision="lollipop-mr1" />
+
 </manifest>
 
