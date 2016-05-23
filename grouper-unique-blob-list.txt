@@ -27,6 +27,9 @@
 #camera.tegra.so
 #hwcomposer.tegra.so
 #libsensors.lightsensor.so
+#libEGL_tegra.so
+#libGLESv1_CM_tegra.so
+#libGLESv2_tegra.so
 
 #broadcom
 #gpsconfig.xml

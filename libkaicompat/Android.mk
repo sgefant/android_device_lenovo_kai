@@ -30,6 +30,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libkaicompat
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES += external/safe-iop/include
-LOCAL_SHARED_LIBRARIES := libbacktrace libcutils libdl liblog libutils libhardware libgui libui libbinder
+LOCAL_SHARED_LIBRARIES := \
+    libbacktrace libbinder libcutils libgui libhardware liblog libsync libui libutils libstagefright
 
 include $(BUILD_SHARED_LIBRARY)

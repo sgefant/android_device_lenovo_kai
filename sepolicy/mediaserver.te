@@ -1,1 +1,4 @@
 allow mediaserver { gpu_device nvhost_device }:chr_file rw_file_perms;
+
+# Copied from tf300
+allow mediaserver system_file:file execmod;

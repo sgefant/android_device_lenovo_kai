@@ -10,7 +10,7 @@ VENDORS="broadcom invensense lenovo nvidia widevine"
 init_makefiles () {
 # Call this function with $OUTDIR as argument
 MAKEFILES="device-partial.mk.new proprietary/Android.mk.new"
-for n in $MAKEFILES ; do 
+for n in $MAKEFILES ; do
 (cat << EOF) > $1/$n
 # Copyright (C) 2010 The Android Open Source Project
 #
@@ -42,7 +42,7 @@ IFS=$'\n'
 
 # Then, echo the existing device-partial.mk into the new makefile
 # and copy over the module definitions from to the new Android.mk
-for i in $(cat $1/device-partial.mk | grep -v \# ) ; do 
+for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
   if [[ $i == "PRODUCT_PACKAGES := \\" ]] ; then
     echo $i >> $1/device-partial.mk.new
   # Exclude additional (open source) modules
@@ -58,7 +58,7 @@ for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
         echo Ignoring $modname...
       fi
     done
-    if [[ $COPY == true ]] ; then 
+    if [[ $COPY == true ]] ; then
       echo "    $modname \\" >> $1/device-partial.mk.new
       # Now grep over the module definitions; have to deal with
       # grepping the filename.
@@ -102,10 +102,10 @@ LOCAL_MODULE_OWNER=$(echo $VENDOR | sed -e 's/\(.*\)/\L\1/')
 
 # Now,LOCAL_MODULE and LOCAL_MODULE_SUFFIX are different,
 # depending on whether the file has an extension.
-if [[ "$LOCAL_SRC_FILES" == *.* ]] ; then 
+if [[ "$LOCAL_SRC_FILES" == *.* ]] ; then
   LOCAL_MODULE_SUFFIX=\."$(echo $LOCAL_SRC_FILES | rev | awk -F . '{ print $1 }' | rev)"
   LOCAL_MODULE=$(echo $LOCAL_SRC_FILES | sed 's/\.[^.]*$//')
-else 
+else
   LOCAL_MODULE=$LOCAL_SRC_FILES
   LOCAL_MODULE_SUFFIX=""
 fi
@@ -165,7 +165,7 @@ for FILE in `cat proprietary-files.txt` ; do
           OUTDIR="../../../vendor/$VENDOR/$DEVICE"
         fi
       done
-      ;;   
+      ;;
     *"/"*)
       EXISTING=false
       if [ -e $OUTDIR/proprietary/$(basename $FILE) ] ; then

@@ -54,7 +54,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Custom Tools
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lenovo/kai/releasetools/kai_ota_from_target_files
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lenovo/kai/releasetools/kai_ota_from_target_files
 
 BOARD_HAVE_WIFI := true
 # Wifi related defines

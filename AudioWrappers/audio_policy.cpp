@@ -19,8 +19,10 @@
 //#define LOG_NDEBUG 0
 
 #include <stdint.h>
+#include <stdlib.h>
 
 #include <cutils/log.h>
+#include <utils/Errors.h>
 
 #include <hardware/hardware.h>
 #include <system/audio.h>
