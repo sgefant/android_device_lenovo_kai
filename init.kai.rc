@@ -10,10 +10,10 @@ import init.IdeaTabA2109A_board.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    export LD_SHIM_LIBS /vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/lib/libnvcap_video.so|libkaicompat.so:/system/lib/libnvwinsys.so|libkaicompat.so:/vendor/lib/libwvm.so|libkaicompat.so:/system/lib/hw/sensors.tegra.so|libkaicompat.so
+    export LD_SHIM_LIBS /system/vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/system/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/system/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/libnvcap_video.so|libkaicompat.so:/system/vendor/lib/libnvwinsys.so|libkaicompat.so:/system/vendor/lib/libwvm.so|libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:/system/vendor/lib/libnvomxadaptor.so|libkaicompat.so:
 
 on init
-    export LD_SHIM_LIBS /vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/lib/libnvcap_video.so|libkaicompat.so:/system/lib/libnvwinsys.so|libkaicompat.so:/vendor/lib/libwvm.so|libkaicompat.so:/system/lib/hw/sensors.tegra.so|libkaicompat.so
+    export LD_SHIM_LIBS /system/vendor/lib/hw/hwcomposer.tegra_v0.so|libkaicompat.so:/system/vendor/lib/hw/camera.tegra.so|libkaicompat.so:/system/vendor/lib/hw/audio_policy.vendor.tegra.so|libkaicompat.so:/system/vendor/lib/libnvcap_video.so|libkaicompat.so:/system/vendor/lib/libnvwinsys.so|libkaicompat.so:/system/vendor/lib/libwvm.so|libkaicompat.so:/system/vendor/lib/hw/sensors.tegra.so|libkaicompat.so:/system/vendor/lib/libnvomxadaptor.so|libkaicompat.so:
 
     # support legacy paths
     symlink /sdcard /mnt/sdcard
