@@ -42,7 +42,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_BOOTLOADER_BOARD_NAME := a2109a
 
-BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing
+BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing androidboot.hardware=kai
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
