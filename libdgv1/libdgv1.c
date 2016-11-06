@@ -33,7 +33,7 @@
  *    library, to make sure that the linker brings it in afterall and all symbols in it are found
  * 3. Implement dmitrygr1.so such that it provides LibLdr() and backs that wil a proper clal to dlopen()
  *    with eht proper psth
- * 
+ *
  * Result: GFX libraries works on M, with the help of dmitrygr1.so and a small binary patch to libnvos.so
  */
 
@@ -50,19 +50,25 @@ NvError NvOsLibraryLoad(const char *name, struct NvOsLibraryHandle *library);
 
 NvError dmitrygr_libldr(const char *name, struct NvOsLibraryHandle *library)
 {
-    static const char *prepend = "/system/lib/";
+    static const char *prepend = "/vendor/lib/";
     char *path;
     NvError err;
 
+    ALOGI("Trying to load nvos library '%s'...", name);
+
     err = NvOsLibraryLoad(name, library);
-    if (!err)
+    if (!err) {
+	ALOGI("Loaded library '%s' as requested.", name);
         return err;
+    }
 
     //now try full path
     //then try in /system/lib
     path = malloc(strlen(name) + strlen(prepend) + 1);
-    if (!path)
+    if (!path) {
+	ALOGI("Path %s not found!", path);
         return err;
+    }
     sprintf(path, "%s%s", prepend, name);
     err = NvOsLibraryLoad(path, library);
     if (!err)
