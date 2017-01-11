@@ -1,1 +1,4 @@
-allow bootanim self:process execmem;
+allow bootanim mnt_user_file:dir search;
+allow bootanim storage_file:dir search;
+allow bootanim storage_file:lnk_file read;
+allow bootanim system_file:file execmod;

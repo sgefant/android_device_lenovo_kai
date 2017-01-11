@@ -4,7 +4,10 @@ type glgps_exec, exec_type, file_type;
 # Started by init
 init_daemon_domain(glgps)
 
-allow glgps glgps_exec:file { execute_no_trans };
+allow glgps glgps_exec:file execute_no_trans;
+
+# This rule also requires patching external/sepolicy/domain.te (ugly hack)
+allow glgps glgps_exec:file execmod;
 
 allow glgps glgps:unix_stream_socket connectto;
 
@@ -13,11 +16,7 @@ allow glgps system_file:file { execute_no_trans execmod };
 allow glgps gps_device:chr_file { getattr setattr };
 allow glgps gps_data_file:dir { search write add_name remove_name };
 allow glgps gps_data_file:file { create rw_file_perms };
-#allow glgps gps_data_file:file { create write getattr read open };
 allow glgps gps_data_file:fifo_file { unlink create setattr getattr rw_file_perms };
-#allow glgps gps_data_file:fifo_file { getattr unlink create read open };
 allow glgps sysfs:file { setattr write };
 allow glgps gps_device:chr_file { ioctl open read write };
 allow glgps glgps:udp_socket { create };
-
-allow gpsd self:process execmem;

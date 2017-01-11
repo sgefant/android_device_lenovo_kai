@@ -11,3 +11,6 @@ allow system_server glgps:unix_stream_socket connectto;
 
 # Text relocs
 allow system_server system_file:file execmod;
+
+# Probably necessary for power HAL
+allow system_server shell_exec:file { read execute open execute_no_trans };
