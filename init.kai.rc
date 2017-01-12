@@ -126,14 +126,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
     chmod 0660 /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
 
-# Default Read Ahead value for sdcards
-#{CL2N} +
-#    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
-#    write /sys/block/mmcblk1/queue/read_ahead_kb 2048
-    write /sys/block/mmcblk0/queue/read_ahead_kb 8192
-    write /sys/block/mmcblk1/queue/read_ahead_kb 4096
-#{CL2N} -
-
 # Wiimote connect status
     write /data/misc/wminput/connected 0
     chmod 0666 /data/misc/wminput/connected
@@ -158,44 +150,6 @@ on boot
     chmod 0770 /data/gps/log
     chown gps system /dev/ttyHS1
     chmod 0660 /dev/ttyHS1
-
-# Load WiFi driver
-    insmod /system/lib/modules/cfg80211.ko
-    insmod /system/lib/modules/mac80211.ko
-    insmod /system/lib/modules/bcmdhd.ko
-#    setprop wifi.supplicant wpa_suppl_nl
-#endif
-
-# BB mapping symbolic name to the logging ttyACM port
-    symlink /dev/ttyACM2 /dev/log_modem
-
-on property:ro.debuggable=1
-    # Touchscreen config interface
-    chmod 666 /sys/devices/sensor00/bsr
-    chmod 666 /sys/devices/sensor00/enabled
-    chmod 666 /sys/devices/sensor00/fn01/chargerinput
-    chmod 666 /sys/devices/sensor00/fn01/nosleep
-    chmod 666 /sys/devices/sensor00/fn01/reportrate
-    chmod 666 /sys/devices/sensor00/fn01/reset
-    chmod 666 /sys/devices/sensor00/fn01/sleepmode
-    chmod 666 /sys/devices/sensor00/fn11/clip
-    chmod 666 /sys/devices/sensor00/fn11/flip
-    chmod 666 /sys/devices/sensor00/fn11/offset
-    chmod 666 /sys/devices/sensor00/fn11/relreport
-    chmod 666 /sys/devices/sensor00/fn11/rezero
-    chmod 666 /sys/devices/sensor00/fn11/swap
-    chmod 666 /sys/devices/sensor00/fn34/blocknum
-    chmod 666 /sys/devices/sensor00/fn34/bootloaderid
-    chmod 666 /sys/devices/sensor00/fn34/cmd
-    chmod 666 /sys/devices/sensor00/fn34/data
-    chmod 666 /sys/devices/sensor00/fn34/rescanPDT
-    chmod 666 /sys/devices/sensor00/fn54/get_report
-    chmod 666 /sys/devices/sensor00/fn54/fifoindex
-    chmod 666 /sys/devices/sensor00/fn54/force_cal
-    chmod 666 /sys/devices/sensor00/fn54/no_auto_cal
-    chmod 666 /sys/devices/sensor00/fn54/report_type
-    # EMC debug interface
-    chmod 666 /sys/kernel/debug/tegra_emc/eack_state
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
