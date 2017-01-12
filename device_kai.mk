@@ -23,11 +23,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     device/lenovo/kai/fstab.kai:root/fstab.kai \
     device/lenovo/kai/init.kai.rc:root/init.kai.rc \
+    device/lenovo/kai/init.power.kai.rc:root/init.power.kai.rc \
     device/lenovo/kai/init.tf.rc:root/init.tf.rc \
     device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
     device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc
 
-# Build characteristics setting 
+# Build characteristics setting
 PRODUCT_CHARACTERISTICS := tablet
 
 # Copied from grouper
@@ -69,7 +70,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 
-# From Grouper and additions from superhansi (NvCPLSvc and further down the list)
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
@@ -87,6 +87,12 @@ PRODUCT_PACKAGES += \
     libkaicompat \
     libdgv1
 
+PRODUCT_PACKAGES += \
+    tinymix \
+    tinyplay \
+    tinycap \
+    tinypcminfo
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -96,16 +102,11 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     audio.primary.tegra \
-    audio_policy.tegra \
     hwcomposer.tegra \
     libstagefrighthw
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
-
-# Stupid hack because of missing reference in grouper makefile
-PRODUCT_COPY_FILES += \
-     device/lenovo/kai/lenovo-kai-proprietary/bin/tf_daemon:system/bin/tf_daemon
 
 # A2109A specific config files
 PRODUCT_COPY_FILES += \
@@ -145,13 +146,12 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
     device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
-    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf 
+    device/lenovo/kai/lenovo-kai-proprietary/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf
 
 # Miscellaneous
 PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound_depop.wav:system/media/audio/notifications/bootsound_depop.wav \
-    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav 
-    #device/lenovo/kai/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/lenovo/kai/lenovo-kai-proprietary/media/audio/notifications/bootsound.wav:system/media/audio/notifications/bootsound.wav
 
 # Add permissions, copied straight from grouper
 PRODUCT_COPY_FILES += \
