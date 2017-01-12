@@ -66,7 +66,7 @@ for i in $(cat $1/device-partial.mk | grep -v \# ) ; do
       for FULLNAME in $(grep -A 1 LOCAL_MODULE\ :=\ $modname $1/proprietary/Android.mk | grep LOCAL_SRC_FILES | awk -F = '{print $2}' | sed 's/[[:space:]]//g') ; do
         MODULE=$(echo $FULLNAME | sed 's/\.[^.]*$//')
         if [[ "$modname" == "$MODULE" ]] ; then
-          grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk >>  $1/proprietary/Android.mk.new 
+          grep -B 2 -A 7 "$FULLNAME" $1/proprietary/Android.mk | sed -- 's/TARGET_OUT)/TARGET_OUT_VENDOR)/' >>  $1/proprietary/Android.mk.new
         fi
       done
       #IFS=$'\n'

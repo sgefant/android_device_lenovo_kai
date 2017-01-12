@@ -5,15 +5,15 @@
 # because it breaks the setup-makefiles.sh script
 
 #lenovo
-#vendor/lib/libwvm.so
-#vendor/lib/drm/libdrmwvmplugin.so
+#lib/libwvm.so
+#lib/drm/libdrmwvmplugin.so
 #lib/hw/camera.tegra.so
 #lib/hw/audio_policy.tegra.so
 #lib/hw/audio.primary.tegra.so
-lib/hw/sensors.kai.so
-lib/libsensors.base.so
-lib/libsensors.jsa1127.so
-lib/libsensors.lis3dh.so
+vendor/lib/hw/sensors.kai.so
+vendor/lib/libsensors.base.so
+vendor/lib/libsensors.jsa1127.so
+vendor/lib/libsensors.lis3dh.so
 
 #broadcom
 #lib/hw/gps.tegra.so
@@ -22,14 +22,14 @@ etc/firmware/bcm4330.hcd
 #etc/gps/gpsconfig.xml
 
 #invensense
-lib/libmplmpu.so
-lib/libmllite.so
-lib/libmlplatform.so
-lib/libinvensense_hal.so
-lib/libsensors.isl29018.so
-lib/libsensors.isl29028.so
-lib/libsensors.mpl.so
-lib/libakmd.so
+vendor/lib/libmplmpu.so
+vendor/lib/libmllite.so
+vendor/lib/libmlplatform.so
+vendor/lib/libinvensense_hal.so
+vendor/lib/libsensors.isl29018.so
+vendor/lib/libsensors.isl29028.so
+vendor/lib/libsensors.mpl.so
+vendor/lib/libakmd.so
 
 #nvidia
 # Probably related to camera
@@ -39,11 +39,11 @@ etc/firmware/nvavp_os_0ff00000.bin
 etc/firmware/nvavp_os_eff00000.bin
 etc/firmware/nvavp_vid_ucode_alt.bin
 # HAL
-lib/hw/gralloc.tegra.so
+#vendor/lib/hw/gralloc.tegra.so
 #lib/hw/hwcomposer.tegra.so
 #lib/hw/lights.kai.so
 #lib/hw/nfc.tegra.so
-lib/hw/ts.default.so
+vendor/lib/hw/ts.default.so
 # EGL
 #lib/egl/libEGL_tegra.so
 #lib/egl/libEGL_tegra_impl.so
@@ -51,74 +51,74 @@ lib/hw/ts.default.so
 #lib/egl/libGLESv1_CM_tegra_impl.so
 #lib/egl/libGLESv2_tegra.so
 #lib/egl/libGLESv2_tegra_impl.so
-lib/libnvcap_video.so
-lib/libnvomxadaptor.so
-lib/libnvos.so
-lib/libnvrm.so
-lib/libnvrm_graphics.so
-lib/libnvddk_2d.so
-lib/libnvwsi.so
-lib/libnvddk_2d_v2.so
-lib/libardrv_dynamic.so
-lib/libnvglsi.so
-lib/libcgdrv.so
+vendor/lib/libnvcap_video.so
+vendor/lib/libnvomxadaptor.so
+vendor/lib/libnvos.so
+#vendor/lib/libnvrm.so
+#vendor/lib/libnvrm_graphics.so
+vendor/lib/libnvddk_2d.so
+vendor/lib/libnvwsi.so
+vendor/lib/libnvddk_2d_v2.so
+vendor/lib/libardrv_dynamic.so
+vendor/lib/libnvglsi.so
+vendor/lib/libcgdrv.so
 # Camera
-lib/libnvomxilclient.so
-lib/libnvcamerahdr.so
-lib/libnvtvmr.so
-lib/libnvmm_utils.so
-lib/libnvmm_service.so
-lib/libnvmm_manager.so
-lib/libnvmm_contentpipe.so
-lib/libnvomx.so
-lib/libnvodm_imager.so
-lib/libnvodm_query.so
-lib/libnvwinsys.so
-lib/libnvmmlite.so
-lib/libnvmmlite_utils.so
+vendor/lib/libnvomxilclient.so
+vendor/lib/libnvcamerahdr.so
+vendor/lib/libnvtvmr.so
+vendor/lib/libnvmm_utils.so
+vendor/lib/libnvmm_service.so
+vendor/lib/libnvmm_manager.so
+vendor/lib/libnvmm_contentpipe.so
+vendor/lib/libnvomx.so
+vendor/lib/libnvodm_imager.so
+vendor/lib/libnvodm_query.so
+vendor/lib/libnvwinsys.so
+vendor/lib/libnvmmlite.so
+vendor/lib/libnvmmlite_utils.so
 
 # Sound
-lib/libnvaudioservice.so
-lib/libaudioavp.so
-lib/libnvavp.so
+vendor/lib/libnvaudioservice.so
+vendor/lib/libaudioavp.so
+vendor/lib/libnvavp.so
 
 # Below here, it is just brute force adding everything in
-lib/libnvcap.so
-lib/libnvcapclk.so
-lib/libnvmm.so
-lib/libnvmm_audio.so
-lib/libnvmm_camera.so
-lib/libnvmm_image.so
-lib/libnvmm_parser.so
-lib/libnvmm_video.so
-lib/libnvmm_writer.so
-lib/libnvmm_asfparser.so
-lib/libnvmm_aviparser.so
-lib/libnvmm_msaudio.so
-lib/libnvmm_vc1_video.so
-lib/libnvmmlite_msaudio.so
-lib/libnvmmlite_audio.so
-lib/libnvmmlite_image.so
-lib/libnvmmlite_video.so
-lib/libnvodm_dtvtuner.so
-lib/libnvodm_hdmi.so
-lib/libnvodm_misc.so
+vendor/lib/libnvcap.so
+vendor/lib/libnvcapclk.so
+vendor/lib/libnvmm.so
+vendor/lib/libnvmm_audio.so
+vendor/lib/libnvmm_camera.so
+vendor/lib/libnvmm_image.so
+vendor/lib/libnvmm_parser.so
+vendor/lib/libnvmm_video.so
+vendor/lib/libnvmm_writer.so
+vendor/lib/libnvmm_asfparser.so
+vendor/lib/libnvmm_aviparser.so
+vendor/lib/libnvmm_msaudio.so
+vendor/lib/libnvmm_vc1_video.so
+vendor/lib/libnvmmlite_msaudio.so
+vendor/lib/libnvmmlite_audio.so
+vendor/lib/libnvmmlite_image.so
+vendor/lib/libnvmmlite_video.so
+vendor/lib/libnvodm_dtvtuner.so
+vendor/lib/libnvodm_hdmi.so
+vendor/lib/libnvodm_misc.so
 
 #lib/libstagefrighthw.so
-lib/libnvapputil.so
-lib/libnvasfparserhal.so
-lib/libnvaviparserhal.so
-lib/libnvparser.so
-lib/libnvsm.so
+vendor/lib/libnvapputil.so
+vendor/lib/libnvasfparserhal.so
+vendor/lib/libnvaviparserhal.so
+vendor/lib/libnvparser.so
+vendor/lib/libnvsm.so
 
-lib/libasound.so
+vendor/lib/libasound.so
 #lib/librm31080.so
 #lib/librm_ts_service.so
 
 etc/nvcamera.conf
 etc/nvram_4330.txt
 bin/hdcp_test
-bin/tf_daemon
+#bin/tf_daemon
 
 #lib/libjpeg.so
 #lib/libskia.so

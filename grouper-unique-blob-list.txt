@@ -30,6 +30,8 @@
 #libEGL_tegra.so
 #libGLESv1_CM_tegra.so
 #libGLESv2_tegra.so
+#libnvrm.so
+#libnvrm_graphics.so
 
 #broadcom
 #gpsconfig.xml
