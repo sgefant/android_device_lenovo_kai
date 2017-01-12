@@ -29,7 +29,7 @@ RECOVERY_FSTAB_VERSION := 2
 
 TARGET_BOARD_PLATFORM := tegra
 TARGET_TEGRA_VERSION := t30
- 
+
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -79,23 +79,29 @@ MALLOC_IMPL := dlmalloc
 
 # Audio Options
 BOARD_USES_GENERIC_AUDIO := false
+# frameworks/native 43022aef331c665ebd9484893b0b0ebc2c523452:
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+# frameworks/native ba3877845ec7b34fd13393aeed7ad74dcb727a4c:
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
-USE_LEGACY_AUDIO_POLICY := 1
+USE_LEGACY_AUDIO_POLICY := true
 
 ### Defines for legacy blobs
 # Marshmallow
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
-# Needed in p880 to fix fullscreen video playback
+# COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING # Probably only needed for old RIL
+
+# Taken from p880
+# Probably unnecessary:
+BOARD_USES_LEGACY_MMAP := true
+# Probably unnecessary
+COMMON_GLOBAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
-# Used in tf300t, tf700t, htc-tegra3 and p880
+# Needed in p880 to fix fullscreen video playback
+
+# Used in tf300t, tf700t, htc-tegra3 and p880; Commit 0454961cfba4106e0a89c69630d0ddb6128b5280
 COMMON_GLOBAL_CFLAGS += \
      -DMR0_CAMERA_BLOB
-#    -DADD_LEGACY_MEMORY_DEALER_CONSTRUCTOR_SYMBOL \
-#    -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL \
-#    -DNEEDS_VECTORIMPL_SYMBOLS \
-#    -DADD_LEGACY_SET_POSITION_SYMBOL \
 
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
@@ -113,7 +119,7 @@ USE_ALL_OPTIMIZED_STRING_FUNCS := true
 # Turn on Cortex A9 Optimizations for A7
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
 
-### EGL
+# EGL
 USE_OPENGL_RENDERER := true
 # Used in tf300t, tf700t, p880
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
@@ -121,11 +127,13 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Used in htc-tegra3 and p880
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-# Used only in kai
+BOARD_EGL_NEEDS_FNW := true
+# Commit e65d285976712edb96a093d4a17aff83621785e5 (frameworks/native):
 BOARD_EGL_SKIP_FIRST_DEQUEUE := true
+# Commit ae4d80e4706d15c38944822486a4a92f2a2ec0f1 (frameworks/native):
 BOARD_USE_MHEAP_SCREENSHOT := true
-###
+#TARGET_FORCE_SCREENSHOT_CPU_PATH := true # Commit c8e2624c618ec7348ab1b963cea95f5725c654c5 (frameworks/native)
+#COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
