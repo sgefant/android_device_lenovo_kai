@@ -82,10 +82,7 @@ PRODUCT_PACKAGES += \
     libinvensense_mpl \
     power.kai \
     lights.kai \
-    keymaster.kai \
-    libstagefrighthw \
-    libkaicompat \
-    libdgv1
+    keymaster.kai
 
 PRODUCT_PACKAGES += \
     tinymix \
@@ -101,9 +98,12 @@ PRODUCT_PACKAGES += \
 
 # Wrappers
 PRODUCT_PACKAGES += \
-    audio.primary.tegra \
     hwcomposer.tegra \
-    libstagefrighthw
+    libkaicompat \
+    libdgv1 \
+    libstagefrighthw \
+    libgpsd-compat \
+    libstlport
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/Vendor_057e_Product_0306.kl:system/usr/keylayout/Vendor_057e_Product_0306.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/lenovo/kai/lenovo-kai-proprietary/usr/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-    device/lenovo/kai/config/gpsconfig.xml:system/etc/gps/gpsconfig.xml \
+    device/lenovo/kai/config/gps.xml:system/etc/gps/gps.xml \
     device/lenovo/kai/config/media_profiles.xml:system/etc/media_profiles.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
