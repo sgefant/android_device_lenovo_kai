@@ -103,6 +103,10 @@ TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 COMMON_GLOBAL_CFLAGS += \
      -DMR0_CAMERA_BLOB
 
+# Camera wrapper
+TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
+
+
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
     libdumpstate.kai
