@@ -19,9 +19,10 @@
 static struct powerhal_info *pInfo;
 static struct input_dev_map input_devs[] = {
 		{-1, "ft5x0x_ts\n"}
+		//{-1, "blaargghh\n"}
        };
 
-static void grouper_power_init(struct power_module *module)
+static void kai_power_init(struct power_module *module)
 {
     if (!pInfo)
         pInfo = (powerhal_info*)calloc(1, sizeof(powerhal_info));
@@ -31,18 +32,18 @@ static void grouper_power_init(struct power_module *module)
     common_power_init(module, pInfo);
 }
 
-static void grouper_power_set_interactive(struct power_module *module, int on)
+static void kai_power_set_interactive(struct power_module *module, int on)
 {
     common_power_set_interactive(module, pInfo, on);
 }
 
-static void grouper_power_hint(struct power_module *module, power_hint_t hint,
+static void kai_power_hint(struct power_module *module, power_hint_t hint,
                             void *data)
 {
     common_power_hint(module, pInfo, hint, data);
 }
 
-static int grouper_power_open(__attribute__ ((unused)) const hw_module_t *module, const char *name,
+static int kai_power_open(__attribute__ ((unused)) const hw_module_t *module, const char *name,
                           __attribute__ ((unused)) hw_device_t **device)
 {
     if (strcmp(name, POWER_HARDWARE_MODULE_ID))
@@ -57,7 +58,7 @@ static int grouper_power_open(__attribute__ ((unused)) const hw_module_t *module
     return 0;
 }
 
-static void grouper_set_feature(__attribute__ ((unused)) struct power_module *module, feature_t feature, __attribute__ ((unused)) int state)
+static void kai_set_feature(__attribute__ ((unused)) struct power_module *module, feature_t feature, __attribute__ ((unused)) int state)
 {
     switch (feature) {
     case POWER_FEATURE_DOUBLE_TAP_TO_WAKE:
@@ -70,7 +71,7 @@ static void grouper_set_feature(__attribute__ ((unused)) struct power_module *mo
 }
 
 static struct hw_module_methods_t power_module_methods = {
-    open: grouper_power_open,
+    open: kai_power_open,
 };
 
 struct power_module HAL_MODULE_INFO_SYM = {
@@ -86,8 +87,8 @@ struct power_module HAL_MODULE_INFO_SYM = {
         reserved: {0},
     },
 
-    init: grouper_power_init,
-    setInteractive: grouper_power_set_interactive,
-    powerHint: grouper_power_hint,
-    setFeature: grouper_set_feature,
+    init: kai_power_init,
+    setInteractive: kai_power_set_interactive,
+    powerHint: kai_power_hint,
+    setFeature: kai_set_feature,
 };
