@@ -6,6 +6,9 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 # This directory did not exist, adapted from grouper proprietary files
 $(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
 
+# New arm-generic widevine
+$(call inherit-product-if-exists, vendor/widevine/arm-generic/widevine-vendor.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
 LOCAL_PATH := device/lenovo/kai
@@ -98,7 +101,7 @@ PRODUCT_PACKAGES += \
 
 # Wrappers
 PRODUCT_PACKAGES += \
-    hwcomposer.tegra \
+    camera.tegra \
     libkaicompat \
     libdgv1 \
     libstagefrighthw \
