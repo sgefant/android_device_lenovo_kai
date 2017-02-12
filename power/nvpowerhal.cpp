@@ -270,8 +270,6 @@ void common_power_hint(__attribute__ ((unused)) struct power_module *module,
         pInfo->mTimeoutPoker->requestPmQosTimed("/dev/min_online_cpus",
                                                  DEFAULT_MIN_ONLINE_CPUS,
                                                  ms2ns(2000));
-        // Disable hardware overlays
-	system("service call SurfaceFlinger 1008 i32 1");
         break;
 	case POWER_HINT_LOW_POWER:
 		break;
