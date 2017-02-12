@@ -88,16 +88,6 @@ USE_LEGACY_AUDIO_POLICY := true
 ### Defines for legacy blobs
 # Marshmallow
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
-# COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING # Probably only needed for old RIL
-
-# Taken from p880
-# Probably unnecessary:
-BOARD_USES_LEGACY_MMAP := true
-# Probably unnecessary
-COMMON_GLOBAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
-TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
-
-# Needed in p880 to fix fullscreen video playback
 
 # Used in tf300t, tf700t, htc-tegra3 and p880; Commit 0454961cfba4106e0a89c69630d0ddb6128b5280
 COMMON_GLOBAL_CFLAGS += \
@@ -105,7 +95,6 @@ COMMON_GLOBAL_CFLAGS += \
 
 # Camera wrapper
 TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include
-
 
 # Kai HAL libraries
 BOARD_HAL_STATIC_LIBRARIES := \
@@ -136,8 +125,6 @@ BOARD_EGL_NEEDS_FNW := true
 BOARD_EGL_SKIP_FIRST_DEQUEUE := true
 # Commit ae4d80e4706d15c38944822486a4a92f2a2ec0f1 (frameworks/native):
 BOARD_USE_MHEAP_SCREENSHOT := true
-#TARGET_FORCE_SCREENSHOT_CPU_PATH := true # Commit c8e2624c618ec7348ab1b963cea95f5725c654c5 (frameworks/native)
-#COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
