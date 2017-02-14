@@ -53,9 +53,6 @@ BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-# Custom Tools
-#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/lenovo/kai/releasetools/kai_ota_from_target_files
-
 BOARD_HAVE_WIFI := true
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -112,19 +109,11 @@ USE_ALL_OPTIMIZED_STRING_FUNCS := true
 # Turn on Cortex A9 Optimizations for A7
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9) $(call cc-option,-mcpu=cortex-a9)
 
-# EGL
-USE_OPENGL_RENDERER := true
 # Used in tf300t, tf700t, p880
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-# Used in htc-tegra3 and p880
+# Used in htc-tegra3 and p880 (frameworks/native)
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-BOARD_EGL_NEEDS_FNW := true
-# Commit e65d285976712edb96a093d4a17aff83621785e5 (frameworks/native):
-BOARD_EGL_SKIP_FIRST_DEQUEUE := true
-# Commit ae4d80e4706d15c38944822486a4a92f2a2ec0f1 (frameworks/native):
-BOARD_USE_MHEAP_SCREENSHOT := true
 
 ifneq ($(HAVE_NVIDIA_PROP_SRC),false)
 # needed for source compilation of nvidia libraries
@@ -135,11 +124,4 @@ endif
 BOARD_SEPOLICY_DIRS := \
         device/lenovo/kai/sepolicy
 
-# Avoid the generation of ldrcc instructions
-NEED_WORKAROUND_CORTEX_A9_745320 := true
-
 TARGET_RECOVERY_FSTAB = device/lenovo/kai/fstab.kai
-
-# Required for CWM
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_RECOVERY_SWIPE := false
