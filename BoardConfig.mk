@@ -81,6 +81,7 @@ BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 # frameworks/native ba3877845ec7b34fd13393aeed7ad74dcb727a4c:
 BOARD_HAVE_PRE_KITKAT_AUDIO_POLICY_BLOB := true
 USE_LEGACY_AUDIO_POLICY := true
+COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 
 ### Defines for legacy blobs
 # Marshmallow
