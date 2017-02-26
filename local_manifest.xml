@@ -4,15 +4,38 @@
 
   <project name="PJBrs/android_device_lenovo_kai" path="device/lenovo/kai" remote="github" revision="cm-13.0" />
 
+<!-- frameworks/base, for rotation lock button -->
+  <remove-project name="LineageOS/android_frameworks_base" />
+  <project name="PJBrs/platform_frameworks_base" path="frameworks/base" remote="github" revision="cm-13.0" />
+
+<!-- frameworks/native, for MR0 camera compatibility patch -->
+  <remove-project name="LineageOS/android_frameworks_native" />
+  <project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="cm-13.0" />
+
+<!-- frameworks/av, for pre-kitkat audio blob, MR0 audio blobs and video recording workaround -->
+  <remove-project name="LineageOS/android_frameworks_av" />
+  <project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="cm-13.0" />
+
+<!-- libhardware, MR0 audio blobs, needed by stock lenovo audio policy -->
+  <remove-project name="LineageOS/android_hardware_libhardware_legacy" />
+  <project name="PJBrs/platform_hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="github" revision="cm-13.0" />
+
+<!-- bionic, add patch to support text relocations /-->
+  <remove-project name="LineageOS/android_bionic" />
+  <project path="bionic" name="PJBrs/android_bionic" groups="pdk" />
+
 <!-- Kernel -->
-  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="A2109-l4t-clean-lollipop" remote="github" />
+  <project path="kernel/lenovo/kai" name="PJBrs/android_kernel_lenovo_kai" revision="A2109-linux-tegra-nv-3.4-unlegacy" remote="github" />
 
 <!-- tinyalsa, for audio hal -->
-  <remove-project name="CyanogenMod/android_external_tinyalsa" />
+  <remove-project name="LineageOS/android_external_tinyalsa" />
   <project path="external/tinyalsa" name="PJBrs/platform_external_tinyalsa" remote="github" revision="cm-13.0" />
 
 <!-- stlport, for gps -->
-<project path="external/stlport" name="Unlegacy-Android/android_external_stlport" remote="github" groups="pdk" />
+  <project path="external/stlport" name="Unlegacy-Android/android_external_stlport" remote="github" revision="aosp-6.0" groups="pdk" />
+
+<!-- widevine -->
+  <project path="vendor/widevine" name="Unlegacy-Android/proprietary_vendor_widevine" remote="github" revision="aosp-6.0" />
 
 </manifest>
 
