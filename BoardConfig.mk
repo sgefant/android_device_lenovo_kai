@@ -89,7 +89,7 @@ TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
 # Used in tf300t, tf700t, htc-tegra3 and p880; Commit 0454961cfba4106e0a89c69630d0ddb6128b5280
 COMMON_GLOBAL_CFLAGS += \
-     -DMR0_CAMERA_BLOB
+     -DMR0_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
 
 # Camera wrapper
 TARGET_SPECIFIC_HEADER_PATH := device/lenovo/kai/include

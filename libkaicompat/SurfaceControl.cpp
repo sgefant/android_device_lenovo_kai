@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
+/* 
+ * Copyright (C) 2015 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,213 +14,37 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "SurfaceControl"
-
-#include <stdint.h>
-#include <errno.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-
-#include <android/native_window.h>
-
-#include <utils/Errors.h>
-#include <utils/Log.h>
-#include <utils/threads.h>
-
-#include <binder/IPCThreadState.h>
-
-#include <ui/DisplayInfo.h>
-#include <ui/GraphicBuffer.h>
+#include <system/window.h>
+#include <ui/PixelFormat.h>
 #include <ui/Rect.h>
-
-#include <gui/ISurfaceComposer.h>
-#include <gui/Surface.h>
-#include <gui/SurfaceComposerClient.h>
 #include <gui/SurfaceControl.h>
 
 namespace android {
+extern "C" {
+// ---------------------------------------------------------------------------
 
-// ============================================================================
-//  SurfaceControl
-// ============================================================================
-
-SurfaceControl::SurfaceControl(
-        const sp<SurfaceComposerClient>& client,
-        const sp<IBinder>& handle,
-        const sp<IGraphicBufferProducer>& gbp)
-    : mClient(client), mHandle(handle), mGraphicBufferProducer(gbp)
-{
-}
-
-SurfaceControl::~SurfaceControl()
-{
-    destroy();
-}
-
-void SurfaceControl::destroy()
-{
-    if (isValid()) {
-        mClient->destroySurface(mHandle);
+    /* status_t SurfaceControl::setLayer */
+    //Needed by libnvwinsys.so //libgui
+    status_t _ZN7android14SurfaceControl8setLayerEj( uint32_t layer);
+    status_t _ZN7android14SurfaceControl8setLayerEi( int32_t layer) {
+        return _ZN7android14SurfaceControl8setLayerEj( (uint32_t)layer);
     }
-    // clear all references and trigger an IPC now, to make sure things
-    // happen without delay, since these resources are quite heavy.
-    mClient.clear();
-    mHandle.clear();
-    mGraphicBufferProducer.clear();
-    IPCThreadState::self()->flushCommands();
-}
 
-void SurfaceControl::clear()
-{
-    // here, the window manager tells us explicitly that we should destroy
-    // the surface's resource. Soon after this call, it will also release
-    // its last reference (which will call the dtor); however, it is possible
-    // that a client living in the same process still holds references which
-    // would delay the call to the dtor -- that is why we need this explicit
-    // "clear()" call.
-    destroy();
-}
-
-bool SurfaceControl::isSameSurface(
-        const sp<SurfaceControl>& lhs, const sp<SurfaceControl>& rhs)
-{
-    if (lhs == 0 || rhs == 0)
-        return false;
-    return lhs->mHandle == rhs->mHandle;
-}
-
-status_t SurfaceControl::setLayerStack(uint32_t layerStack) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setLayerStack(mHandle, layerStack);
-}
-status_t SurfaceControl::setLayer(uint32_t layer) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setLayer(mHandle, layer);
-}
-
-extern "C" status_t _ZN7android14SurfaceControl8setLayerEj(uint32_t);
-extern "C" status_t _ZN7android14SurfaceControl8setLayerEi(int32_t x){
-  return  _ZN7android14SurfaceControl8setLayerEj(static_cast<uint32_t> (x));
-}
-
-status_t SurfaceControl::setBlur(float blur) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setBlur(mHandle, blur);
-}
-status_t SurfaceControl::setBlurMaskSurface(const sp<SurfaceControl>& maskSurface) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setBlurMaskSurface(mHandle, maskSurface != 0 ? maskSurface->mHandle : 0);
-}
-status_t SurfaceControl::setBlurMaskSampling(uint32_t blurMaskSampling) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setBlurMaskSampling(mHandle, blurMaskSampling);
-}
-status_t SurfaceControl::setBlurMaskAlphaThreshold(float alpha) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setBlurMaskAlphaThreshold(mHandle, alpha);
-}
-status_t SurfaceControl::setPosition(float x, float y) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setPosition(mHandle, x, y);
-}
-  
-extern "C" int _ZN7android14SurfaceControl11setPositionEff(float x, float y);
-extern "C" int _ZN7android14SurfaceControl11setPositionEii(int32_t x, int32_t y){
-  return _ZN7android14SurfaceControl11setPositionEff(static_cast<float> (x), static_cast<float>(y));
-}
-
-status_t SurfaceControl::setSize(uint32_t w, uint32_t h) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setSize(mHandle, w, h);
-}
-status_t SurfaceControl::hide() {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->hide(mHandle);
-}
-status_t SurfaceControl::show() {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->show(mHandle);
-}
-status_t SurfaceControl::setFlags(uint32_t flags, uint32_t mask) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setFlags(mHandle, flags, mask);
-}
-status_t SurfaceControl::setTransparentRegionHint(const Region& transparent) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setTransparentRegionHint(mHandle, transparent);
-}
-status_t SurfaceControl::setAlpha(float alpha) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setAlpha(mHandle, alpha);
-}
-status_t SurfaceControl::setMatrix(float dsdx, float dtdx, float dsdy, float dtdy) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setMatrix(mHandle, dsdx, dtdx, dsdy, dtdy);
-}
-status_t SurfaceControl::setCrop(const Rect& crop) {
-    status_t err = validate();
-    if (err < 0) return err;
-    return mClient->setCrop(mHandle, crop);
-}
-
-status_t SurfaceControl::clearLayerFrameStats() const {
-    status_t err = validate();
-    if (err < 0) return err;
-    const sp<SurfaceComposerClient>& client(mClient);
-    return client->clearLayerFrameStats(mHandle);
-}
-
-status_t SurfaceControl::getLayerFrameStats(FrameStats* outStats) const {
-    status_t err = validate();
-    if (err < 0) return err;
-    const sp<SurfaceComposerClient>& client(mClient);
-    return client->getLayerFrameStats(mHandle, outStats);
-}
-
-status_t SurfaceControl::validate() const
-{
-    if (mHandle==0 || mClient==0) {
-        ALOGE("invalid handle (%p) or client (%p)",
-                mHandle.get(), mClient.get());
-        return NO_INIT;
+    /* status_t SurfaceControl::setPosition */
+    //Needed by libnvwinsys.so //libgui
+    status_t _ZN7android14SurfaceControl11setPositionEff(float x, float y);
+    status_t _ZN7android14SurfaceControl11setPositionEii(int32_t x, int32_t y) {
+        return _ZN7android14SurfaceControl11setPositionEff((float)x, (float)y);
     }
-    return NO_ERROR;
-}
+// ---------------------------------------------------------------------------
 
-status_t SurfaceControl::writeSurfaceToParcel(
-        const sp<SurfaceControl>& control, Parcel* parcel)
-{
-    sp<IGraphicBufferProducer> bp;
-    if (control != NULL) {
-        bp = control->mGraphicBufferProducer;
+    //Needed by libnvcap.so //libbinder
+    // Backwards compatibility for libdatabase_sqlcipher (http://b/8253769).
+    void _ZN7android10MemoryBaseC1ERKNS_2spINS_11IMemoryHeapEEEij(void*, void*, ssize_t, size_t);
+    void _ZN7android10MemoryBaseC1ERKNS_2spINS_11IMemoryHeapEEElj(void* obj, void* h, long o, unsigned int size) {
+        _ZN7android10MemoryBaseC1ERKNS_2spINS_11IMemoryHeapEEEij(obj, h, o, size);
     }
-    return parcel->writeStrongBinder(IInterface::asBinder(bp));
-}
+// ---------------------------------------------------------------------------
 
-sp<Surface> SurfaceControl::getSurface() const
-{
-    Mutex::Autolock _l(mLock);
-    if (mSurfaceData == 0) {
-        // This surface is always consumed by SurfaceFlinger, so the
-        // producerControlledByApp value doesn't matter; using false.
-        mSurfaceData = new Surface(mGraphicBufferProducer, false);
-    }
-    return mSurfaceData;
-}
-
-// ----------------------------------------------------------------------------
+} // extern "C"
 }; // namespace android

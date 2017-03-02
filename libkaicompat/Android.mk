@@ -20,17 +20,12 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
 	MemoryDealer.cpp \
-	PixelFormat.cpp \
-	SensorManager.cpp \
 	SurfaceControl.cpp \
-	SharedBuffer.cpp \
-	TegraVectorImpl.cpp \
 	AcquireBuffer.cpp
 
 LOCAL_MODULE := libkaicompat
 LOCAL_MODULE_TAGS := optional
-LOCAL_C_INCLUDES += external/safe-iop/include
 LOCAL_SHARED_LIBRARIES := \
-    libbacktrace libbinder libcutils libgui libhardware liblog libsync libui libutils libstagefright
+    libbinder libcutils libgui libhardware liblog libsync libui libutils libstagefright
 
 include $(BUILD_SHARED_LIBRARY)
