@@ -34,6 +34,9 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
+#include <camera/sensor_yuv.h>
+#include <fcntl.h>
+
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -107,6 +110,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     const char* supportedPreviewSizes = params.get(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES);
     const char* previewSize = params.get(android::CameraParameters::KEY_PREVIEW_SIZE);
     ALOGD("%s: camera %d previewSizes [%s] [%s]", __FUNCTION__, id, supportedPreviewSizes, previewSize);
+
     /*if (!strncmp(previewSize, "640x480", 7)) {
         params.set(android::CameraParameters::KEY_PREVIEW_SIZE, "1280x720");
     }*/
@@ -127,13 +131,39 @@ static char *camera_fixup_setparams(int id, const char *settings, struct camera_
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
 
+    struct sensor_mode mode;
+    int mode_changed = 0;
+    int cam_fd;
+    const char* cam_dev;
+
+    switch (id) {
+    case 0:
+        cam_dev="/dev/s5k5cag";
+	break;
+    case 1:
+	cam_dev="/dev/mt9m114";
+	break;
+    }
+    ALOGD("%s: using %s for camera device path", __FUNCTION__, cam_dev);
+
     // fix params here
     const char* supportedPreviewSizes = params.get(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES);
     const char* previewSize = params.get(android::CameraParameters::KEY_PREVIEW_SIZE);
     ALOGD("%s: camera %d previewSizes [%s] [%s]", __FUNCTION__, id, supportedPreviewSizes, previewSize);
-    /*if (!strncmp(previewSize, "640x480", 7)) {
-        params.set(android::CameraParameters::KEY_PREVIEW_SIZE, "1280x720");
-    }*/
+
+    if (strncmp(previewSize, "768x432", 7)) {
+	cam_fd = open (cam_dev, O_WRONLY);
+        if (cam_fd < 0) {
+            ALOGD("%s: cannot get file descriptor for %s",  __FUNCTION__, cam_dev);
+        }
+        ALOGD("%s: trying to set preview mode...", __FUNCTION__);
+	mode.xres = 768;
+        mode.yres = 432;
+	mode_changed = ioctl(cam_fd, SENSOR_IOCTL_SET_MODE, &mode);
+        close(cam_fd);
+        ALOGD("%s: did we modechange? Check %d.", __FUNCTION__, mode_changed);
+        params.set(android::CameraParameters::KEY_PREVIEW_SIZE, "768x432");
+    }
 
     const char* videoSize = params.get(android::CameraParameters::KEY_VIDEO_SIZE);
     const char* supportedVideoSizes = params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
