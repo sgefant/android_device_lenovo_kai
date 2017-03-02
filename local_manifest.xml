@@ -8,17 +8,21 @@
   <remove-project name="LineageOS/android_frameworks_base" />
   <project name="PJBrs/platform_frameworks_base" path="frameworks/base" remote="github" revision="cm-13.0" />
 
-<!-- frameworks/native, for MR0 camera compatibility patch -->
+<!-- frameworks/native, for camera compatibility patch -->
   <remove-project name="LineageOS/android_frameworks_native" />
   <project path="frameworks/native" name="PJBrs/platform_frameworks_native" remote="github" revision="cm-13.0" />
 
-<!-- frameworks/av, for pre-kitkat audio blob, MR0 audio blobs and video recording workaround -->
+<!-- frameworks/av, for pre-kitkat audio blob and video recording workaround -->
   <remove-project name="LineageOS/android_frameworks_av" />
   <project path="frameworks/av" name="PJBrs/platform_frameworks_av" remote="github" revision="cm-13.0" />
 
 <!-- libhardware, MR0 audio blobs, needed by stock lenovo audio policy -->
   <remove-project name="LineageOS/android_hardware_libhardware_legacy" />
   <project name="PJBrs/platform_hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="github" revision="cm-13.0" />
+
+<!-- system/core, a patch that adds vector symbols -->
+  <remove-project name="LineageOS/android_system_core" />
+  <project path="system/core" name="PJBrs/platform_system_core" remote="github" revision="cm-13.0" groups="pdk" />
 
 <!-- bionic, add patch to support text relocations /-->
   <remove-project name="LineageOS/android_bionic" />
