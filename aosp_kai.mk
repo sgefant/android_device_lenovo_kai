@@ -21,12 +21,10 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/lenovo/kai/device_kai.mk)
-# This is where we'd set a backup provider if we had one
-#$(call inherit-product, device/sample/products/backup_overlay.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := full_kai
+PRODUCT_NAME := aosp_kai
 PRODUCT_DEVICE := kai
 PRODUCT_BRAND := Ideatab
 PRODUCT_MODEL := A2109A
