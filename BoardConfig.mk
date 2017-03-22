@@ -27,7 +27,7 @@ RECOVERY_FSTAB_VERSION := 2
 # inherit from the proprietary version
 -include vendor/lenovo/kai/BoardConfigVendor.mk
 
-TARGET_BOARD_PLATFORM := tegra
+TARGET_BOARD_PLATFORM := tegra3
 TARGET_TEGRA_VERSION := t30
 
 TARGET_CPU_ABI := armeabi-v7a
@@ -50,7 +50,10 @@ TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 # System partition might be too small, if so, disable journaling on system.img to save space.
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 805306368
+BOARD_CACHEIMAGE_PARTITION_SIZE := 805306368
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 14088667136
+
+
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 BOARD_HAVE_WIFI := true
