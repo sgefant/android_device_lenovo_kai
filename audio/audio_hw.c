@@ -44,6 +44,20 @@
 #define MAX_PCM_DEVICES 4
 #define MAX_PCM (MAX_PCM_CARDS * MAX_PCM_DEVICES)
 
+#define OUT_PERIOD_SIZE 512
+#define OUT_SHORT_PERIOD_COUNT 2
+#define OUT_LONG_PERIOD_COUNT 4
+#define OUT_SAMPLING_RATE 48000
+
+#define IN_PERIOD_SIZE 1024
+#define IN_PERIOD_SIZE_LOW_LATENCY 512
+#define IN_PERIOD_COUNT 4
+#define IN_SAMPLING_RATE 48000
+
+#define SCO_PERIOD_SIZE 256
+#define SCO_PERIOD_COUNT 4
+#define SCO_SAMPLING_RATE 8000
+
 struct route_setting
 {
     char *ctl_name;
@@ -127,6 +141,8 @@ struct tiny_audio_device {
     int devices[2];
 
     bool mic_mute;
+
+    pthread_mutex_t lock;
 };
 
 struct tiny_pcm_out {
@@ -144,6 +160,8 @@ struct tiny_stream_out {
     struct tiny_audio_device *adev;
 
     struct tiny_pcm_out spcm[MAX_PCM];
+
+    pthread_mutex_t lock;
 };
 
 #define MAX_PREPROCESSORS 10
@@ -373,6 +391,11 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
     struct tiny_audio_device *adev = out->adev;
     int i, ret = 0, no_devs = 0;
     int active[MAX_PCM] = { 0 };
+
+    //pthread_mutex_lock(&adev->lock);
+    //pthread_mutex_lock(&out->lock);
+
+
     for (i = 0; i < adev->num_dev_cfgs; i++)
         if (adev->dev_cfgs[i].mask & AUDIO_DEVICE_OUT_ALL) {
             int card = adev->dev_cfgs[i].card;
@@ -405,7 +428,12 @@ static ssize_t out_write(struct audio_stream_out *stream, const void* buffer,
             }
         }
 
+        //pthread_mutex_unlock(&adev->lock);
+
         ret = pcm_mmap_write(opcm->pcm, buffer, bytes);
+
+	//pthread_mutex_unlock(&out->lock);
+
         if (ret != 0) {
             ALOGE("out_write(%p) PCM(%d) failed: %d\n", stream, i, ret);
             //break;
@@ -712,9 +740,10 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
      */
     for (i = 0; i < MAX_PCM; i++) {
         out->spcm[i].config.channels = 2;
-        out->spcm[i].config.rate = out_get_sample_rate(&out->stream.common);
-        out->spcm[i].config.period_count = 4;
-        out->spcm[i].config.period_size = 1024;
+        //out->spcm[i].config.rate = out_get_sample_rate(&out->stream.common);
+        out->spcm[i].config.rate = OUT_SAMPLING_RATE;
+        out->spcm[i].config.period_count = OUT_LONG_PERIOD_COUNT;
+        out->spcm[i].config.period_size = OUT_PERIOD_SIZE;
         out->spcm[i].config.format = PCM_FORMAT_S16_LE;
     }
 
@@ -862,9 +891,9 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
     pthread_mutex_unlock(&adev->route_lock);
 
     in->config.channels = 2;
-    in->config.rate = 48000; // A1026 only supports 48000Hz
-    in->config.period_count = 4;
-    in->config.period_size = 1024;
+    in->config.rate = IN_SAMPLING_RATE;
+    in->config.period_count = IN_PERIOD_COUNT;
+    in->config.period_size = IN_PERIOD_SIZE;
     in->config.format = PCM_FORMAT_S16_LE;
 
     in->buffer = malloc(in->config.period_size *
