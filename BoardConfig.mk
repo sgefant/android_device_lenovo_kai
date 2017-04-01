@@ -77,7 +77,6 @@ BOARD_USES_GENERIC_INVENSENSE := false
 # Audio Options
 BOARD_USES_GENERIC_AUDIO := false
 
-### Defines for legacy blobs
 # Marshmallow
 TARGET_NEEDS_TEXT_RELOCS_SUPPORT := true
 
