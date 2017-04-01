@@ -61,7 +61,7 @@
         </path>
     </device>
 
-    <device name="aux" alsa_card="0" alsa_device="3">
+    <device name="hdmi" alsa_card="0" alsa_device="3">
     </device>
 
 </tinyhal>
