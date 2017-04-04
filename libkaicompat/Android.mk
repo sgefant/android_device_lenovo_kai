@@ -14,14 +14,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# VectorImpl
-
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-	MemoryDealer.cpp \
-	SurfaceControl.cpp \
-	AcquireBuffer.cpp
+	SensorManager.cpp
 
 LOCAL_MODULE := libkaicompat
 LOCAL_MODULE_TAGS := optional
