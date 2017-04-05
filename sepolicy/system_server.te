@@ -1,6 +1,4 @@
 allow system_server { knv_device pmqos_device }:chr_file rw_file_perms;
-
-# From Unlegacy
 allow system_server sysfs_devices_tegradc:dir search;
 allow system_server sysfs_devices_nvavp:file { open write };
 
@@ -15,8 +13,5 @@ allow system_server gps_data_file:file {r_file_perms execute};
 allow system_server gps_data_file:dir rw_dir_perms;
 allow system_server gps_data_file:fifo_file { setattr rw_file_perms create };
 
-# Text relocs
+# text relocs
 allow system_server system_file:file execmod;
-
-# Probably necessary for power HAL
-allow system_server shell_exec:file { read execute open execute_no_trans };

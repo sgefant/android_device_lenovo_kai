@@ -3,9 +3,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# Vendor blobs
+# Nvidia hardware, vendor blobs
+$(call inherit-product, vendor/nvidia/tegra3/nvidia-vendor.mk)
 $(call inherit-product-if-exists, vendor/lenovo/kai/device-vendor.mk)
-$(call inherit-product-if-exists, vendor/widevine/arm-generic/widevine-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/lenovo/kai/overlay
 
@@ -24,8 +24,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     device/lenovo/kai/fstab.kai:root/fstab.kai \
     device/lenovo/kai/init.kai.rc:root/init.kai.rc \
-    device/lenovo/kai/init.power.kai.rc:root/init.power.kai.rc \
-    device/lenovo/kai/init.tf.rc:root/init.tf.rc \
     device/lenovo/kai/init.IdeaTabA2109A_board.usb.rc:root/init.IdeaTabA2109A_board.usb.rc \
     device/lenovo/kai/ueventd.kai.rc:root/ueventd.kai.rc
 
@@ -39,10 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     tf.enable=y \
     persist.sys.media.legacy-drm=true \
     drm.service.enabled=true
-
-# libhwui flags
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.render_dirty_regions=false
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -71,9 +65,7 @@ PRODUCT_PACKAGES += \
     bttest \
     com.android.future.usb.accessory \
     libinvensense_mpl \
-    power.kai \
     lights.kai \
-    keymaster.kai
 
 PRODUCT_PACKAGES += \
     tinymix \
@@ -90,7 +82,6 @@ PRODUCT_PACKAGES += \
 # Wrappers
 PRODUCT_PACKAGES += \
     libkaicompat \
-    libstagefrighthw \
     libgpsd-compat \
     libstlport
 
