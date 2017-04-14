@@ -46,6 +46,9 @@ BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing androidboot.hardware=kai
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
+TARGET_KERNEL_SOURCE := kernel/lenovo/kai
+TARGET_KERNEL_CONFIG := tegra_kai_android_defconfig
+
 TARGET_PREBUILT_KERNEL := device/lenovo/kai/kernel
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 # System partition might be too small, if so, disable journaling on system.img to save space.
